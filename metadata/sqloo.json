@@ -91,24 +91,16 @@
 	},
 	"imsPermission": {
 	  "attr": {
-	  	"type": "int not null",
-	  	"read-student": "bool",
-	  	"write-student": "bool",
-	  	"read-course": "bool",
-	  	"write-course": "bool",
-	  	"read-teacher": "bool",
-	  	"write-teacher": "bool",
-	  	"read-req": "bool",
-	  	"add-req": "bool",
-	  	"write-req": "bool",
-	  	"access-info": "bool",
-	  	"access-log": "bool"
+	    "pid": "int not null auto_increment",
+        "stuPermi": "bool not null",
+        "teaPermi": "bool not null",
+        "description": "text not null"
 	  },
 	  "pk": ["type"]
 	},
 	"imsSysInfo": {
 	  "attr": {
-	  	"sid": "char(20) not null auto_increment",
+	  	"sid": "int not null auto_increment",
 	  	"semester": "varchar(20) not null",
 	  	"begin-time": "date not null",
 	  	"end-time": "date not null",
