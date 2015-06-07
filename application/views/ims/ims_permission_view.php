@@ -1,27 +1,4 @@
-<div class="container-fluid" style="
-    padding-top: 5%;
-">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-         <ul class="nav nav-sidebar">
-             <li><a href="./basicinfo.html">个人信息</a></li>
-             <li><a href="./info-manage.html">信息管理</a></li>
-             <li class="active"><a href="./permission.html">权限管理<span class="sr-only">(current)</span></a></li>
-             <li><a href="./info-system.html">系统信息</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-          </ul>
-        </div>
+
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">权限管理</h1>
 

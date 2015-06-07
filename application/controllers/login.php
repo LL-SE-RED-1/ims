@@ -29,7 +29,8 @@ class Login extends CI_Controller
 						  'user_type' => $this->input->post('userType'),
 						  'is_logged_in' => TRUE
 						  );
-			$this->session->set_userdata($data);
+			//session
+			//$this->session->set_userdata($data);
 
 			redirect('ims/ims_permission');
 			//$this->index();
