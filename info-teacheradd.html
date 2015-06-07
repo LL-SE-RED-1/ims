@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- saved from url=(0042)http://v3.bootcss.com/examples/dashboard/# -->
-<html lang="zh-CN"><head>
-
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,8 +26,8 @@
     <script src="./js/holder.js"></script>
 
     <script src="./dist/semantic.js"></script>
-
   </head>
+
 
 <style type="text/css">
     body {
@@ -97,47 +96,68 @@
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-        <h2 class="ui header">添加课程</h2>
+        <h2 class="ui header">添加老师</h2>
 
         <div class="ui form segment transparent-seg">
 
+            <div class="three fields">
+              <div class="field">
+                <label>名字</label>
+                <input placeholder="" type="text">
+              </div>
+              <div class="field">
+                <label>邮箱</label>
+                <input placeholder="" type="text">
+              </div>
+                <div class="field">
+                    <label>性别</label>
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
+                        <input name="hidden-field" type="hidden">
+                        <div class="menu">
+                            <div class="item" data-value="1">男</div>
+                            <div class="item" data-value="2">女</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <div class="four fields">
+
+            <div class="three fields">
                 <div class="field">
-                    <label>课程代码</label>
+                    <label>生日</label>
                     <input placeholder="" type="text">
                 </div>
                 <div class="field">
-                    <label>课程名称</label>
+                    <label>民族</label>
                     <input placeholder="" type="text">
                 </div>
                 <div class="field">
-                    <label>学分</label>
-                    <input placeholder="" type="text">
-                </div>
-                <div class="field">
-                    <label>课程类型</label>
+                    <label>职位</label>
                     <input placeholder="" type="text">
                 </div>
             </div>
 
-            <div class="two fields">
+
+
+            <div class="three fields">
                 <div class="field">
-                  <label>学院</label>
-                  <div class="ui selection dropdown">
-                    <div class="default text">Select</div>
-                    <i class="dropdown icon"></i>
-                    <input name="hidden-field" type="hidden">
-                    <div class="menu">
-                        <div class="item" data-value="1">计算机学院</div>
-                        <div class="item" data-value="2">理学院</div>
+                    <label>学院</label>
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
+                        <input name="hidden-field" type="hidden">
+                        <div class="menu">
+                            <div class="item" data-value="1">计算机学院</div>
+                            <div class="item" data-value="2">理学院</div>
+                        </div>
                     </div>
-                  </div>
                 </div>
                 <div class="field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="default text">Select</div>
+                        <div class="default text"></div>
                         <i class="dropdown icon"></i>
                         <input name="hidden-field" type="hidden">
                         <div class="menu">
@@ -146,15 +166,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="field">
+                    <label>学历</label>
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
+                        <input name="hidden-field" type="hidden">
+                        <div class="menu">
+                            <div class="item" data-value="1">博士</div>
+                            <div class="item" data-value="2">硕士</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
 
-          <div class="field">
-            <label>课程描述</label>
-            <textarea></textarea>
-          </div>
-          
+            <div class="field">
+                <label>课程描述</label>
+                <textarea></textarea>
+            </div>
 
           <div class="ui submit button">Submit</div>
         </div>
