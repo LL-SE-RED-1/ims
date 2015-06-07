@@ -13,7 +13,8 @@ class Login extends CI_Controller
 {
 	public function index()
 	{
-		$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(FALSE);
+		$this->load->view('template/header');
 		$this->load->view('login_view');	
 	}
 
@@ -30,7 +31,7 @@ class Login extends CI_Controller
 						  );
 			$this->session->set_userdata($data);
 
-			redirect('ims/ims_welcome');
+			redirect('ims/ims_permission');
 			//$this->index();
 		}
 		else
