@@ -55,9 +55,11 @@
 	  "attr": {
 	    "cid": "char(10) not null",
 	    "name": "varchar(20) not null",
+	    "ctype": "int not null",
 	    "college": "varchar(30)",
 	    "department": "varchar(30)",
 	    "credit": "float not null",
+	    "semster": "int",
 	    "info": "varchar(100)"
 	  },
 	  "pk": ["cid"]
