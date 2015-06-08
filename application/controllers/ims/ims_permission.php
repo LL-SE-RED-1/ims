@@ -13,6 +13,8 @@ class Ims_permission extends CI_Controller
 {
 	public function index()
 	{
+		if($this->session->userdata('is_logged_in') == FALSE)
+			redirect('login');
 		$data['navi'] = 3;
 
 		$this->load->view('template/header');
@@ -23,11 +25,13 @@ class Ims_permission extends CI_Controller
 
 	public function create()
 	{
-
+		if($this->session->userdata('is_logged_in') == FALSE)
+			redirect('login');
 	}
 
 	public function delete()
 	{
-
+		if($this->session->userdata('is_logged_in') == FALSE)
+			redirect('login');
 	}
 }
