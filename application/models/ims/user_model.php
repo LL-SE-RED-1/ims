@@ -19,7 +19,7 @@ class User_model extends CI_Model
 							 'type' => $this->input->post('userType'));
 		$query = $this->db->get_where('imsUser',$where_array);
 
-		if($query->num_rows == 1)
+		if($query->num_rows() == 1)
 			return TRUE;
 		else
 			return FALSE;

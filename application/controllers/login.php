@@ -16,6 +16,7 @@ class Login extends CI_Controller
 		if($this->session->userdata('is_logged_in') != FALSE){
 			redirect('ims/ims_permission');
 		}
+		
 		$this->output->enable_profiler(FALSE);
 		$this->load->view('template/header');
 		$this->load->view('login_view');	
@@ -28,13 +29,21 @@ class Login extends CI_Controller
 		
 		if($result)
 		{
+			// 可以先不用加
 			$data = array('uid' => $this->input->post('uid'),
 						  'user_type' => $this->input->post('userType'),
 						  'is_logged_in' => TRUE
 						  );
 			//session
 			$this->session->set_userdata($data);
-			redirect('ims/ims_permission');
+			if($data['uid'] == '0000000000')
+				redirect('ims/ims_system');
+			else if($data['user_type'] == 1)
+				redirect('ims/ims_stu_welcome');
+			else if($data['user_type'] == 2)
+				redirect('ims/ims_tea_welcome');
+			else
+				redirect('ims/ims_permission');
 			//$this->index();
 		}
 		else
