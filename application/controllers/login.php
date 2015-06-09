@@ -13,9 +13,10 @@ class Login extends CI_Controller
 {
 	public function index()
 	{
-		if($this->session->userdata('is_logged_in') != FALSE){
-			redirect('ims/ims_permission');
-		}
+		//if($this->session->userdata('is_logged_in') != FALSE){
+		//	redirect('ims/ims_permission');
+		//}
+		$this->session->unset_userdata('is_logged_in');
 		
 		$this->output->enable_profiler(FALSE);
 		$this->load->view('template/header');
@@ -39,7 +40,7 @@ class Login extends CI_Controller
 			if($data['uid'] == '0000000000')
 				redirect('ims/ims_system');
 			else if($data['user_type'] == 1)
-				redirect('ims/ims_stu_welcome');
+				redirect('ims/ims_basicInfo');
 			else if($data['user_type'] == 2)
 				redirect('ims/ims_tea_welcome');
 			else

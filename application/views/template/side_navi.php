@@ -16,14 +16,14 @@
             <?php else: ?>
                 <li>
             <?php endif; ?>
-            <a href="<?php echo site_url('ims/ims_basic_info');?>">个人信息</a></li>
+            <a href="<?php echo site_url('ims/ims_basicInfo');?>">个人信息</a></li>
             
             <?php if($navi == 2): ?>
                 <li class="active">
             <?php else: ?>
                 <li>
             <?php endif; ?>
-             <a href="<?php echo site_url('ims/ims_info_m');?>">信息管理</a></li>
+             <a href="<?php echo site_url('ims/ims_management');?>">信息管理</a></li>
             
              <?php if($navi == 3): ?>
                 <li class="active">
