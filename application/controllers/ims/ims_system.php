@@ -1,30 +1,28 @@
 <?php
 
 /*
-* Ims_system Controller
-* author: lzx
-*/
+ * Ims_system Controller
+ * author: lzx
+ */
 
-if( ! defined('BASEPATH')){
+if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
-class Ims_system extends CI_Controller
-{
-	public function __construct()
-	{
+class Ims_system extends CI_Controller {
+	public function __construct() {
 		parent::__construct();
-		if($this->session->userdata('is_logged_in') == FALSE)
-		 	redirect('login');
+		if ($this->session->userdata('is_logged_in') == FALSE) {
+			redirect('login');
+		}
+
 	}
-	
-	public function index()
-	{
+	public function index() {
 		$data['navi'] = 4;
 
 		$this->load->view('template/header');
 		$this->load->view('template/navigator');
-		$this->load->view('template/side_navi',$data);
+		$this->load->view('template/side_navi', $data);
 		$this->load->view('ims/ims_system_view');
 	}
 
