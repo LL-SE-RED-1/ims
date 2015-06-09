@@ -11,10 +11,14 @@ if( ! defined('BASEPATH')){
 
 class Ims_permission extends CI_Controller
 {
+	public function __construct(){
+		parent::__construct();
+		 if($this->session->userdata('is_logged_in') == FALSE)
+		 	redirect('login');
+	}
+
 	public function index()
 	{
-		if($this->session->userdata('is_logged_in') == FALSE)
-			redirect('login');
 		$data['navi'] = 3;
 
 		$this->load->view('template/header');

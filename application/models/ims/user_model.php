@@ -15,7 +15,7 @@ class User_model extends CI_Model
 	public function verify_user()
 	{
 		$where_array = array('uid' => $this->input->post('uid'),
-							 'password' => $this->input->post('password'),
+							 'password' => md5($this->input->post('password')),
 							 'type' => $this->input->post('userType'));
 		$query = $this->db->get_where('imsUser',$where_array);
 
