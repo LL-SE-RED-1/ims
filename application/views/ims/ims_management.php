@@ -30,23 +30,27 @@
 
       <div class="field">
         <div class="ui radio checkbox checked">
-          <input type="radio" name="fruit" checked="checked">
-          <label>搜索课程</label>
+
+          <input id="s_course" type="radio" name="fruit" checked="checked">
+          <label for="s_course">搜索课程</label>
         </div>
       </div>
 
       <div class="field">
         <div class="ui radio checkbox">
-          <input type="radio" name="fruit">
-          <label>搜索学生</label>
+
+          <input id="s_student" type="radio" name="fruit">
+          <label for="s_student">搜索学生</label>
         </div>
       </div>
 
 
       <div class="field">
         <div class="ui radio checkbox">
-          <input type="radio" name="fruit">
-          <label>搜索老师</label>
+
+          <input id="s_teacher" type="radio" name="fruit">
+          <label for="s_teacher">搜索老师</label>
+
         </div>
       </div>
 
@@ -123,12 +127,4 @@ $(document)
 ;
 </script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <!--script src="./js/jquery.min.js"></script-->
-
-
-    <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;">
-     <defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit">
-   </div></body></html>
+</body></html>

@@ -18,8 +18,11 @@ class Ims_basicInfo extends CI_Controller {
 			$data['basicInfo'] = $this->basicInfo_model->readInfo($this->session->userdata('uid'));
 			$data['navi'] = 1;
 
+			$data['uid'] = $this->session->userdata('uid');
+
 			$this->load->view('template/header');
-			$this->load->view('template/navigator');
+			$this->load->view('template/navigator', $data);
+
 			$this->load->view('template/side_navi', $data);
 			$this->load->view('ims/ims_basicInfo');
 		}

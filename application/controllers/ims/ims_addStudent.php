@@ -14,8 +14,10 @@ class Ims_addStudent extends CI_Controller {
 			redirect('login');
 		} else {
 			$data['navi'] = 2;
+
+			$data['uid'] = $this->session->userdata('uid');
 			$this->load->view('template/header');
-			$this->load->view('template/navigator2');
+			$this->load->view('template/navigator2', $data);
 			$this->load->view('template/side_navi', $data);
 			$this->load->view('ims/ims_addStudent');
 		}
