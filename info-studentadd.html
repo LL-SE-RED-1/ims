@@ -100,7 +100,11 @@
 
         <div class="ui form segment transparent-seg">
 
-            <div class="three fields">
+            <div class="four fields">
+                <div class="field">
+                    <label>学号</label>
+                    <input placeholder="" type="text">
+                </div>
               <div class="field">
                 <label>名字</label>
                 <input placeholder="" type="text">
@@ -111,7 +115,15 @@
               </div>
                 <div class="field">
                     <label>性别</label>
-                    <input placeholder="" type="text">
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
+                        <input name="hidden-field" type="hidden">
+                        <div class="menu">
+                            <div class="item" data-value="1">男</div>
+                            <div class="item" data-value="2">女</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

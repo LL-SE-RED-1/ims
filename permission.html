@@ -28,6 +28,49 @@
       <script src="./dist/semantic.js"></script>
   </head>
 
+<style>
+
+
+    .text-center0 {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .ui.transparent-seg.mg {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0px 0px 0px 0px;
+        padding: 0em 0em;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    th {
+        text-align:center;
+    }
+
+    .table>tbody>tr>td {
+        vertical-align: middle;
+    }
+
+    .field.right {
+        float: right;
+        margin-right: 105px;
+    }
+
+    .ui.transparent-seg {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0px 0px 0px 0px;
+        padding: 0em 0em;
+    }
+
+    .ui.form .ui.input {
+        width: 50%;
+    }
+
+</style>
+
   <body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -41,16 +84,11 @@
           </button>
           <a class="navbar-brand" href="#">教务管理系统</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
+        <div id="navbar" class="navbar-collapse collapse" style="margin-right:20px">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="./basicinfo.html">name</a></li>
+            <li><a href="#">Logout</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
         </div>
       </div>
     </nav>
@@ -82,31 +120,73 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">权限管理</h1>
 
-<!--          <h2 class="sub-header">Section title</h2>-->
-          <div class="table-responsive">
-            <table class="table table-striped">
+            <!--<div class="ui form segment transparent-seg mg">-->
+
+
+                <!--<div class="four fields">-->
+                    <!--<div class="field">-->
+                        <!--<div class="text-center0">查看课程信息</div>-->
+                    <!--</div>-->
+                    <!--<div class="field">-->
+                        <!--<div class="ui slider checkbox">-->
+                        <!--<input type="checkbox" name="newsletter">-->
+                            <!--<label></label>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="field">-->
+                        <!--<div class="ui slider checkbox">-->
+                            <!--<input type="checkbox" name="newsletter">-->
+                            <!--<label></label>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="field">-->
+                        <!--<div class="ui blue button">创建权限</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <form class="ui form segment transparent-seg">
+                <div class="table-responsive" style="text-align:center">
+            <table class="table table-striped" style="display: inline-table;">
               <thead>
                 <tr>
                   <th>权限</th>
-                  <th>学生</th>
-                  <th>教师</th>
-                  <th>修改</th>
+                  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                  <th>操作</th>
                 </tr>
               </thead>
               <tbody>
+              <tr>
+                  <td>
+                      <div class="ui form ui input">
+                      <input placeholder="" type="text">
+                          </div>
+                  </td>
+                  <td>
+                          <div class="ui checkbox">
+                              <input type="checkbox" name="newsletter">
+                              <label></label>
+                          </div>
+                  </td>
+                  <td>
+                          <div class="ui checkbox">
+                              <input type="checkbox" name="newsletter">
+                              <label></label>
+                          </div>
+                  </td>
+                  <td>
+                      <div class="ui buttons">
+                              <div class="ui green button modify">修改</div>
+                              <div class="or"></div>
+                              <div class="ui red button delete">删除</div>
+                      </div>
+                  </td>
+              </tr>
+
                 <tr>
-                  <td>查看个人信息</td>
-                  <td>是</td>
-                  <td>是</td>
-                  <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>修改个人信息</td>
-                  <td>是</td>
-                  <td>是</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
+
                   <td>查看课程信息</td>
                   <td>是</td>
                   <td>是</td>
@@ -139,13 +219,9 @@
               </tbody>
             </table>
           </div>
-          <div class="row">
-            <div class="col-md-2 col-md-offset-3">
+            </form>
+          <div class="field right">
               <div class="ui blue button">创建权限</div>
-            </div>
-            <div class="col-md-2 col-md-offset-1">
-              <div class="ui red button">删除权限</div>
-            </div>
           </div>
         </div>
       </div>
@@ -153,3 +229,13 @@
 
   </body>
 </html>
+
+<script>
+    $('.modify').click(function() {
+        console.log($(this).closest('tr').find('input'));
+    });
+
+    $('.ui.checkbox')
+            .checkbox()
+    ;
+</script>

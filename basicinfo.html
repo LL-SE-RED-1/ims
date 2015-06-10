@@ -29,6 +29,15 @@
 
 </head>
 
+<style>
+
+    .ui.transparent-seg {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0px 0px 0px 0px;
+        padding: 0em 0em;
+    }
+</style>
+
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -69,24 +78,13 @@
                 <li><a href="./info-system.html#">系统信息</a></li>
 
             </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-            </ul>
-            <ul class="nav nav-sidebar">
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-                <li><a href=""></a></li>
-            </ul>
         </div>
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header"><strong>个人信息</strong></h1>
 
-            <form>
+
+            <form class="ui form segment transparent-seg">
                 <div class="row">
                     <div class="col-md-4">
                         <!--<img src="8790.jpg" class="img-responsive"-->
@@ -95,230 +93,133 @@
                         <a href="#" class="thumbnail" style="margin-top :5px; margin-bottom: 5px">
                             <img class="img-responsive" src="images/123.jpg" alt="..." style="height:300px overflow: hidden">
                         </a>
+
+                        <hr>
                         <div class="input-group">
                             <input type="text" class="form-control">
                             <span class="input-group-btn">
                                 <button type="button" class="btn btn-default">上传</button>
                             </span>
                         </div>
-                        <hr>
-                        <div>
-                            <h4><strong>说明:</strong></h4>
-                            <p style="text-indent: 2em">xxxx</p>
-                            <p style="text-indent: 2em">xxxx</p>
-                            <p style="text-indent: 2em">xxxx</p>
+                        <!--<div>-->
+                            <!--<h4><strong>说明:</strong></h4>-->
+                            <!--<p style="text-indent: 2em">xxxx</p>-->
+                            <!--<p style="text-indent: 2em">xxxx</p>-->
+                            <!--<p style="text-indent: 2em">xxxx</p>-->
 
 
-                        </div>
+                        <!--</div>-->
                 </div>
+
                     <div class="col-md-8">
-                        <div class="row" id="row1">
-                            <div class="col-md-5">
-                                <div class="input-group" id="name">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span> 姓名
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
+
+
+                            <div class="three fields">
+                                <div class="field disabled">
+                                    <label>学号</label>
+                                    <input placeholder="" type="text">
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="input-group" id="gender">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-adjust" aria-hidden="true"></span> 性别
-                                    </span>
-                                    <select class="form-control">
-                                        <option></option>
-                                        <option>男</option>
-                                        <option>女</option>
-                                    </select>
+                                <div class="field disabled">
+                                    <label>名字</label>
+                                    <input placeholder="" type="text">
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group" id="nation">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-leaf" aria-hidden="true"></span> 民族
-                                    </span>
-                                    <select class="form-control">
-                                        <option>汉族</option>
-                                        <option></option>
-                                        <option></option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="row2">
-                            <div class="col-md-5">
-                                <div class="input-group" id="hometown">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> 籍贯
-                                    </span>
-                                    <!--<input type="text" class="form-control" readonly>-->
-                                    <select class="form-control" style="width:auto">
-                                        <option>浙江省</option>
-                                        <option></option>
-                                        <option></option>
-                                    </select>
-                                    <select class="form-control" style="width:auto">
-                                        <option>杭州市</option>
-                                        <option></option>
-                                        <option></option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-7">
-                                <div class="input-group" id="identity">
-                                    <span class="input-group-addon">
-                                      <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span> 身份证
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
+
+                                <div class="field">
+                                    <label>性别</label>
+                                    <div class="ui selection dropdown">
+                                        <div class="default text"></div>
+                                        <i class="dropdown icon"></i>
+                                        <input name="hidden-field" type="hidden">
+                                        <div class="menu">
+                                            <div class="item" data-value="1">男</div>
+                                            <div class="item" data-value="2">女</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="row" id="row3">
-                            <div class="col-md-6">
-                                <div class="input-group" id="birthday">
-                                    <span class="input-group-addon">
-                                      <span class="glyphicon glyphicon-gift" aria-hidden="true"></span> 生日
-                                    </span>
-                                    <input type="text" class="form-control">
+
+
+                            <div class="four fields">
+
+                                <div class="field">
+                                    <label>生日</label>
+                                    <input placeholder="" type="text">
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-group" id="politic affiliation">
-                                    <span class="input-group-addon">
-                                      <span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span> 政治面貌
-                                    </span>
-                                    <input type="text" class="form-control">
+                                <div class="field">
+                                    <label>民族</label>
+                                    <input placeholder="" type="text">
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row" id="row4">
-                            <div class="col-md-6">
-                                <div class="input-group" id="e-mail">
-                                      <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> 电子邮箱
-                                      </span>
-                                    <input type="text" class="form-control">
+
+
+                                <div class="field">
+                                    <label>邮箱</label>
+                                    <input placeholder="" type="text">
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-group" id="phone">
-                                    <span class="input-group-addon">
-                                          <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> 联系电话
-                                    </span>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="row5">
-                            <div class="col-md-6">
-                                <div class="input-group" id="studentID">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-tag" aria-hidden="true"></span> 学号
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-group" id="class">
-                                    <span class="input-group-addon">
-                                      <span class="glyphicon glyphicon-flag" aria-hidden="true"></span> 行政班级
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
+
+                                <div class="field">
+                                    <label>手机号</label>
+                                    <input placeholder="" type="text">
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="row" id="row6">
-                            <div class="col-md-6">
-                                <div class="input-group" id="college">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-tower" aria-hidden="true"></span> 学院
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
+                            <div class="two fields">
+                                <div class="field disabled">
+                                    <label>学院</label>
+                                    <div class="ui selection dropdown">
+                                        <div class="default text"></div>
+                                        <i class="dropdown icon"></i>
+                                        <input name="hidden-field" type="hidden">
+                                        <div class="menu">
+                                            <div class="item" data-value="1">计算机学院</div>
+                                            <div class="item" data-value="2">理学院</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field disabled">
+                                    <label>学系</label>
+                                    <div class="ui selection dropdown">
+                                        <div class="default text"></div>
+                                        <i class="dropdown icon"></i>
+                                        <input name="hidden-field" type="hidden">
+                                        <div class="menu">
+                                            <div class="item" data-value="1">计算机科学与技术</div>
+                                            <div class="item" data-value="2">软件工程</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        <div class="two fields">
+                            <div class="field disabled">
+                                <label>年级</label>
+                                <div class="ui selection dropdown">
+                                    <div class="default text"></div>
+                                    <i class="dropdown icon"></i>
+                                    <input name="hidden-field" type="hidden">
+                                    <div class="menu">
+                                        <div class="item" data-value="1">大一</div>
+                                        <div class="item" data-value="2">大二</div>
+                                        <div class="item" data-value="3">大三</div>
+                                        <div class="item" data-value="4">大四</div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="input-group" id="department">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-pawn" aria-hidden="true"></span> 系
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="row7">
-                            <div class="col-md-6">
-                                <div class="input-group" id="major">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span> 专业
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="input-group" id="minor">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-duplicate" aria-hidden="true"></span> 辅修
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="row8">
-                            <div class="col-md-4">
-                                <div class="input-group" id="grade">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-stats" aria-hidden="true"></span> 年级
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group" id="length">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 学制
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="input-group" id="state">
-                                    <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-check" aria-hidden="true"></span> 学籍状态
-                                    </span>
-                                    <input type="text" class="form-control" readonly>
-                                </div>
+                            <div class="field disabled">
+                                <label>班级</label>
+                                <input placeholder="" type="text">
                             </div>
                         </div>
-                    <div class="row" id="row9">
-                        <div class="col-md-7">
-                            <div class="input-group" id="address">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 宿舍
-                                </span>
-                                <input type="text" class="form-control" readonly>
-                            </div>
+
                         </div>
-                        <div class="col-md-5">
-                            <div class="input-group" id="health">
-                                <span class="input-group-addon">
-                                    <span class="glyphicon glyphicon-heart" aria-hidden="true"></span> 健康状况
-                                </span>
-                                <input type="text" class="form-control" readonly>
-                            </div>
-                        </div>
+
                     </div>
-                </div>
-                </div>
                 <div class="row">
-                    <div class="col-md-3 col-md-offset-2">
-                        <button class="form-control">保存</button>
-                    </div>
-                    <div class="col-md-3 col-md-offset-1">
-                        <button class="form-control">取消</button>
-                    </div>
+                    <div style="float:right">
+                    <div class="ui green button modify">修改</div>
+                    <div class="ui red button delete">删除</div>
+                        </div>
                 </div>
             </form>
 
@@ -327,5 +228,25 @@
         <!--</div>-->
     </div>
 </div>
+
+
+<script type="text/javascript">
+    $(document)
+            .ready(function(){
+                $('.ui.dropdown')
+                        .dropdown()
+                ;
+                $('.ui.menu .dropdown')
+                        .dropdown({
+                            on: 'hover'
+                        })
+                ;
+                $('.demo .ui.checkbox')
+                        .checkbox()
+                ;
+            })
+    ;
+</script>
+
 </body>
 </html>
