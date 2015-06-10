@@ -146,83 +146,111 @@
 
             <!--</div>-->
 
+
             <form class="ui form segment transparent-seg">
                 <div class="table-responsive" style="text-align:center">
-            <table class="table table-striped" style="display: inline-table;">
-              <thead>
-                <tr>
-                  <th>权限</th>
-                  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;学生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                  <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                  <th>操作</th>
-                </tr>
-              </thead>
-              <tbody>
-              <tr>
-                  <td>
-                      <div class="ui form ui input">
-                      <input placeholder="" type="text">
-                          </div>
-                  </td>
-                  <td>
-                          <div class="ui checkbox">
-                              <input type="checkbox" name="newsletter">
-                              <label></label>
-                          </div>
-                  </td>
-                  <td>
-                          <div class="ui checkbox">
-                              <input type="checkbox" name="newsletter">
-                              <label></label>
-                          </div>
-                  </td>
-                  <td>
-                      <div class="ui buttons">
-                              <div class="ui green button modify">修改</div>
-                              <div class="or"></div>
-                              <div class="ui red button delete">删除</div>
-                      </div>
-                  </td>
-              </tr>
+                    <table class="table table-striped" style="display: inline-table;">
+                        <thead>
+                        <tr>
+                            <th style="
+    width: 20%;
+">权限</th>
+                            <th style="
+    width: 20%;
+">学生</th>
+                            <th style="
+    width: 20%;
+">教师</th>
+                            <th style="
+    width: 40%;
+">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                修改学生
+                            </td>
+                            <td>
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="newsletter">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="newsletter">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui buttons">
+                                    <div class="ui green button modify">修改</div>
+                                    <div class="or"></div>
+                                    <div class="ui red button delete">删除</div>
+                                </div>
+                            </td>
+                        </tr>
 
-                <tr>
-
-                  <td>查看课程信息</td>
-                  <td>是</td>
-                  <td>是</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>浏览课程列表</td>
-                  <td>否</td>
-                  <td>是</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>提交课程申请</td>
-                  <td>否</td>
-                  <td>是</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>选课</td>
-                  <td>是</td>
-                  <td>否</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>退课</td>
-                  <td>是</td>
-                  <td>否</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                        </tbody>
+                    </table>
+                </div>
             </form>
-          <div class="field right">
-              <div class="ui blue button">创建权限</div>
-          </div>
+
+
+
+
+            <form class="ui form segment transparent-seg">
+                <div class="table-responsive" style="text-align:center">
+                    <table class="table table-striped" style="display: inline-table;">
+                        <thead>
+                        <tr>
+                            <th style="
+    width: 20%;
+">权限</th>
+                            <th style="
+    width: 20%;
+">学生</th>
+                            <th style="
+    width: 20%;
+">教师</th>
+                            <th style="
+    width: 40%;
+">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+
+                                <div class="ui input" style="width:100%">
+                                    <input type="text" name="newsletter">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="newsletter">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="newsletter">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                    <div class="ui blue button" id="create">创建权限</div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+
+
+
         </div>
       </div>
     </div>
@@ -231,11 +259,14 @@
 </html>
 
 <script>
-    $('.modify').click(function() {
-        console.log($(this).closest('tr').find('input'));
-    });
+    //tb_col = "<tr><td>修改学生</td><td><div class="ui checkbox"><input type="checkbox" name="newsletter"><label></label></div></td><td><div class="ui checkbox"><input type="checkbox" name="newsletter"><label></label></div></td><td><div class="ui buttons"><div class="ui green button modify">修改</div><div class="or"></div><div class="ui red button delete">删除</div></div></td></tr>"
 
-    $('.ui.checkbox')
-            .checkbox()
-    ;
+//    $('#create').click(function() {
+//        console.log($('.tbody'));
+//        $('.tbody').append();
+//    });
+//
+//    $('.ui.checkbox')
+//            .checkbox()
+//    ;
 </script>
