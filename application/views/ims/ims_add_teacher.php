@@ -2,23 +2,51 @@
 
         <h2 class="ui header">添加老师</h2>
 
-        <div class="ui form segment transparent-seg">
+            <div class="ui positive message" style="display: none;">
+                <i class="close icon"></i>
+                <div class="header">
+                    Wow congratulations!
+                </div>
+                <p>你的修改已经成功被提交！</p>
+            </div>
 
-            <div class="three fields">
-              <div class="field">
+        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_teacher/manage')?>" method="post">
+
+            <div class="four fields">
+                <div class="required field">
+                    <label>工号</label>
+                    <?php if ($func == 0): ?>
+                    <input name="uid" placeholder="" type="text">
+                <?php else: ?>
+                    <input name="uid" value="<?php echo $info['uid']?>" type="text">
+            <?php endif;?>
+                </div>
+              <div class="required field">
                 <label>名字</label>
-                <input placeholder="" type="text">
+                <?php if ($func == 0): ?>
+                <input name="name" placeholder="" type="text">
+                <?php else: ?>
+                <input name="name" value="<?php echo $info['name']?>" type="text">
+            <?php endif;?>
               </div>
               <div class="field">
-                <label>邮箱</label>
-                <input placeholder="" type="text">
+                <label>生日</label>
+                <?php if ($func == 0): ?>
+                <input name="birthday" placeholder="" type="text">
+                <?php else: ?>
+                <input name="birthday" value="<?php echo $info['birthday']?>" type="text">
+            <?php endif;?>
               </div>
                 <div class="field">
                     <label>性别</label>
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <input name="hidden-field" type="hidden">
+                        <?php if ($func == 0): ?>
+                        <input name="sex" type="hidden">
+                <?php else: ?>
+                        <input name="sex" type="hidden" value="<?php echo $info['sex']?>">
+            <?php endif;?>
                         <div class="menu">
                             <div class="item" data-value="1">男</div>
                             <div class="item" data-value="2">女</div>
@@ -28,54 +56,90 @@
             </div>
 
 
-            <div class="three fields">
+            <div class="four fields">
                 <div class="field">
-                    <label>生日</label>
-                    <input placeholder="" type="text">
+                    <label>手机</label>
+                    <?php if ($func == 0): ?>
+                    <input name="phone" placeholder="" type="text">
+                <?php else: ?>
+                    <input name="phone" value="<?php echo $info['phone']?>" type="text">
+            <?php endif;?>
+                </div>
+                <div class="field">
+                    <label>邮箱</label>
+                    <?php if ($func == 0): ?>
+                    <input name="email" placeholder="" type="text">
+                <?php else: ?>
+                    <input name="email" value="<?php echo $info['email']?>" type="text">
+            <?php endif;?>
                 </div>
                 <div class="field">
                     <label>民族</label>
-                    <input placeholder="" type="text">
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
+                        <?php if ($func == 0): ?>
+                        <input name="nation" type="hidden">
+                <?php else: ?>
+                        <input name="nation" type="hidden" value="<?php echo $info['nation']?>">
+            <?php endif;?>
+                        <div class="menu">
+                            <div class="item">汉族</div>
+                            <div class="item">其他族</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>职位</label>
-                    <input placeholder="" type="text">
+                    <?php if ($func == 0): ?>
+                    <input name="position" placeholder="" type="text">
+                <?php else: ?>
+                    <input name="position" value="<?php echo $info['position']?>" type="text">
+            <?php endif;?>
                 </div>
             </div>
 
 
 
             <div class="three fields">
-                <div class="field">
+                <div class="required field">
                     <label>学院</label>
-                    <div class="ui selection dropdown">
+                    <div class="ui selection dropdown" name="college-dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <input name="hidden-field" type="hidden">
-                        <div class="menu">
-                            <div class="item" data-value="1">计算机学院</div>
-                            <div class="item" data-value="2">理学院</div>
+                        <?php if ($func == 0): ?>
+                        <input name="college" type="hidden">
+                <?php else: ?>
+                        <input name="college" type="hidden" value="<?php echo $info['college']?>">
+            <?php endif;?>
+                        <div class="menu" id="college-menu">
                         </div>
                     </div>
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="default text"></div>
+                        <div class="text" id="department-text"></div>
                         <i class="dropdown icon"></i>
-                        <input name="hidden-field" type="hidden">
-                        <div class="menu">
-                            <div class="item" data-value="1">计算机科学与技术</div>
-                            <div class="item" data-value="2">软件工程</div>
+                        <?php if ($func == 0): ?>
+                        <input name="department" type="hidden">
+                <?php else: ?>
+                        <input name="department" type="hidden" value="<?php echo $info['department']?>">
+            <?php endif;?>
+                        <div class="menu" id="department-menu">
                         </div>
                     </div>
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>学历</label>
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <input name="hidden-field" type="hidden">
+                        <?php if ($func == 0): ?>
+                        <input name="education" type="hidden">
+                <?php else: ?>
+                        <input name="education" type="hidden" value="<?php echo $info['education']?>">
+            <?php endif;?>
                         <div class="menu">
                             <div class="item" data-value="1">博士</div>
                             <div class="item" data-value="2">硕士</div>
@@ -87,12 +151,23 @@
 
 
             <div class="field">
-                <label>课程描述</label>
+                <label>个人描述</label>
+                <?php if ($func == 0): ?>
                 <textarea></textarea>
+                <?php else: ?>
+                <textarea><?php echo $info['info']?></textarea>
+            <?php endif;?>
             </div>
 
-          <div class="ui submit button">Submit</div>
-        </div>
+            <br>
+
+            <div class="ui grey right floated  button" id="back">返回</div>
+            <?php if ($func == 0): ?>
+            <button class="ui red right floated  button" type="submit" name="delete" value="delete">删除</button>
+            <?php endif;?>
+            <button class="ui green  right floated  button" type="submit" value="submit" name="submit">提交</button>
+
+        </form>
 
 
         </div>
@@ -107,37 +182,129 @@
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
 
-    <script src="<?php echo base_url()?>/js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="<?php echo base_url()?>/js/holder.js"></script>
+    <script src="./js/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="<?php echo base_url()?>/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
 
-    <script src="<?php echo base_url()?>/dist/semantic.js"></script>
+    <script src="./dist/semantic.js"></script>
+
+        <script src="./js/form_feedack.js"></script>
+
+        <script src="./js/form_behaviour.js"></script>
 
 
     <script type="text/javascript">
-      $(document)
-              .ready(function(){
-                $('.ui.dropdown')
-                        .dropdown()
-                ;
-                $('.ui.menu .dropdown')
-                        .dropdown({
-                          on: 'hover'
-                        })
-                ;
-                $('.demo .ui.checkbox')
-                         .checkbox()
-                ;
-              })
-      ;
+
+        $('.ui.form')
+                .form({
+                    工号: {
+                        identifier: 'uid',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : '请输入工号'
+                            },
+                            {
+                                type   : 'length[10]',
+                                prompt : '工号需要是十位，请重新输入'
+                            },
+                            {
+                                type   : 'maxLength[11]',
+                                prompt : '工号需要是十位，请重新输入'
+                            }
+                        ]
+                    },
+                    名字: {
+                        identifier: 'name',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : '请输入名字'
+                            },
+                            {
+                                type   : 'not[虹33]',
+                                prompt : '您输入的涉嫌色情暴力，请重新输入'
+                            }
+                        ]
+                    },
+                    邮箱: {
+                        identifier: 'email',
+                        optional: true,
+                        rules: [
+                            {
+                                type   : 'email',
+                                prompt : '邮箱格式不正确，请重新输入'
+                            }
+                        ]
+                    },
+                    手机号: {
+                        identifier: 'phone',
+                        optional: true,
+                        rules: [
+                            {
+                                type   : 'length[11]',
+                                prompt : '手机号需要是十一位，请重新输入'
+                            },
+                            {
+                                type   : 'maxLength[11]',
+                                prompt : '手机号需要是十一位，请重新输入'
+                            }
+                        ]
+                    },
+                    学院: {
+                        identifier: 'college',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : '请选择学院'
+                            }
+                        ]
+                    },
+                    学系: {
+                        identifier: 'department',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : '请选择学系'
+                            }
+                        ]
+                    },
+                    学历: {
+                        identifier: 'education',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : '请选择学历'
+                            }
+                        ]
+                    },
+                    职位: {
+                        identifier: 'position',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : '请选择职位'
+                            }
+                        ]
+                    }
+                },
+                {
+                    inline : true,
+                    on     : 'blur'
+                });
+
     </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"
-preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;">
-<defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200
-</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body>
+        <!--<script>-->
+            <!--$(document)-->
+                    <!--.ready(function() {-->
+                        <!--show_positive_message();-->
+                    <!--});-->
+        <!--</script>-->
+
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body>
 <style type="text/css">
     body {
         overflow:hidden;
@@ -162,5 +329,4 @@ preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -
         float: right;
     }
 
-</style>
-</html>
+</style></html>

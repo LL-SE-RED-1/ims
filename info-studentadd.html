@@ -100,6 +100,16 @@
 
         <form class="ui form segment transparent-seg">
 
+            <!--new-->
+            <div class="ui positive message" style="display: none;">
+                <i class="close icon"></i>
+                <div class="header">
+                    Wow congratulations!
+                </div>
+                <p>你的修改已经成功被提交！</p>
+            </div>
+            <!--new-->
+
             <div class="four fields">
                 <div class="required field">
                     <label>学号</label>
@@ -195,12 +205,34 @@
             <!--<div class="ui error message" style="width:30%"></div>-->
 
 
-            <button class="ui grey right floated  button">返回</button>
+            <!--new_begin-->
+            <div class="ui grey right floated button" id="back">返回</div>
+            <!--new_end-->
             <button class="ui red right floated  button">删除</button>
             <button class="ui green  right floated  button">提交</button>
 
         </form>
 
+            <!--new_begin-->
+            <!--<div class="ui small modal">-->
+                <!--<i class="close icon"></i>-->
+                <!--<div class="header">-->
+                    <!--Modal Title-->
+                <!--</div>-->
+                <!--<div class="content">-->
+                    <!--<div class="left">-->
+                        <!--Content can appear on left-->
+                    <!--</div>-->
+                    <!--<div class="right">-->
+                        <!--Content can appear on right-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="actions">-->
+                    <!--<div class="ui button">Cancel</div>-->
+                    <!--<div class="ui button">OK</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--new_end-->
 
         </div>
     </div>
@@ -222,6 +254,9 @@
 
     <script src="./dist/semantic.js"></script>
 
+        <script src="./js/form_feedack.js"></script>
+
+        <script src="./js/form_behaviour.js"></script>
 
     <script type="text/javascript">
 
@@ -259,6 +294,7 @@
                     },
                     邮箱: {
                         identifier: 'email',
+                        optional: true, //new
                         rules: [
                             {
                                 type   : 'email',
@@ -268,6 +304,7 @@
                     },
                     手机号: {
                         identifier: 'phone',
+                        optional: true, //new
                         rules: [
                             {
                                 type   : 'length[11]',
@@ -327,34 +364,6 @@
 
 
 
-        var college_and_department;
-
-        $.getJSON( "metadata/college_and_department.json", function( data ) {
-            college_and_department = data;
-
-            for (el in college_and_department['college']){
-                console.log(el);
-                $('#college-menu').append("<div class='item'>" + el + "</div>");
-            }
-        });
-
-        $("input[name='college']").change(function(){
-            var picked = $(this).attr('value');
-            var department_list = college_and_department['college'][picked]['department'];
-            $("#department-menu").empty();
-            $("#department-text").empty();
-            department_list.forEach(function(el, i) {
-                $("#department-menu").append("<div class='item'>" + el + "</div>");
-            });
-        });
-
-        /*$(".dropdown[name='college-dropdown']")
-                .dropdown({
-                    onChange: function(value, text, $selectedItem) {
-                       console.log(text + ", " + value);
-                    }
-        })
-        ;*/
 
       $(document)
               .ready(function(){
@@ -367,7 +376,7 @@
                 $('.demo .ui.checkbox')
                          .checkbox()
                 ;
-
+//                  ('.ui.modal').modal();
 
               })
       ;
