@@ -40,7 +40,7 @@ class Login extends CI_Controller
 			if($data['uid'] == '0000000000')
 				redirect('ims/ims_system');
 			else if($data['user_type'] == 1)
-				redirect('ims/ims_basicInfo');
+				redirect('ims/ims_basic_info');
 			else if($data['user_type'] == 2)
 				redirect('ims/ims_tea_welcome');
 			else

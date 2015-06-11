@@ -7,7 +7,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="<?php echo site_url('ims/ims_basicInfo'); ?>"><?php echo $uid; ?></a></li>
+              <li><a href="<?php echo site_url('ims/ims_basic_info'); ?>"><?php echo $uid; ?></a></li>
               <li><a href="<?php echo site_url('logout'); ?>">注销</a></li>
             </ul>
           </div>
