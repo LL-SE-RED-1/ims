@@ -5,7 +5,8 @@ if (!defined('BASEPATH')) {
 
 class Ims_add_course extends CI_Controller {
 	public function __construct() {
-		parent::__construct('ims/add_course_model');
+		parent::__construct();
+		$this->load->model('ims/add_course_model');
 	}
 
 	public function index() {

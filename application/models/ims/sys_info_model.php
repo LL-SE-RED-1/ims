@@ -24,13 +24,10 @@ class Sys_info_model extends CI_Model {
 		}
 	}
 
-	public function get_log() {
-		$query = $this->db->get('imsLog');
+	public function get_log($limit = 10, $offset = 0) {
+		$query = $this->db->get('imsLog', $limit, $offset);
 
-		$result['query'] = $query->result_array();
-		$result['num'] = $query->num_rows();
-
-		return $result;
+		return $query->result_array();
 	}
 
 	public function get_statistic() {

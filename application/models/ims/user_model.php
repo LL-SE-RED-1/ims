@@ -1,8 +1,14 @@
 <?php
 /*
+<<<<<<< HEAD
  * Login Model
  * author: lzx
  */
+=======
+* User Model
+* author: lzx
+*/
+>>>>>>> 37aaa28ac0cda56206619efe79fe63dace7849b2
 
 class User_model extends CI_Model {
 	public function __construct() {
@@ -10,13 +16,12 @@ class User_model extends CI_Model {
 		$this->load->database();
 	}
 
-	public function verify_user() {
-		// echo "<script> console.log('" . md5($this->input->post('password')) . "')</script>";
-		$where_array = array('uid' => $this->input->post('uid'),
-			'password' => md5($this->input->post('password')),
-			'type' => $this->input->post('userType'),
-		);
-		$query = $this->db->get_where('imsUser', $where_array);
+	public function verify_user($post)
+	{
+		$where_array = array('uid' => $post['uid'],
+							 'password' => md5($post['password']),
+							 'type' => $post['userType']);
+		$query = $this->db->get_where('imsUser',$where_array);
 
 		if ($query->num_rows == 1) {
 			return TRUE;
@@ -26,4 +31,15 @@ class User_model extends CI_Model {
 
 	}
 
+	public function modify_pass($post)
+	{
+		$data = array(
+       		'password' => $post['new_pass']
+    	);
+
+		$result = $this->db->update('imsUser', $data, array('uid' => $post['uid']));
+
+		return $result;
+	}
+	
 }

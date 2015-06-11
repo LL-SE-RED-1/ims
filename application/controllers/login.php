@@ -23,7 +23,9 @@ class Login extends CI_Controller {
 
 	public function verify() {
 		$this->load->model('ims/user_model');
-		$result = $this->user_model->verify_user();
+
+		$post = $this->input->post();
+		$result = $this->user_model->verify_user($post);
 
 		if ($result) {
 			// 可以先不用加
@@ -33,7 +35,8 @@ class Login extends CI_Controller {
 			);
 			//session
 			$this->session->set_userdata($data);
-			if ($data['uid'] == '0000000000') {
+
+			if ($data['user_type'] == 4) {
 				redirect('ims/ims_system');
 			} else if ($data['user_type'] == 1) {
 				redirect('ims/ims_basic_info');
@@ -41,9 +44,7 @@ class Login extends CI_Controller {
 				redirect('ims/ims_basic_info_teacher');
 			} else {
 				redirect('ims/ims_permission');
-			}
-
-			//$this->index();
+			} //$this->index();
 		} else {
 			$this->index();
 			//redirect('ims/ims_welcome');
