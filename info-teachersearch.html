@@ -119,49 +119,25 @@
 
           </div>
 
-          <div class="col-xs-6 col-sm-6 huge-placeholder">
-              <div class="ui left labeled icon input">
-                  <div class="ui teal dropdown label">
-                      <div class="text">类型</div>
-                      <i class="dropdown icon"></i>
-                      <div class="menu">
-                          <div class="item">学号</div>
-                          <div class="item">姓名</div>
-                          <div class="item">学院</div>
-                      </div>
-                  </div>
-                  <input type="text" placeholder="_(:з」∠)_">
-                  <i class="search icon"></i>
-              </div>
-          </div>
+            <div class="col-xs-6 col-sm-6 huge-placeholder">
+                <div class="ui right floated transparent-seg segment">
+                    <form class="ui form">
+                        <div class="ui left labeled icon input">
+                            <div class="ui teal dropdown label">
+                                <div class="text">类型</div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div class="item">学号</div>
+                                    <div class="item">姓名</div>
+                                    <div class="item">学院</div>
+                                </div>
+                            </div>
+                            <input type="text" placeholder="_(:з」∠)_">
+                            <i class="search icon"></i>
+                        </div>
+                    </form>
+                </div>
 
-            <!--h2 class="ui header">Search</h2-->
-
-              <!--<div class="inline fields">-->
-                  <!--<div class="field">-->
-                    <!--<div class="ui action left icon input placeholder transparent-seg right floated segment" style="-->
-                      <!--margin-right: 2rem;-->
-                    <!--">-->
-                      <!--<i class="search icon" style="-->
-            <!--left: auto;-->
-        <!--"></i>-->
-                      <!--<input type="text" placeholder="_(:з」∠)_">-->
-                      <!--<div class="ui teal button">搜索</div>-->
-                    <!--</div>-->
-                  <!--</div>-->
-                  <!--<div class="field">-->
-                      <!--<div class="ui dropdown">-->
-                          <!--<div class="text">Shop</div>-->
-                          <!--<i class="dropdown icon"></i>-->
-                          <!--<div class="menu">-->
-                              <!--<div class="header">Categories</div>-->
-                              <!--<div class="item">Clothing</div>-->
-                              <!--<div class="item">Home Goods</div>-->
-                              <!--<div class="item">Bedroom</div>-->
-                          <!--</div>-->
-                      <!--</div>-->
-                  <!--</div>-->
-              <!--</div>-->
 
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
@@ -169,37 +145,62 @@
             <div class="ui form transparent-seg right floated segment">
               <div class="inline fields">
 
-
-
               </div>
-
-
 
             </div>
 
           </div>
 
-            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="col-xs-6 col-sm-12">
             <table class="ui striped table">
                 <thead>
                 <tr>
-                    <th>名字</th>
-                    <th>学号</th>
-                    <th>院系</th>
-                    <th>专业</th>
+                    <th class="center aligned">名字</th>
+                    <th class="center aligned">工号</th>
+                    <th class="center aligned">性别</th>
+                    <th class="center aligned">院系</th>
+                    <th  class="center aligned">专业</th>
+                    <th  class="center aligned">操作</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <td>徐雨虹</td>
-                    <td>31233333</td>
-                    <td>计算机学院</td>
-                    <td>计算机科学与技术</td>
+                    <td  class="center aligned">徐33</td>
+                    <td  class="center aligned">31233333</td>
+                    <td  class="center aligned">男</td>
+                    <td  class="center aligned">计算机学院</td>
+                    <td  class="center aligned">计算机科学与技术</td>
+                    <td class="center aligned">
+                        <div class="ui buttons">
+                            <button class="ui green button modify student">修改</button>
+                            <div class="or"></div>
+                            <button class="ui red button delete student">删除</button>
+                        </div>
+                    </td>
+
+                </tr>
+                <tr>
+
+                    <td  class="center aligned">刘33</td>
+                    <td  class="center aligned">312333332</td>
+                    <td  class="center aligned">男</td>
+                    <td  class="center aligned">计算机学院</td>
+                    <td  class="center aligned">计算机科学与技术</td>
+                    <td class="center aligned">
+                        <div class="ui buttons">
+                            <button class="ui green button modify student">修改</button>
+                            <div class="or"></div>
+                            <button class="ui red button delete student">删除</button>
+                        </div>
+                    </td>
                 </tr>
                 </tbody>
             </table>
-                </div>
-
+                <form action="./info-teacheradd.html">
+                <button class="ui right floated primary labeled icon button" >
+                    <i class="user icon"></i> 添加老师
+                </button>
+                </form>
         </div>
       </div>
     </div>
@@ -207,6 +208,16 @@
 
 
     <script type="text/javascript">
+
+        $(".ui.green.button.modify.student").click(function() {
+            console.log($(this).closest("tr").children(':first-child').next().text());
+        });
+
+        $(".ui.red.button.delete.student").click(function() {
+            console.log($(this).closest("tr").children(':first-child').next().text());
+            $(this).closest("tr").remove();
+        });
+
         $(document)
                 .ready(function(){
                     $('.ui.dropdown')

@@ -1,6 +1,6 @@
 <?php
 
-class RequesetManage_model extends CI_Model {
+class Requeset_manage_model extends CI_Model {
 	public function __construct() {
 		parent::__construct();
 		$this->load->database();

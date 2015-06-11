@@ -4,18 +4,19 @@ if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
-class Ims_basicInfo extends CI_Controller {
+class Ims_basic_info extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
-		$this->load->model('ims/basicInfo_model');
+		$this->load->model('ims/basic_info_model');
 	}
 
 	public function index() {
+		echo ("<script>alert('我是弹窗')</script>");
 		if ($this->session->userdata('is_logged_in') == False) {
 			redirect('login');
 		} else {
-			// echo ("<script> console.log('lala') </script>");
-			$data['basicInfo'] = $this->basicInfo_model->readInfo($this->session->userdata('uid'));
+			//echo ("<script> console.log('lala3') </script>");
+			$data['basicInfo'] = $this->basic_info_model->readInfo($this->session->userdata('uid'));
 			$data['navi'] = 1;
 
 			$data['uid'] = $this->session->userdata('uid');
@@ -24,7 +25,7 @@ class Ims_basicInfo extends CI_Controller {
 			$this->load->view('template/navigator', $data);
 
 			$this->load->view('template/side_navi', $data);
-			$this->load->view('ims/ims_basicInfo');
+			$this->load->view('ims/ims_basic_info');
 		}
 	}
 

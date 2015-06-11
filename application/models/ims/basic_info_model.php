@@ -1,6 +1,6 @@
 <?php
 
-class BasicInfo_model extends CI_Model {
+class Basic_info_model extends CI_Model {
 	public function __construct() {
 		parent::__construct();
 		$this->load->database();

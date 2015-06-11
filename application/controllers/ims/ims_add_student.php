@@ -3,9 +3,10 @@ if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
-class Ims_addCourse extends CI_Controller {
+class Ims_add_student extends CI_Controller {
 	public function __construct() {
-		parent::__construct('ims/addCourse_model');
+		parent::__construct();
+		$this->load->model('ims/add_student_model');
 	}
 
 	public function index() {
@@ -17,9 +18,8 @@ class Ims_addCourse extends CI_Controller {
 			$data['uid'] = $this->session->userdata('uid');
 			$this->load->view('template/header');
 			$this->load->view('template/navigator2', $data);
-
 			$this->load->view('template/side_navi', $data);
-			$this->load->view('ims/Ims_addCourse');
+			$this->load->view('ims/ims_add_student');
 		}
 	}
 
@@ -27,19 +27,20 @@ class Ims_addCourse extends CI_Controller {
 		if ($this->session->userdata('is_logged_in') == False) {
 			redirect('login');
 		} else {
-			$info = array('cid' => $this->input->post('cid'),
+			$info = array('uid' => $this->input->post('uid'),
 				'name' => $this->input->post('name'),
-				'ctype' => $this->input->post('ctype'),
-				'credit' => $this->input->post('credit'),
+				'sex' => $this->input->post('sex'),
+				'email' => $this->input->post('email'),
+				'phone' => $this->input->post('phone'),
+				'nation' => $this->input->post('nation'),
+				'birthday' => $this->input->post('birthday'),
 				'college' => $this->input->post('college'),
 				'department' => $this->input->post('department'),
-				'semester' => 2,
+				'grade' => $this->input->post('grade'),
+				'class' => $this->input->post('class'),
 			);
-			echo "<script>console.log('" . $info . "')</script>";
-			echo "<script>console.log('ok1')</script>";
-			$this->addCourse_model->writeInfo($info);
-			echo "<script>console.log('ok2')</script>";
-			//反馈
+			$this->add_student_model->writeInfo($info);
+			//成功失败反馈
 			$this->index();
 		}
 	}

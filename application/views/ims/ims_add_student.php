@@ -4,18 +4,30 @@
 
         <div class="ui form segment transparent-seg">
 
-            <div class="three fields">
+            <div class="four fields">
+                <div class="field">
+                    <label>学号</label>
+                    <input name="uid" placeholder="" type="text">
+                </div>
               <div class="field">
                 <label>名字</label>
-                <input placeholder="" type="text">
+                <input name="name" placeholder="" type="text">
               </div>
               <div class="field">
                 <label>邮箱</label>
-                <input placeholder="" type="text">
+                <input name="email" placeholder="" type="text">
               </div>
                 <div class="field">
                     <label>性别</label>
-                    <input placeholder="" type="text">
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
+                        <input name="hidden-field" type="hidden">
+                        <div class="menu">
+                            <div class="item" data-value="1">男</div>
+                            <div class="item" data-value="2">女</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -23,15 +35,15 @@
             <div class="three fields">
                 <div class="field">
                     <label>生日</label>
-                    <input placeholder="" type="text">
+                    <input name="birthday" placeholder="" type="text">
                 </div>
                 <div class="field">
                     <label>民族</label>
-                    <input placeholder="" type="text">
+                    <input name="nation" placeholder="" type="text">
                 </div>
                 <div class="field">
                     <label>职位</label>
-                    <input placeholder="" type="text">
+                    <input  name="email" placeholder="" type="text">
                 </div>
             </div>
 
@@ -101,13 +113,13 @@
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
 
-    <script src="<?php echo base_url();?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="<?php echo base_url();?>/js/holder.js"></script>
+    <script src="<?php echo base_url()?>/js/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="<?php echo base_url();?>/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="<?php echo base_url()?>/js/ie10-viewport-bug-workaround.js"></script>
 
-    <script src="<?php echo base_url();?>/dist/semantic.js"></script>
+    <script src="<?php echo base_url()?>/dist/semantic.js"></script>
 
 
     <script type="text/javascript">
@@ -128,7 +140,4 @@
       ;
     </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none"
-style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs>
-<text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;
-dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body></html>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body></html>
