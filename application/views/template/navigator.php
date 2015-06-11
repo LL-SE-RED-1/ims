@@ -28,6 +28,7 @@
     echo site_url('ims/ims_system_view');
   }
 ?>"><?php echo $uid;?></a></li>
+          <li><a href="<?php echo site_url('modify_passwd');?>">修改密码</a></li>
           <li><a href="<?php echo site_url('login');?>">注销</a></li>
         </ul>
       </div>

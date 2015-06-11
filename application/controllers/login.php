@@ -26,7 +26,9 @@ class Login extends CI_Controller
 	public function verify()
 	{
 		$this->load->model('ims/user_model');
-		$result = $this->user_model->verify_user();
+
+		$post = $this->input->post();
+		$result = $this->user_model->verify_user($post);
 		
 		if($result)
 		{
