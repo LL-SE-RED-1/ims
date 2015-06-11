@@ -165,7 +165,7 @@
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="text" name="department-text"></div>
+                        <div class="text" id="department-text"></div>
                         <i class="dropdown icon"></i>
                         <input name="department" type="hidden">
                         <div class="menu" id="department-menu">
@@ -342,8 +342,7 @@
             var picked = $(this).attr('value');
             var department_list = college_and_department['college'][picked]['department'];
             $("#department-menu").empty();
-            console.log($("div[name='department-name']"));
-            $("div[name='department-name']").empty();
+            $("#department-text").empty();
             department_list.forEach(function(el, i) {
                 $("#department-menu").append("<div class='item'>" + el + "</div>");
             });
