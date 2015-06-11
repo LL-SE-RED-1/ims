@@ -4,44 +4,34 @@
 
           <div class="col-xs-6 col-sm-6 huge-placeholder">
 
-            <h2 class="sub-header">信息管理</h2>
+            <h2 class="sub-header">搜索学生</h2>
 
           </div>
-
-
             <div class="col-xs-6 col-sm-6 huge-placeholder">
                 <div class="ui right floated transparent-seg segment">
-                    <form class="ui form">
+                    <form class="ui form" action="<?php echo site_url('ims/ims_search_student/search')?>" method="post">
                         <div class="ui left labeled icon input">
                             <div class="ui teal dropdown label">
                                 <div class="text">类型</div>
                                 <i class="dropdown icon"></i>
+                                <input name="var" type="hidden">
                                 <div class="menu">
-                                    <div class="item">学号</div>
-                                    <div class="item">姓名</div>
-                                    <div class="item">学院</div>
+                                    <div class="item" data-value="uid">学号</div>
+                                    <div class="item" data-value="name">姓名</div>
+                                    <div class="item" data-value="college">学院</div>
                                 </div>
                             </div>
-                            <input type="text" placeholder="_(:з」∠)_">
+                            <input name="text" type="text" placeholder="_(:з」∠)_">
                             <i class="search icon"></i>
                         </div>
                     </form>
                 </div>
-
-
-
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
 
             <div class="ui form transparent-seg right floated segment">
               <div class="inline fields">
-
-
-
               </div>
-
-
-
             </div>
 
           </div>
@@ -59,39 +49,37 @@
                 </tr>
                 </thead>
                 <tbody>
+                    <?php if (isset($info)): ?>
+                    <?php foreach ($info as $item): ?>
                 <tr>
-                    <td  class="center aligned">徐雨虹</td>
-                    <td  class="center aligned">31233333</td>
-                    <td  class="center aligned">男</td>
-                    <td  class="center aligned">计算机学院</td>
-                    <td  class="center aligned">计算机科学与技术</td>
+                    <form action="<?php echo site_url('ims/ims_add_student/modify')?>" method="post">
+                    <td  class="center aligned"><?php echo $item['name']?></td>
+                    <td  class="center aligned"><?php echo $item['uid']?></td>
+                    <td  class="center aligned"><?php if ($item['sex'] == 0) {
+	echo "男";
+} else {
+	echo "女";
+}
+?></td>
+                    <td  class="center aligned"><?php echo $item['college']?></td>
+                    <td  class="center aligned"><?php echo $item['department']?></td>
                     <td class="center aligned">
 
-                        <button class="ui  button modify labeled icon button">
+                        <button class="ui  button modify labeled icon button" type="submit">
                             <i class="info  icon"></i> 查看详情
                         </button>
                     </td>
+                </form>
 
                 </tr>
-                <tr>
+            <?php endforeach;?>
 
-                    <td  class="center aligned">徐雨虹2</td>
-                    <td  class="center aligned">312333332</td>
-                    <td  class="center aligned">男2</td>
-                    <td  class="center aligned">计算机学院2</td>
-                    <td  class="center aligned">计算机科学与技术2</td>
-                    <td class="center aligned">
-
-                        <button class="ui  button modify labeled icon button">
-                            <i class="info  icon"></i> 查看详情
-                        </button>
-                    </td>
-                </tr>
+            <?php endif;?>
                 </tbody>
             </table>
                 <br>
-                <form action="./info-studentadd.html">
-                <button class="ui right floated primary labeled icon button" >
+                <form action="<?php echo site_url('ims/ims_add_student')?>" method="post">
+                <button class="ui right floated primary labeled icon button" type="submit">
                     <i class="user icon"></i> 添加学生
                 </button>
                 </form>

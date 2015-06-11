@@ -52,9 +52,6 @@
       </div>
 
     </div>
-
-
-
   </div>
 
 </div>
@@ -64,7 +61,7 @@
   <?php if ($type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
 
-    <a href="<?php site_url('ims/')?>/ims_add_student">
+    <a href="<?php echo site_url('ims/')?>/ims_add_student">
       <div class="text-center at-center">
         <img class="ui small circular image at-center" src="<?php echo base_url()?>/images/student.png">
         <p></p>
@@ -74,7 +71,7 @@
   </div>
 
   <div class="col-xs-4 col-sm-3 placeholder">
-    <a href="<?php site_url('ims/')?>/ims_add_teacher">
+    <a href="<?php echo site_url('ims/')?>/ims_add_teacher">
       <div class="text-center at-center">
         <img class="ui small circular image at-center" src="<?php echo base_url()?>/images/teacher.png">
         <p></p>
@@ -88,7 +85,7 @@
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <div class="text-center at-center">
-      <a href="<?php site_url('ims/')?>/ims_add_course">
+      <a href="<?php echo site_url('ims/')?>/ims_add_course">
         <img class="ui small circular image at-center" src="<?php echo base_url()?>/images/book.jpg">
         <p></p>
         <p>添加课程</p>
@@ -117,7 +114,7 @@
 
   <div class="col-xs-4 col-sm-3 placeholder">
 
-    <a href="./info-studentsearch.html">
+    <a href="<?php echo site_url('ims/')?>/ims_search_student">
       <div class="text-center at-center-2">
         <img class="ui small image at-center-2" src="<?php echo base_url()?>images/student_search.png">
         <p></p>
@@ -127,7 +124,7 @@
   </div>
 
   <div class="col-xs-4 col-sm-3 placeholder">
-    <a href="./info-teachersearch.html">
+    <a href="<?php echo site_url('ims/')?>/ims_search_teacher">
       <div class="text-center">
         <img class="ui small image at-center-2" src="<?php echo base_url()?>images/teacher_search.png">
         <p></p>
@@ -141,7 +138,7 @@
 
 <?php if ($type == 2 || $type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
-    <a href="./info-coursesearch.html">
+    <a href="<?php echo site_url('ims/')?>/ims_search_course">
       <div class="text-center">
         <img class="ui small image at-center-2" src="<?php echo base_url()?>images/book_search.png">
         <p></p>
