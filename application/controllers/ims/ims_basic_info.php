@@ -11,7 +11,7 @@ class Ims_basic_info extends CI_Controller {
 	}
 
 	public function index() {
-		echo ("<script>alert('我是弹窗')</script>");
+		//echo ("<script>alert('我是弹窗')</script>");
 		if ($this->session->userdata('is_logged_in') == False) {
 			redirect('login');
 		} else {
@@ -33,7 +33,14 @@ class Ims_basic_info extends CI_Controller {
 		if ($this->session->userdata('is_logged_in') == False) {
 			redirect('login');
 		}
-		// echo ("<script> console.log('lala') </script>");
+
+		// $info = array('sex' => $this->input->post('sex'),
+		// 	'email' => $this->input->post('email'),
+		// 	'phone' => $this->input->post('phone'),
+		// 	'birthday' => $this->input->post("birthday"),
+		// 	'nation' => $this->input->post('nation'),
+		// );
+		// echo ("<script> console.log('" . $info['sex'] . $info['birthday'] . $info['email'] . $info['nation'] . "') </script>");
 		else {
 			if ($this->input->post("save")) {
 				// echo ("<script> console.log('lala') </script>");
@@ -43,10 +50,10 @@ class Ims_basic_info extends CI_Controller {
 					'birthday' => $this->input->post("birthday"),
 					'nation' => $this->input->post('nation'),
 				);
-				$this->basicInfo_model->writeInfo($info, $this->session->userdata('uid'));
-				$this->index();
+				$this->basic_info_model->writeInfo($info, $this->session->userdata('uid'));
+				redirect('ims/ims_basic_info');
 			} else {
-				$this->index();
+				redirect('ims/ims_basic_info');
 			}
 		}
 	}

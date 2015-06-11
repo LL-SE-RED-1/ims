@@ -33,14 +33,12 @@ class Login extends CI_Controller {
 			);
 			//session
 			$this->session->set_userdata($data);
-			echo ("<script> console.log('lala1') </script>");
 			if ($data['uid'] == '0000000000') {
 				redirect('ims/ims_system');
 			} else if ($data['user_type'] == 1) {
-				echo ("<script> console.log('lala2') </script>");
 				redirect('ims/ims_basic_info');
 			} else if ($data['user_type'] == 2) {
-				redirect('ims/ims_tea_welcome');
+				redirect('ims/ims_basic_info_teacher');
 			} else {
 				redirect('ims/ims_permission');
 			}
