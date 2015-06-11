@@ -15,9 +15,10 @@ class Ims_add_teacher extends CI_Controller {
 		} else {
 			$data['navi'] = 2;
 			$data['uid'] = $this->session->userdata('uid');
+			$data['type'] = $this->session->userdata('user_type');
 			$this->load->view('template/header');
 			$this->load->view('template/navigator2', $data);
-			$this->load->view('template/side_navi', $data);
+			$this->load->view('template/side_navi');
 			$this->load->view('ims/ims_add_teacher');
 		}
 	}

@@ -15,10 +15,11 @@ class Ims_add_course extends CI_Controller {
 			$data['navi'] = 2;
 
 			$data['uid'] = $this->session->userdata('uid');
+			$data['type'] = $this->session->userdata('user_type');
 			$this->load->view('template/header');
 			$this->load->view('template/navigator2', $data);
 
-			$this->load->view('template/side_navi', $data);
+			$this->load->view('template/side_navi');
 			$this->load->view('ims/Ims_add_course');
 		}
 	}

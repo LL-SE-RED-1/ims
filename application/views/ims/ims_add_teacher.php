@@ -134,4 +134,33 @@
       ;
     </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body></html>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"
+preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;">
+<defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200
+</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body>
+<style type="text/css">
+    body {
+        overflow:hidden;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .ui.small.circular.image.at-center {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .ui.transparent-seg {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0px 0px 0px 0px;
+        padding: 0em 0em;
+    }
+
+    .ui.submit.button {
+        float: right;
+    }
+
+</style>
+</html>
