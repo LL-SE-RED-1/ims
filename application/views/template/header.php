@@ -7,9 +7,9 @@
       <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
       <meta name="description" content="">
       <meta name="author" content="">
-      <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+      <link rel="icon" href="<?php echo base_url(); ?>images/icon.png">
 
-      <title>Dashboard Template for Bootstrap</title>
+      <title>IMS</title>
 
       <!-- Bootstrap core CSS -->
       <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
