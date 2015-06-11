@@ -3,6 +3,15 @@
         <h2 class="ui header">添加学生</h2>
 
         <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_student/manage')?>" method="post">
+        <!--new-->
+            <div class="ui positive message" style="display: none;">
+                <i class="close icon"></i>
+                <div class="header">
+                    Wow congratulations!
+                </div>
+                <p>你的修改已经成功被提交！</p>
+            </div>
+            <!--new-->
 
             <div class="four fields">
                 <div class="required field">
@@ -144,7 +153,7 @@
             <!--<div class="ui error message" style="width:30%"></div>-->
 
 
-            <div class="ui grey right floated  button" type="submit" name="cancel" value="cancel" id="back">返回</div>
+            <div class="ui grey right floated button" id="back">返回</div>
             <?php if ($func != 0): ?>
             <button class="ui red right floated  button" type="submit" name="delete" value="delete">删除</button>
             <?php endif;?>
@@ -210,6 +219,7 @@
                     },
                     邮箱: {
                         identifier: 'email',
+                        optional: true,
                         rules: [
                             {
                                 type   : 'email',
@@ -219,6 +229,7 @@
                     },
                     手机号: {
                         identifier: 'phone',
+                        optional: true,
                         rules: [
                             {
                                 type   : 'length[11]',

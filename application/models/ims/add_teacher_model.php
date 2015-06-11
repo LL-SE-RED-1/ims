@@ -7,7 +7,18 @@ class Add_teacher_model extends CI_Model {
 
 	public function writeInfo($info) {
 		$this->db->insert('imsTeacher', $info);
-		//成功或失败反馈
+		$this->db->insert('imsUser',
+			array('uid' => $info['uid'],
+				'password' => md5($info['uid']),
+				'type' => 1,
+				'active' => 1,
+			)
+		);
+		//成功失败反馈
+	}
+	public function deleteInfo($info) {
+		$this->db->delete('imsUser', $info);
+		$this->db->delete('imsTeacher', $info);
 	}
 }
 ?>
