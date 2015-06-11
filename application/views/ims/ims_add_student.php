@@ -144,7 +144,7 @@
             <!--<div class="ui error message" style="width:30%"></div>-->
 
 
-            <button class="ui grey right floated  button" type="submit" name="cancel" value="cancel">返回</button>
+            <div class="ui grey right floated  button" type="submit" name="cancel" value="cancel" id="back">返回</div>
             <?php if ($func != 0): ?>
             <button class="ui red right floated  button" type="submit" name="delete" value="delete">删除</button>
             <?php endif;?>
