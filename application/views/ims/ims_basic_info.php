@@ -14,20 +14,14 @@
                 </a>
 
                 <hr>
+
                 <div class="input-group">
+
                     <input type="text" class="form-control">
                     <span class="input-group-btn">
-                        <button type="button" class="btn btn-default">上传</button>
+                        <button type="submit" value="upload" class="btn btn-default">上传</button>
                     </span>
                 </div>
-                <!--<div>-->
-                <!--<h4><strong>说明:</strong></h4>-->
-                <!--<p style="text-indent: 2em">xxxx</p>-->
-                <!--<p style="text-indent: 2em">xxxx</p>-->
-                <!--<p style="text-indent: 2em">xxxx</p>-->
-
-
-                <!--</div>-->
             </div>
 
             <div class="col-md-8">
@@ -60,9 +54,6 @@
                 </div>
 
 
-
-                <div class="four fields">
-
                     <div class="field">
                         <label>生日</label>
                         <input name="birthday" value="<?php echo $basicInfo['birthday']?>" type="text">
@@ -80,7 +71,7 @@
                     <div class="field ">
                         <label>班级</label>
                         <input name="class" value="<?php echo $basicInfo['class']?>" readonly type="text">
-                    </div>
+                    </dihan>
                 </div>
 
                 <div class="two fields">
