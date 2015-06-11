@@ -19,6 +19,14 @@
                 </div>
 
                 <div class="inner cover">
+                    <div class="ui negative message" style="display: none;">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            Oops!
+                        </div>
+                        <p><?php echo $result_info;?></p>
+                    </div>
+
                     <form action="<?php echo site_url('login/verify');?>" method="post">
                         <h1 class="form-signin form-signin-heading"><strong>登录</strong></h1>
 
@@ -54,6 +62,85 @@
         </div>
     </div>
 
+<script src="<?php echo base_url(); ?>js/form_feedack.js"></script>
+
+<!-- <script type="text/javascript">
+
+    $('.ui.form')
+            .form({
+                uid: {
+                    identifier: 'uid',
+                    rules: [
+                        {
+                            type   : 'empty',
+                            prompt : '请输入学号/教工号'
+                        },
+                        {
+                            type   : 'maxLength[10]',
+                            prompt : '学号/教工号长度为10位'
+                        },
+                        {
+                            type   : 'length[10]',
+                            prompt : '学号/教工号长度为10位'
+                        }
+
+                    ]
+                },
+                password: {
+                    identifier: 'new_pass',
+                    rules: [
+                        {
+                            type   : 'empty',
+                            prompt : '请输入密码'
+                        },
+                        {
+                            type   : 'maxLength[30]',
+                            prompt : '密码长度超限'
+                        },
+                        {
+                            type   : 'length[6]',
+                            prompt : '密码长度不足'
+                        }
+                    ]
+                }
+            },
+            {
+                inline : true,
+                on     : 'blur'
+            });
+
+    $(document)
+            .ready(function(){
+                $('.ui.dropdown')
+                        .dropdown()
+                ;
+                $('.ui.menu .dropdown')
+                        .dropdown({
+                            on: 'hover'
+                        })
+                ;
+                $('.demo .ui.checkbox')
+                        .checkbox()
+                ;
+            })
+    ;
+
+
+    $("#back").click(function() {
+        history.go(-1);
+    });
+
+</script>
+-->
+
+<?php if($result_num == 2): ?>
+    <script>
+            $(document)
+                    .ready(function() {
+                        show_negative_message(); 
+                    });
+    </script>
+<?php endif; ?>
 
 </body>
 

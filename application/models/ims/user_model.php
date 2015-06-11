@@ -29,7 +29,7 @@ class User_model extends CI_Model
 	public function modify_pass($post)
 	{
 		$data = array(
-       		'password' => $post['new_pass']
+       		'password' => md5($post['new_pass'])
     	);
 
 		$result = $this->db->update('imsUser', $data, array('uid' => $post['uid']));

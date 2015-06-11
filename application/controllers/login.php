@@ -11,16 +11,20 @@ if( ! defined('BASEPATH')){
 
 class Login extends CI_Controller
 {
-	public function index()
+	public function index($result_num = 0)
 	{
 		//if($this->session->userdata('is_logged_in') != FALSE){
 		//	redirect('ims/ims_permission');
 		//}
 		$this->session->unset_userdata('is_logged_in');
+
+		$data['result_num'] = $result_num;
+		if($result_num == 2)
+			$data['result_info'] = "用户名或密码错误！";
 		
 		$this->output->enable_profiler(FALSE);
 		$this->load->view('template/header');
-		$this->load->view('login_view');	
+		$this->load->view('login_view',$data);	
 	}
 
 	public function verify()
@@ -51,8 +55,7 @@ class Login extends CI_Controller
 		}
 		else
 		{
-			$this->index();
-			//redirect('ims/ims_welcome');
+			redirect('login/index/2');
 		}
 		
 	}
