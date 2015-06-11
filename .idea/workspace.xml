@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2921ca5-f390-457a-af45-91acd39f5f4b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/metadata/college_and_department.json" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/info-coursecheck.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-courseadd.html" afterPath="$PROJECT_DIR$/info-courseadd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-coursereq-add.html" afterPath="$PROJECT_DIR$/info-coursereq-add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-coursereq-check.html" afterPath="$PROJECT_DIR$/info-coursereq-check.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-coursereq.html" afterPath="$PROJECT_DIR$/info-coursereq.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-coursesearch.html" afterPath="$PROJECT_DIR$/info-coursesearch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-studentadd.html" afterPath="$PROJECT_DIR$/info-studentadd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-studentsearch.html" afterPath="$PROJECT_DIR$/info-studentsearch.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-teacheradd.html" afterPath="$PROJECT_DIR$/info-teacheradd.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SE.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +41,8 @@
       <file leaf-file-name="info-studentadd.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/info-studentadd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82300884" vertical-offset="2727" max-vertical-offset="4140">
-              <caret line="219" column="24" selection-start-line="219" selection-start-column="24" selection-end-line="219" selection-end-column="24" />
+            <state vertical-scroll-proportion="0.40265486" vertical-offset="4842" max-vertical-offset="5760">
+              <caret line="341" column="25" selection-start-line="341" selection-start-column="25" selection-end-line="341" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -685,14 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/metadata/college_and_department.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="315">
-          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/info-courseadd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.375" vertical-offset="2607" max-vertical-offset="3450">
@@ -731,10 +713,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/metadata/college_and_department.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125" vertical-offset="0" max-vertical-offset="315">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/info-studentadd.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82300884" vertical-offset="2727" max-vertical-offset="4140">
-          <caret line="219" column="24" selection-start-line="219" selection-start-column="24" selection-end-line="219" selection-end-column="24" />
+        <state vertical-scroll-proportion="0.40265486" vertical-offset="4842" max-vertical-offset="5760">
+          <caret line="341" column="25" selection-start-line="341" selection-start-column="25" selection-end-line="341" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
