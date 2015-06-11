@@ -9,5 +9,9 @@ class Add_student_model extends CI_Model {
 		$this->db->insert('imsStudent', $info);
 		//成功失败反馈
 	}
+
+	public function deleteInfo($info) {
+		$this->db->delete('imsStudent', $info);
+	}
 }
 ?>

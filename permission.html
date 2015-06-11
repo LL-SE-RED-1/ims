@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN"> <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+
+      <title>Dashboard Template for Bootstrap</title>
+
+      <!-- Bootstrap core CSS -->
+      <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Custom styles for this template -->
+      <link href="./css/dashboard.css" rel="stylesheet">
+
+      <link rel="stylesheet" type="text/css" href="./dist/semantic.css">
+
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+
+      <script src="./js/bootstrap.min.js"></script>
+      <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+      <script src="./js/holder.js"></script>
+
+      <script src="./dist/semantic.js"></script>
+  </head>
+
+<style>
+
+
+    .text-center0 {
+        display: inline-block;
+        vertical-align: middle;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .ui.transparent-seg.mg {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0px 0px 0px 0px;
+        padding: 0em 0em;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    th {
+        text-align:center;
+    }
+
+    .table>tbody>tr>td {
+        vertical-align: middle;
+    }
+
+    .field.right {
+        float: right;
+        margin-right: 105px;
+    }
+
+    .ui.transparent-seg {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0px 0px 0px 0px;
+        padding: 0em 0em;
+    }
+
+    .ui.form .ui.input {
+        width: 50%;
+    }
+
+</style>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">教务管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" style="margin-right:20px">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="./basicinfo.html">name</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+<div class="container-fluid" style="
+    padding-top: 5%;
+">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+         <ul class="nav nav-sidebar">
+             <li><a href="./basicinfo.html">个人信息</a></li>
+             <li><a href="./info-manage.html">信息管理</a></li>
+             <li class="active"><a href="./permission.html">权限管理<span class="sr-only">(current)</span></a></li>
+             <li><a href="./info-system.html">系统信息</a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+          </ul>
+          <ul class="nav nav-sidebar">
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+            <li><a href=""></a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">权限管理</h1>
+
+            <!--<div class="ui form segment transparent-seg mg">-->
+
+
+                <!--<div class="four fields">-->
+                    <!--<div class="field">-->
+                        <!--<div class="text-center0">查看课程信息</div>-->
+                    <!--</div>-->
+                    <!--<div class="field">-->
+                        <!--<div class="ui slider checkbox">-->
+                        <!--<input type="checkbox" name="newsletter">-->
+                            <!--<label></label>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="field">-->
+                        <!--<div class="ui slider checkbox">-->
+                            <!--<input type="checkbox" name="newsletter">-->
+                            <!--<label></label>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="field">-->
+                        <!--<div class="ui blue button">创建权限</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+            <!--</div>-->
+
+            <form class="ui form segment transparent-seg">
+                <div class="table-responsive" style="text-align:center">
+                    <table class="table table-striped" style="display: inline-table;">
+                        <thead>
+                        <tr>
+                            <th style="
+    width: 20%;
+">权限</th>
+                            <th style="
+    width: 20%;
+">学生</th>
+                            <th style="
+    width: 20%;
+">教师</th>
+                            <th style="
+    width: 40%;
+">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+
+                                <div class="ui input" style="width:100%">
+                                    <input type="text" name="newsletter">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="newsletter">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="newsletter">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui blue button" id="create">创建权限</div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+
+
+            <form class="ui form segment transparent-seg">
+                <div class="table-responsive" style="text-align:center">
+                    <table class="table table-striped" style="display: inline-table;">
+                        <thead>
+                        <tr>
+                            <th style="
+    width: 20%;
+">权限</th>
+                            <th style="
+    width: 20%;
+">学生</th>
+                            <th style="
+    width: 20%;
+">教师</th>
+                            <th style="
+    width: 40%;
+">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                修改学生
+                            </td>
+                            <td>
+                                <div class="ui checkbox checked">
+                                    <input type="checkbox" name="newsletter">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox" id="aaa">
+                                    <input type="checkbox" name="newsletter">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui buttons">
+                                    <button class="ui green button modify">修改</button>
+                                    <div class="or"></div>
+                                    <button class="ui red button delete">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
+
+<script>
+    //tb_col = "<tr><td>修改学生</td><td><div class="ui checkbox"><input type="checkbox" name="newsletter"><label></label></div></td><td><div class="ui checkbox"><input type="checkbox" name="newsletter"><label></label></div></td><td><div class="ui buttons"><div class="ui green button modify">修改</div><div class="or"></div><div class="ui red button delete">删除</div></div></td></tr>"
+
+//    $('#create').click(function() {
+//        console.log($('.tbody'));
+//        $('.tbody').append();
+//    });
+//
+    $('.ui.checkbox').checkbox();
+
+</script>

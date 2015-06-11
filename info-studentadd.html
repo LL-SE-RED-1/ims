@@ -1,39 +1,133 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://v3.bootcss.com/examples/dashboard/# -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
+
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="./css/dashboard.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="./dist/semantic.css">
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="./js/holder.js"></script>
+
+    <script src="./dist/semantic.js"></script>
+  </head>
+
+
+<style type="text/css">
+    body {
+        overflow:hidden;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .ui.small.circular.image.at-center {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .ui.transparent-seg {
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: 0px 0px 0px 0px;
+        padding: 0em 0em;
+    }
+
+    .ui.submit.button {
+        float: right;
+    }
+
+</style>
+
+  <body data-feedly-mini="yes">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="./navbar-brand.html">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="./Dashboard.html">Dashboard</a></li>
+            <li><a href="./Settings.html">Settings</a></li>
+            <li><a href="./Profile.html">Profile</a></li>
+            <li><a href="./Help.html">Help</a></li>
+          </ul>
+          <form class="navbar-form navbar-right">
+            <input type="text" class="form-control" placeholder="Search...">
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid" style="
+    margin-top: 5%;
+    ">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="./basicinfo.html">个人信息</a></li>
+                <li class="active"><a href="./info-manage.html">信息管理</a></li>
+                <li><a href="./permission.html">权限管理<span class="sr-only">(current)</span></a></li>
+                <li><a href="#">系统信息</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
         <h2 class="ui header">添加学生</h2>
 
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_student/manage')?>" method="post">
+        <form class="ui form segment transparent-seg">
+
+            <!--new-->
+            <div class="ui positive message" style="display: none;">
+                <i class="close icon"></i>
+                <div class="header">
+                    Wow congratulations!
+                </div>
+                <p>你的修改已经成功被提交！</p>
+            </div>
+            <!--new-->
 
             <div class="four fields">
                 <div class="required field">
                     <label>学号</label>
-                    <?php if ($func == 0): ?>
                     <input name="uid" placeholder="" type="text">
-                <?php else: ?>
-                <input name="uid" value="<?php echo ($info['uid'])?>" type="text">
-            <?php endif;?>
                 </div>
               <div class="required field">
                 <label>名字</label>
-                <?php if ($func == 0): ?>
                 <input name='name' placeholder="" type="text">
-                <?php else: ?>
-                <input name='name' value="<?php echo $info['name']?>" type="text">
-            <?php endif;?>
               </div>
               <div class="field">
                 <label>民族</label>
                   <div class="ui selection dropdown">
                       <div class="default text"></div>
                       <i class="dropdown icon"></i>
-                      <?php if ($func == 0): ?>
                       <input name="nation" type="hidden">
-                    <?php else: ?>
-                      <input name="nation" type="hidden" value="<?php echo $info['nation']?>">
-                    <?php endif;?>
                       <div class="menu">
-                          <div class="item">汉族</div>
-                          <div class="item">其他族</div>
+                          <div class="item" data-value="1">汉族</div>
+                          <div class="item" data-value="2">其他族</div>
                       </div>
                   </div>
               </div>
@@ -42,14 +136,10 @@
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <?php if ($func == 0): ?>
                         <input name="sex" type="hidden">
-                    <?php else: ?>
-                        <input name="sex" type="hidden" value="<?php echo $info['sex']?>">
-                    <?php endif;?>
                         <div class="menu">
-                            <div class="item" data-value="0">男</div>
-                            <div class="item" data-value="1">女</div>
+                            <div class="item" data-value="1">男</div>
+                            <div class="item" data-value="2">女</div>
                         </div>
                     </div>
                 </div>
@@ -59,28 +149,15 @@
             <div class="three fields">
                 <div class="field">
                     <label>邮箱</label>
-                    <?php if ($func == 0): ?>
                     <input name="email" placeholder="" type="text">
-                    <?php else: ?>
-                    <input name="email" value="<?php echo $info['email']?>" type="text">
-                    <?php endif;?>
-
                 </div>
                 <div class="field">
                     <label>生日</label>
-                    <?php if ($func == 0): ?>
                     <input name="birthday" placeholder="" type="text">
-                    <?php else: ?>
-                    <input name="birthday" value="<?php echo $info['birthday']?>" type="text">
-                    <?php endif;?>
                 </div>
                 <div class="field">
                     <label>手机号</label>
-                    <?php if ($func == 0): ?>
                     <input name="phone" placeholder="" type="text">
-                    <?php else: ?>
-                    <input name="phone" value="<?php echo $info['phone']?>" type="text">
-                    <?php endif;?>
                 </div>
             </div>
 
@@ -90,11 +167,7 @@
                     <div class="ui selection dropdown" name="college-dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
-                    <?php else: ?>
-                        <input name="college" type="hidden" value="<?php echo $info['college']?>">
-                    <?php endif;?>
                         <div class="menu" id="college-menu">
                         </div>
                     </div>
@@ -104,11 +177,7 @@
                     <div class="ui selection dropdown">
                         <div class="text" id="department-text"></div>
                         <i class="dropdown icon"></i>
-                        <?php if ($func == 0): ?>
                         <input name="department" type="hidden">
-                    <?php else: ?>
-                        <input name="department" type="hidden" value="<?php echo $info['department']?>">
-                    <?php endif;?>
                         <div class="menu" id="department-menu">
                         </div>
                     </div>
@@ -118,11 +187,7 @@
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <?php if ($func == 0): ?>
                         <input name="grade" type="hidden">
-                    <?php else: ?>
-                        <input name="grade" type="hidden" value="<?php echo $info['grade']?>">
-                    <?php endif;?>
                         <div class="menu">
                             <div class="item" data-value="1">大一</div>
                             <div class="item" data-value="2">大二</div>
@@ -133,25 +198,41 @@
                 </div>
                 <div class="required field">
                     <label>班级</label>
-                    <?php if ($func == 0): ?>
                     <input name="class" placeholder="" type="text">
-                    <?php else: ?>
-                    <input name="class" value="<?php echo $info['class']?>" type="text">
-                    <?php endif;?>
                 </div>
             </div>
             <br>
             <!--<div class="ui error message" style="width:30%"></div>-->
 
 
-            <button class="ui grey right floated  button" type="submit" name="cancel" value="cancel">返回</button>
-            <?php if ($func != 0): ?>
-            <button class="ui red right floated  button" type="submit" name="delete" value="delete">删除</button>
-            <?php endif;?>
-            <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
+            <!--new_begin-->
+            <div class="ui grey right floated button" id="back">返回</div>
+            <!--new_end-->
+            <button class="ui red right floated  button">删除</button>
+            <button class="ui green  right floated  button">提交</button>
 
         </form>
 
+            <!--new_begin-->
+            <!--<div class="ui small modal">-->
+                <!--<i class="close icon"></i>-->
+                <!--<div class="header">-->
+                    <!--Modal Title-->
+                <!--</div>-->
+                <!--<div class="content">-->
+                    <!--<div class="left">-->
+                        <!--Content can appear on left-->
+                    <!--</div>-->
+                    <!--<div class="right">-->
+                        <!--Content can appear on right-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="actions">-->
+                    <!--<div class="ui button">Cancel</div>-->
+                    <!--<div class="ui button">OK</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--new_end-->
 
         </div>
     </div>
@@ -165,13 +246,13 @@
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
 
-    <script src="<?php echo base_url()?>/js/bootstrap.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="<?php echo base_url()?>/js/holder.js"></script>
+    <script src="./js/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="<?php echo base_url()?>/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>
 
-    <script src="<?php echo base_url()?>/dist/semantic.js"></script>
+    <script src="./dist/semantic.js"></script>
 
 
     <script type="text/javascript">
@@ -210,6 +291,7 @@
                     },
                     邮箱: {
                         identifier: 'email',
+                        optional: true, //new
                         rules: [
                             {
                                 type   : 'email',
@@ -219,6 +301,7 @@
                     },
                     手机号: {
                         identifier: 'phone',
+                        optional: true, //new
                         rules: [
                             {
                                 type   : 'length[11]',
@@ -280,7 +363,7 @@
 
         var college_and_department;
 
-        $.getJSON("<?php echo base_url()?>metadata/college_and_department.json", function( data ) {
+        $.getJSON( "metadata/college_and_department.json", function( data ) {
             college_and_department = data;
 
             for (el in college_and_department['college']){
@@ -299,13 +382,28 @@
             });
         });
 
-        /*$(".dropdown[name='college-dropdown']")
-                .dropdown({
-                    onChange: function(value, text, $selectedItem) {
-                       console.log(text + ", " + value);
-                    }
-        })
-        ;*/
+
+//        new_begin
+
+        $("#back").click(function() {
+            history.go(-1);
+        });
+
+        $(".close.icon").click(function() {
+           $(this).parent().fadeOut('slow');
+        });
+
+        function show_positive_message() {
+            $(".close.icon").parent().fadeIn('slow');
+            setTimeout(function() {
+                $(".close.icon").parent().fadeOut('slow');
+            }, 3000);
+        };
+
+//        $('.ui.modal').modal('show');
+
+
+//        new_end
 
       $(document)
               .ready(function(){
@@ -318,7 +416,7 @@
                 $('.demo .ui.checkbox')
                          .checkbox()
                 ;
-
+//                  ('.ui.modal').modal();
 
               })
       ;
@@ -326,33 +424,4 @@
 
     </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"
-preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs>
-<text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200
-</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body>
-<style type="text/css">
-    body {
-        overflow:hidden;
-    }
-
-    .text-center {
-        text-align: center;
-    }
-
-    .ui.small.circular.image.at-center {
-        display: block;
-        margin: 0 auto;
-    }
-
-    .ui.transparent-seg {
-        background-color: rgba(255, 255, 255, 0);
-        box-shadow: 0px 0px 0px 0px;
-        padding: 0em 0em;
-    }
-
-    .ui.submit.button {
-        float: right;
-    }
-
-</style>
-</html>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body></html>
