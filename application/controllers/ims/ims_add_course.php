@@ -3,9 +3,10 @@ if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
-class Ims_addCourse extends CI_Controller {
+class Ims_add_course extends CI_Controller {
 	public function __construct() {
-		parent::__construct('ims/addCourse_model');
+		parent::__construct('ims/add_course_model');
+		
 	}
 
 	public function index() {
@@ -13,12 +14,14 @@ class Ims_addCourse extends CI_Controller {
 			redirect('login');
 		} else {
 			$data['navi'] = 2;
+
 			$data['uid'] = $this->session->userdata('uid');
+			$data['type'] = $this->session->userdata('user_type');
 			$this->load->view('template/header');
-			$this->load->view('template/style');
-			$this->load->view('template/navigator',$data);
-			$this->load->view('template/side_navi', $data);
-			$this->load->view('ims/Ims_addCourse');
+			$this->load->view('template/navigator2', $data);
+
+			$this->load->view('template/side_navi');
+			$this->load->view('ims/Ims_add_course');
 		}
 	}
 
@@ -32,12 +35,10 @@ class Ims_addCourse extends CI_Controller {
 				'credit' => $this->input->post('credit'),
 				'college' => $this->input->post('college'),
 				'department' => $this->input->post('department'),
-				'semester' => 2,
+				'semester' => $this->input->post('semester'),
+				'info' => $this->input->post('info'),
 			);
-			echo "<script>console.log('" . $info . "')</script>";
-			echo "<script>console.log('ok1')</script>";
-			$this->addCourse_model->writeInfo($info);
-			echo "<script>console.log('ok2')</script>";
+			$this->add_course_model->writeInfo($info);
 			//反馈
 			$this->index();
 		}

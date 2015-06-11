@@ -29,6 +29,7 @@ class Ims_system extends CI_Controller
 		$data['sys_info'] = $this->sys_info_model->get_sys_info();
 		$data['log_stati'] = $this->sys_info_model->get_statistic();
 		$data['uid'] = $this->session->userdata('uid');
+		$data['type'] = $this->session->userdata('user_type');
 
 		switch($data['sys_info']['semester'])
 		{

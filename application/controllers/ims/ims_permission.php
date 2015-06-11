@@ -25,7 +25,7 @@ class Ims_permission extends CI_Controller
 	{
 		$data['navi'] = 3;
 		$data['uid'] = $this->session->userdata('uid');
-
+		$data['type'] = $this->session->userdata('user_type');
 		$data['permission'] = $this->permission_model->get_per();
 
 		$this->load->view('template/header');

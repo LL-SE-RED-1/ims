@@ -37,15 +37,15 @@ class Login extends CI_Controller
 						  );
 			//session
 			$this->session->set_userdata($data);
-			if($data['uid'] == '0000000000')
+			if ($data['user_type'] == 4) {
 				redirect('ims/ims_system');
-			else if($data['user_type'] == 1)
+			} else if ($data['user_type'] == 1) {
 				redirect('ims/ims_basic_info');
-			else if($data['user_type'] == 2)
-				redirect('ims/ims_tea_welcome');
-			else
+			} else if ($data['user_type'] == 2) {
+				redirect('ims/ims_basic_info_teacher');
+			} else {
 				redirect('ims/ims_permission');
-			//$this->index();
+			}			//$this->index();
 		}
 		else
 		{

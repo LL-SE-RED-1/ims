@@ -32,6 +32,7 @@
                             <option value="1">学生</option>
                             <option value="2">教师</option>
                             <option value="3">管理员</option>
+                            <option value="4">admin</option>
                         </select>
 
                         <div class="form-signin checkbox">
