@@ -81,7 +81,7 @@
         </div>
 
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1 class="page-header"><strong>修改密码</strong></h1>
+            <h1 class="page-header"><strong>欢迎</strong></h1>
 
 
             <div class="ui positive message" style="display: none;">
@@ -92,7 +92,18 @@
                 <p>你已经成功登录！</p>
             </div>
 
+            <div class="field" style="width:100%;height:400px;">
+            <div class="ui rotate reveal">
+                <div class="visible content">
+                    <img src="./images/white-image.png" class="ui small bordered circular image">
+                </div>
+                <div class="hidden content">
+                    <img src="./images/teacher.png" class="ui small bordered circular image">
+                </div>
             </div>
+            </div>
+
+        </div>
 
 
         <!--<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">-->
@@ -105,44 +116,7 @@
 
 <script type="text/javascript">
 
-    $('.ui.form')
-            .form({
-                原始密码: {
-                    identifier: 'original-password',
-                    rules: [
-                        {
-                            type   : 'empty',
-                            prompt : '请输入原始密码'
-                        }
-                    ]
-                },
-                新密码: {
-                    identifier: 'new-password',
-                    rules: [
-                        {
-                            type   : 'empty',
-                            prompt : '请输入新密码'
-                        }
-                    ]
-                },
-                确认新密码: {
-                    identifier: 'conform-password',
-                    rules: [
-                        {
-                            type   : 'empty',
-                            prompt : '请确认新密码'
-                        },
-                        {
-                            type   : 'match[new-password]',
-                            prompt : '输入新密码与之前不一致，请重新输入'
-                        }
-                    ]
-                }
-            },
-            {
-                inline : true,
-                on     : 'blur'
-            });
+
 
     $(document)
             .ready(function(){
