@@ -1,75 +1,152 @@
-
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">权限管理</h1>
 
-<!--          <h2 class="sub-header">Section title</h2>-->
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>权限</th>
-                  <th>学生</th>
-                  <th>教师</th>
-                  <th>修改</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>查看个人信息</td>
-                  <td>是</td>
-                  <td>是</td>
-                  <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>修改个人信息</td>
-                  <td>是</td>
-                  <td>是</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>查看课程信息</td>
-                  <td>是</td>
-                  <td>是</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>浏览课程列表</td>
-                  <td>否</td>
-                  <td>是</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>提交课程申请</td>
-                  <td>否</td>
-                  <td>是</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>选课</td>
-                  <td>是</td>
-                  <td>否</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-                <tr>
-                  <td>退课</td>
-                  <td>是</td>
-                  <td>否</td>
-                   <td><button type="button" class="btn btn-default">修改</button></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="row">
-            <div class="col-md-2 col-md-offset-3">
-              <div class="ui blue button">创建权限</div>
+            <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_permission/create');?>" method="post">
+                <div class="table-responsive" style="text-align:center">
+                    <table class="table table-striped" style="display: inline-table;">
+                        <thead>
+                        <tr>
+                            <th style="width: 20%;">权限</th>
+                            <th style="width: 20%;">学生</th>
+                            <th style="width: 20%;">教师</th>
+                            <th style="width: 40%;">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <div class="ui input" style="width:100%">
+                                    <input type="text" name="per_name">
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="stu_per">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="ui checkbox">
+                                    <input type="checkbox" name="tea_per">
+                                    <label></label>
+                                </div>
+                            </td>
+                            <td>
+                                <button class="ui blue button" id="create" type="submit">创建权限</button>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+
+            <div class="table-responsive" style="text-align:center">
+                <table class="table table-striped" style="display: inline-table;">
+                    <thead>
+                    <tr>
+                        <th style="width: 20%;">权限</th>
+                        <th style="width: 20%;">学生</th>
+                        <th style="width: 20%;">教师</th>
+                        <th style="width: 40%;">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach ( $permission as $pitem ):?>
+                        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_permission/modify').'/'.$pitem['pid'];?>" method="post">
+                            <tr>
+                                <td>
+                                    <?=$pitem['description']?>
+                                </td>
+                                <td>
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="stu_per" 
+                                        <?php if($pitem['stuPermi']==TRUE):?>
+                                            checked="on";
+                                        <?php endif;?>
+                                        >
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="ui checkbox">
+                                        <input type="checkbox" name="tea_per"
+                                        <?php if($pitem['teaPermi']==TRUE):?>
+                                            checked="on";
+                                        <?php endif;?>
+                                        >
+                                        <label></label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="ui buttons">
+                                        <button name="update" value="update" class="ui green button modify" >更新</button>
+                                        <div class="or"></div>
+                                        <button name="delete" value="delete" class="ui red button delete">删除</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </form>
+                    <?php endforeach;?>
+
+                    </tbody>
+                </table>
             </div>
-            <div class="col-md-2 col-md-offset-1">
-              <div class="ui red button">删除权限</div>
-            </div>
-          </div>
+            <!-- </form> -->
+
         </div>
       </div>
     </div>
 
+    <style>
+
+
+        .text-center0 {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .ui.transparent-seg.mg {
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: 0px 0px 0px 0px;
+            padding: 0em 0em;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        th {
+            text-align:center;
+        }
+
+        .table>tbody>tr>td {
+            vertical-align: middle;
+        }
+
+        .field.right {
+            float: right;
+            margin-right: 105px;
+        }
+
+        .ui.transparent-seg {
+            background-color: rgba(255, 255, 255, 0);
+            box-shadow: 0px 0px 0px 0px;
+            padding: 0em 0em;
+        }
+
+        .ui.form .ui.input {
+            width: 50%;
+        }
+
+    </style>
+
   </body>
 </html>
+
+<script>
+    $('.ui.checkbox')
+            .checkbox()
+    ;
+</script>
+

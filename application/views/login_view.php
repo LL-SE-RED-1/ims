@@ -12,7 +12,7 @@
                         <nav>
                             <ul class="nav masthead-nav">
                                 <li class="active"><a href="#">主页</a></li>
-                                <li><a href="#">联系我们</a></li>
+                                <li><a href="mailto:liuzxzju@qq.com">联系我们</a></li>
                             </ul>
                         </nav>
                     </div>

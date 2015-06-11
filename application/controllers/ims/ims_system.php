@@ -19,15 +19,14 @@ class Ims_system extends CI_Controller
 		 	redirect('login');
 	}
 	
-	public function index()
+	public function index($page = 1)
 	{
 		$this->load->model('ims/sys_info_model');
 		$this->load->helper('date');
+		$this->load->database();
 
 		$data['navi'] = 4;
 		$data['sys_info'] = $this->sys_info_model->get_sys_info();
-		$log = $this->sys_info_model->get_log();
-		$data['log'] = $log['query'];
 		$data['log_stati'] = $this->sys_info_model->get_statistic();
 		$data['uid'] = $this->session->userdata('uid');
 
@@ -57,19 +56,22 @@ class Ims_system extends CI_Controller
 		}
 
 		$datestring = "%Y-%m-%d";
-		$data['sys_info']['date'] = mdate($datestring); 
+		$data['sys_info']['date'] = substr(mdate($datestring),2); 
 
 		$timestring = "%H:%i";
 		$data['sys_info']['time'] = mdate($timestring);
 
+
+		// 分页显示log
 	    $this->load->library('pagination');
 
-        $config['base_url'] = site_url('ims/ims_system');
-        $config['total_rows'] = $log['num'];
-        $config['per_page'] = 1;
+	    $pagination['total_rows'] = $this->db->count_all('imsLog');
+        $pagination['per_page'] = 10;
+	    $data['pagination']['base_url'] = site_url('ims/ims_system')."/index";
+	    $data['pagination']['page'] = $page;
+        $data['pagination']['page_num'] = ceil($pagination['total_rows'] / $pagination['per_page']);
 
-        $this->pagination->initialize($config);
-        echo $this->pagination->create_links();
+        $data['log'] = $this->sys_info_model->get_log($pagination['per_page'],($page-1)*$pagination['per_page']);
 
 		$this->load->view('template/header');
 		$this->load->view('template/navigator',$data);

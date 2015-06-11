@@ -11,8 +11,7 @@
                 </div>
 
                 <div class="text value">
-                  <?php //echo $sys_info['date'];?> 
-                  15-06-09
+                  <?php echo $sys_info['date'];?> 
                 </div>
               </div>
             </div>
@@ -97,7 +96,7 @@
 
           </div>
 
-          <div class="col-xs-6 col-sm-6 placeholder">
+         <!--  <div class="col-xs-6 col-sm-6 placeholder">
 
             <div class="ui searchable floating dropdown labeled icon button" tabindex="0" style="float: right;">
               <i class="filter icon"></i>
@@ -127,7 +126,7 @@
 
             </div>
 
-          </div>
+          </div> -->
 
           <table class="ui celled table">
             <thead>
@@ -170,6 +169,25 @@
             
             </tbody>
           </table>
+          
+          <!-- 分页 -->
+          <p>&nbsp;
+            <?php
+
+              for($num=1;$num <= $pagination['page_num'];$num++)
+              {
+                if($pagination['page'] == $num)
+                  echo "<strong>".$num."</strong>&nbsp;&nbsp;";
+                else
+                  echo "<a href='".$pagination['base_url']."/".$num."'>".$num."</a>&nbsp;&nbsp;";
+              }
+              if($pagination['page'] == $pagination['page_num'])
+                echo "<strong>&gt;</strong>&nbsp;&nbsp;";
+              else
+                echo "<a href='".$pagination['base_url']."/".($pagination['page']+1)."'>&gt;</a>&nbsp;&nbsp;";
+            ?>
+          </p>
+
         </div>
       </div>
     </div>
