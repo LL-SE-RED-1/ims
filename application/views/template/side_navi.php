@@ -3,40 +3,51 @@
 2 for 信息管理
 3 for 权限管理
 4 for 系统信息
- -->
+-->
 
 <div class="container-fluid" style="
-    padding-top: 5%;
+padding-top: 5%;
 ">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-         <ul class="nav nav-sidebar">
-            <?php if ($navi == 1): ?>
-                <li class="active">
-            <?php else: ?>
-                <li>
-            <?php endif;?>
-            <a href="<?php echo site_url('ims/ims_basicInfo');?>">个人信息</a></li>
+<div class="row">
+  <div class="col-sm-3 col-md-2 sidebar">
+   <ul class="nav nav-sidebar">
+    <?php if ($type == 1 || $type == 2): ?>
+    <?php if ($navi == 1): ?>
+    <li class="active">
+    <?php else: ?>
+    <li>
+    <?php endif;?>
+    <a href="<?php if ($type == 1) {
+	echo site_url('ims/ims_basic_info');
+} else {
+	echo site_url('ims/ims_basic_info_teacher');
+}
+?>">个人信息</a></li>
+  <?php endif;?>
 
-            <?php if ($navi == 2): ?>
-                <li class="active">
-            <?php else: ?>
-                <li>
-            <?php endif;?>
-             <a href="<?php echo site_url('ims/ims_management');?>">信息管理</a></li>
+  <?php if ($type == 2 || $type == 3): ?>
+  <?php if ($navi == 2): ?>
+  <li class="active">
+  <?php else: ?>
+  <li>
+  <?php endif;?>
+  <a href="<?php echo site_url('ims/ims_management');?>">信息管理</a></li>
+<?php endif;?>
 
-             <?php if ($navi == 3): ?>
-                <li class="active">
-            <?php else: ?>
-                <li>
-            <?php endif;?>
-            <a href="<?php echo site_url('ims/ims_permission');?>">权限管理</a></li>
+  <?php if ($type == 3): ?>
+  <?php if ($navi == 3): ?>
+  <li class="active">
+  <?php else: ?>
+  <li>
+  <?php endif;?>
+  <a href="<?php echo site_url('ims/ims_permission');?>">权限管理</a></li>
+<?php endif;?>
 
-             <?php if ($navi == 4): ?>
-                <li class="active">
-            <?php else: ?>
-                <li>
-            <?php endif;?>
-             <a href="<?php echo site_url('ims/ims_system');?>">系统信息</a></li>
-          </ul>
-        </div>
+  <?php if ($navi == 4): ?>
+  <li class="active">
+  <?php else: ?>
+  <li>
+  <?php endif;?>
+  <a href="<?php echo site_url('ims/ims_system');?>">系统信息</a></li>
+</ul>
+</div>

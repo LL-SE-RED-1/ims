@@ -30,6 +30,7 @@ class Ims_system extends CI_Controller {
 		$data['log'] = $log['query'];
 		$data['log_stati'] = $this->sys_info_model->get_statistic();
 		$data['uid'] = $this->session->userdata('uid');
+		$data['type'] = $this->session->userdata('user_type');
 
 		switch ($data['sys_info']['semester']) {
 			case 0:
@@ -73,7 +74,7 @@ class Ims_system extends CI_Controller {
 		$this->load->view('template/header');
 
 		$this->load->view('template/navigator', $data);
-		$this->load->view('template/side_navi', $data);
+		$this->load->view('template/side_navi');
 		$this->load->view('ims/ims_system_view');
 	}
 

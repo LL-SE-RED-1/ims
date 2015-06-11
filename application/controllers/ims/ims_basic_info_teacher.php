@@ -15,6 +15,7 @@ class Ims_basic_info_teacher extends CI_Controller {
 		} else {
 			$data['navi'] = 1;
 			$data['uid'] = $this->session->userdata('uid');
+			$data['type'] = $this->session->userdata('user_type');
 			$data['basicInfo'] = $this->basic_info_teacher_model->readInfo($data['uid']);
 
 			$this->load->view('template/header', $data);
