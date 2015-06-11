@@ -29,13 +29,6 @@ $(".close.icon").click(function() {
     $(this).parent().transition('scale out');
 });
 
-function show_positive_message() {
-    $(".close.icon").parent().transition('scale in');
-setTimeout(function() {
-    $(".close.icon").parent().transition('scale out');
-}, 3000);
-};
-
 $(document)
 .ready(function(){
     $('.ui.dropdown')

@@ -255,6 +255,8 @@
     <script src="./dist/semantic.js"></script>
 
 
+        <script src="./js/form_behaviour.js"></script>
+
     <script type="text/javascript">
 
         $('.ui.form')
@@ -361,49 +363,6 @@
 
 
 
-        var college_and_department;
-
-        $.getJSON( "metadata/college_and_department.json", function( data ) {
-            college_and_department = data;
-
-            for (el in college_and_department['college']){
-                console.log(el);
-                $('#college-menu').append("<div class='item'>" + el + "</div>");
-            }
-        });
-
-        $("input[name='college']").change(function(){
-            var picked = $(this).attr('value');
-            var department_list = college_and_department['college'][picked]['department'];
-            $("#department-menu").empty();
-            $("#department-text").empty();
-            department_list.forEach(function(el, i) {
-                $("#department-menu").append("<div class='item'>" + el + "</div>");
-            });
-        });
-
-
-//        new_begin
-
-        $("#back").click(function() {
-            history.go(-1);
-        });
-
-        $(".close.icon").click(function() {
-           $(this).parent().fadeOut('slow');
-        });
-
-        function show_positive_message() {
-            $(".close.icon").parent().fadeIn('slow');
-            setTimeout(function() {
-                $(".close.icon").parent().fadeOut('slow');
-            }, 3000);
-        };
-
-//        $('.ui.modal').modal('show');
-
-
-//        new_end
 
       $(document)
               .ready(function(){
