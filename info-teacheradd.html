@@ -100,8 +100,12 @@
 
         <form class="ui form segment transparent-seg">
 
-            <div class="three fields">
-              <div class="field">
+            <div class="four fields">
+                <div class="required field">
+                    <label>工号</label>
+                    <input placeholder="" type="text">
+                </div>
+              <div class="required field">
                 <label>名字</label>
                 <input placeholder="" type="text">
               </div>
@@ -133,7 +137,7 @@
                     <label>民族</label>
                     <input placeholder="" type="text">
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>职位</label>
                     <input placeholder="" type="text">
                 </div>
@@ -142,31 +146,27 @@
 
 
             <div class="three fields">
-                <div class="field">
+                <div class="required field">
                     <label>学院</label>
-                    <div class="ui selection dropdown">
+                    <div class="ui selection dropdown" name="college-dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <input name="hidden-field" type="hidden">
-                        <div class="menu">
-                            <div class="item" data-value="1">计算机学院</div>
-                            <div class="item" data-value="2">理学院</div>
+                        <input name="college" type="hidden">
+                        <div class="menu" id="college-menu">
                         </div>
                     </div>
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
                         <input name="hidden-field" type="hidden">
-                        <div class="menu">
-                            <div class="item" data-value="1">计算机科学与技术</div>
-                            <div class="item" data-value="2">软件工程</div>
+                        <div class="menu" id="department-menu">
                         </div>
                     </div>
                 </div>
-                <div class="field">
+                <div class="required field">
                     <label>学历</label>
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
@@ -183,7 +183,7 @@
 
 
             <div class="field">
-                <label>课程描述</label>
+                <label>个人描述</label>
                 <textarea></textarea>
             </div>
 
@@ -218,6 +218,28 @@
 
 
     <script type="text/javascript">
+
+
+        var college_and_department;
+
+        $.getJSON( "metadata/college_and_department.json", function( data ) {
+            college_and_department = data;
+
+            for (el in college_and_department['college']){
+                console.log(el);
+                $('#college-menu').append("<div class='item'>" + el + "</div>");
+            }
+        });
+
+        $("input[name='college']").change(function(){
+            var picked = $(this).attr('value');
+            var department_list = college_and_department['college'][picked]['department'];
+            $("#department-menu").empty();
+            department_list.forEach(function(el, i) {
+                $("#department-menu").append("<div class='item'>" + el + "</div>");
+            });
+        });
+
       $(document)
               .ready(function(){
                 $('.ui.dropdown')
