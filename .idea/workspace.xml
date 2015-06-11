@@ -2,15 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b2921ca5-f390-457a-af45-91acd39f5f4b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/basicinfo-teacher.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/info-coursereq.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/info-studentsearch.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/info-teachersearch.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/basicinfo-student.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/teacher._search.png" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/info-search.html" afterPath="$PROJECT_DIR$/info-coursesearch.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/info-coursereq-add.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/info-coursereq-check.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/basicinfo-teacher.html" afterPath="$PROJECT_DIR$/basicinfo-teacher.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/basicinfo.html" afterPath="$PROJECT_DIR$/basicinfo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-courseadd.html" afterPath="$PROJECT_DIR$/info-courseadd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-coursereq.html" afterPath="$PROJECT_DIR$/info-coursereq.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-coursesearch.html" afterPath="$PROJECT_DIR$/info-coursesearch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-manage.html" afterPath="$PROJECT_DIR$/info-manage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/permission.html" afterPath="$PROJECT_DIR$/permission.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-studentadd.html" afterPath="$PROJECT_DIR$/info-studentadd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-studentsearch.html" afterPath="$PROJECT_DIR$/info-studentsearch.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-teacheradd.html" afterPath="$PROJECT_DIR$/info-teacheradd.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/info-teachersearch.html" afterPath="$PROJECT_DIR$/info-teachersearch.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SE.iws" />
@@ -35,29 +38,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="permission.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/permission.html">
+      <file leaf-file-name="info-courseadd.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-courseadd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.625" vertical-offset="3042" max-vertical-offset="3870">
-              <caret line="241" column="29" selection-start-line="241" selection-start-column="29" selection-end-line="241" selection-end-column="29" />
+            <state vertical-scroll-proportion="-17.958334" vertical-offset="1924" max-vertical-offset="3165">
+              <caret line="157" column="16" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
               <folding>
-                <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#div#0;n#form#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info-coursereq-check.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-coursereq-check.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.0" vertical-offset="2232" max-vertical-offset="3360">
+              <caret line="170" column="47" selection-start-line="170" selection-start-column="47" selection-end-line="170" selection-end-column="47" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info-studentadd.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-studentadd.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.25" vertical-offset="2472" max-vertical-offset="3615">
+              <caret line="188" column="18" selection-start-line="188" selection-start-column="18" selection-end-line="189" selection-end-column="16" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,87 +73,21 @@
       <file leaf-file-name="info-manage.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/info-manage.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.75" vertical-offset="3207" max-vertical-offset="4305">
-              <caret line="249" column="58" selection-start-line="249" selection-start-column="58" selection-end-line="249" selection-end-column="58" />
+            <state vertical-scroll-proportion="-2.0" vertical-offset="3882" max-vertical-offset="4590">
+              <caret line="264" column="48" selection-start-line="264" selection-start-column="48" selection-end-line="264" selection-end-column="48" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#3;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="info-studentsearch.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-studentsearch.html">
+      <file leaf-file-name="info-coursereq-add.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-coursereq-add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.0379746" vertical-offset="1575" max-vertical-offset="3810">
-              <caret line="121" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="248" selection-end-column="425" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-coursereq.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-coursereq.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.75" vertical-offset="2832" max-vertical-offset="3960">
-              <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="211" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-coursesearch.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/info-coursesearch.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6681416" vertical-offset="2547" max-vertical-offset="3720">
-              <caret line="200" column="54" selection-start-line="200" selection-start-column="54" selection-end-line="200" selection-end-column="54" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#text#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="info-teachersearch.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/info-teachersearch.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.875" vertical-offset="1677" max-vertical-offset="3720">
-              <caret line="126" column="35" selection-start-line="126" selection-start-column="35" selection-end-line="126" selection-end-column="35" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="basicinfo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/basicinfo.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.658228" vertical-offset="2130" max-vertical-offset="3480">
-              <caret line="156" column="54" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="54" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="basicinfo-teacher.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/basicinfo-teacher.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.75" vertical-offset="2370" max-vertical-offset="3525">
-              <caret line="190" column="47" selection-start-line="190" selection-start-column="47" selection-end-line="190" selection-end-column="47" />
+            <state vertical-scroll-proportion="-15.0" vertical-offset="2070" max-vertical-offset="3225">
+              <caret line="164" column="16" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -154,17 +96,60 @@
       <file leaf-file-name="info-teacheradd.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/info-teacheradd.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-52.625" vertical-offset="1467" max-vertical-offset="3540">
-              <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="187" selection-end-column="18" />
+            <state vertical-scroll-proportion="-20.125" vertical-offset="2322" max-vertical-offset="3615">
+              <caret line="189" column="16" selection-start-line="189" selection-start-column="16" selection-end-line="189" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="student_search.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/images/student_search.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="info-teachersearch.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/info-teachersearch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8893805" vertical-offset="2397" max-vertical-offset="3765">
+              <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info-coursesearch.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-coursesearch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.012658" vertical-offset="2683" max-vertical-offset="3840">
+              <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#text#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info-studentsearch.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-studentsearch.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-12.833333" vertical-offset="2722" max-vertical-offset="3795">
+              <caret line="202" column="20" selection-start-line="202" selection-start-column="20" selection-end-line="202" selection-end-column="20" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#text#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="info-coursecheck.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/info-coursecheck.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="2535">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
@@ -176,16 +161,20 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/info-studentadd.html" />
-        <option value="$PROJECT_DIR$/basicinfo.html" />
-        <option value="$PROJECT_DIR$/basicinfo-teacher.html" />
         <option value="$PROJECT_DIR$/permission.html" />
         <option value="$PROJECT_DIR$/info-search.html" />
-        <option value="$PROJECT_DIR$/info-studentsearch.html" />
         <option value="$PROJECT_DIR$/info-coursereq.html" />
-        <option value="$PROJECT_DIR$/info-teachersearch.html" />
+        <option value="$PROJECT_DIR$/basicinfo-teacher.html" />
+        <option value="$PROJECT_DIR$/basicinfo.html" />
+        <option value="$PROJECT_DIR$/info-coursereq-check.html" />
         <option value="$PROJECT_DIR$/info-manage.html" />
+        <option value="$PROJECT_DIR$/info-studentadd.html" />
+        <option value="$PROJECT_DIR$/info-coursereq-add.html" />
+        <option value="$PROJECT_DIR$/info-teacheradd.html" />
+        <option value="$PROJECT_DIR$/info-courseadd.html" />
         <option value="$PROJECT_DIR$/info-coursesearch.html" />
+        <option value="$PROJECT_DIR$/info-studentsearch.html" />
+        <option value="$PROJECT_DIR$/info-teachersearch.html" />
       </list>
     </option>
   </component>
@@ -399,7 +388,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="3075">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="39" selection-end-column="5" />
           <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -444,7 +433,6 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#3;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -475,7 +463,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="3075">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="39" selection-end-column="5" />
           <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -520,7 +508,6 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#3;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -554,27 +541,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-studentadd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.2083335" vertical-offset="1306" max-vertical-offset="2190">
-          <caret line="99" column="0" selection-start-line="99" selection-start-column="0" selection-end-line="196" selection-end-column="14" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-courseadd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.625" vertical-offset="1527" max-vertical-offset="2205">
-          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="199" selection-end-column="13" />
-          <folding>
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/book.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -598,30 +564,17 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/basicinfo.html">
+    <entry file="file://$PROJECT_DIR$/info-coursereq.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.658228" vertical-offset="2130" max-vertical-offset="3480">
-          <caret line="156" column="54" selection-start-line="156" selection-start-column="43" selection-end-line="156" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basicinfo-teacher.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.75" vertical-offset="2370" max-vertical-offset="3525">
-          <caret line="190" column="47" selection-start-line="190" selection-start-column="47" selection-end-line="190" selection-end-column="47" />
+        <state vertical-scroll-proportion="-17.0" vertical-offset="2712" max-vertical-offset="4035">
+          <caret line="210" column="20" selection-start-line="210" selection-start-column="20" selection-end-line="210" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/permission.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.625" vertical-offset="3042" max-vertical-offset="3870">
+        <state vertical-scroll-proportion="-17.0" vertical-offset="2937" max-vertical-offset="3870">
           <caret line="241" column="29" selection-start-line="241" selection-start-column="29" selection-end-line="241" selection-end-column="29" />
           <folding>
             <element signature="n#nav#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -644,40 +597,104 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-teacheradd.html">
+    <entry file="file://$PROJECT_DIR$/basicinfo-teacher.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-52.625" vertical-offset="1467" max-vertical-offset="3540">
-          <caret line="184" column="0" selection-start-line="184" selection-start-column="0" selection-end-line="187" selection-end-column="18" />
+        <state vertical-scroll-proportion="-2.9113925" vertical-offset="2695" max-vertical-offset="3525">
+          <caret line="197" column="43" selection-start-line="197" selection-start-column="43" selection-end-line="197" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-teachersearch.html">
+    <entry file="file://$PROJECT_DIR$/basicinfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.875" vertical-offset="1677" max-vertical-offset="3720">
-          <caret line="126" column="35" selection-start-line="126" selection-start-column="35" selection-end-line="126" selection-end-column="35" />
+        <state vertical-scroll-proportion="-7.0" vertical-offset="2712" max-vertical-offset="3480">
+          <caret line="192" column="62" selection-start-line="192" selection-start-column="62" selection-end-line="192" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-coursecheck.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2535">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-coursereq-check.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.0" vertical-offset="2232" max-vertical-offset="3360">
+          <caret line="170" column="47" selection-start-line="170" selection-start-column="47" selection-end-line="170" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-studentadd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.25" vertical-offset="2472" max-vertical-offset="3615">
+          <caret line="188" column="18" selection-start-line="188" selection-start-column="18" selection-end-line="189" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.0" vertical-offset="3882" max-vertical-offset="4590">
+          <caret line="264" column="48" selection-start-line="264" selection-start-column="48" selection-end-line="264" selection-end-column="48" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-teacheradd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-20.125" vertical-offset="2322" max-vertical-offset="3615">
+          <caret line="189" column="16" selection-start-line="189" selection-start-column="16" selection-end-line="189" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-coursereq-add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.0" vertical-offset="2070" max-vertical-offset="3225">
+          <caret line="164" column="16" selection-start-line="164" selection-start-column="16" selection-end-line="164" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/info-courseadd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.958334" vertical-offset="1924" max-vertical-offset="3165">
+          <caret line="157" column="16" selection-start-line="157" selection-start-column="16" selection-end-line="157" selection-end-column="16" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-manage.html">
+    <entry file="file://$PROJECT_DIR$/info-coursesearch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.75" vertical-offset="3207" max-vertical-offset="4305">
-          <caret line="249" column="58" selection-start-line="249" selection-start-column="58" selection-end-line="249" selection-end-column="58" />
+        <state vertical-scroll-proportion="-4.012658" vertical-offset="2683" max-vertical-offset="3840">
+          <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#3;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/info-studentsearch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.0379746" vertical-offset="1575" max-vertical-offset="3810">
-          <caret line="121" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="248" selection-end-column="425" />
+        <state vertical-scroll-proportion="-12.833333" vertical-offset="2722" max-vertical-offset="3795">
+          <caret line="202" column="20" selection-start-line="202" selection-start-column="20" selection-end-line="202" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -686,22 +703,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/info-coursereq.html">
+    <entry file="file://$PROJECT_DIR$/info-teachersearch.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.75" vertical-offset="2832" max-vertical-offset="3960">
-          <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="211" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/info-coursesearch.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6681416" vertical-offset="2547" max-vertical-offset="3720">
-          <caret line="200" column="54" selection-start-line="200" selection-start-column="54" selection-end-line="200" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.8893805" vertical-offset="2397" max-vertical-offset="3765">
+          <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#text#0;n#svg#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
