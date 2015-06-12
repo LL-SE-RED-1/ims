@@ -67,8 +67,7 @@ class Ims_basic_info_teacher extends CI_Controller {
 			|| ($_FILES["file"]["type"] == "image/jpeg"))
 			&& ($_FILES["file"]["size"] < 2000000)) {
 			if ($_FILES["file"]["error"] > 0) {
-				$error = "Error:" . $_FILES["file"]["error"];
-				redirect("ims/ims_basic_info_teacher/index" . $error);
+				$file_info = "Error:" . $_FILES["file"]["error"];
 			} else {
 				if (file_exists("uploads/" . $this->session->userdata('uid'))) {
 					delete_files('uploads/' . $this->session->userdata('uid'));
@@ -76,7 +75,6 @@ class Ims_basic_info_teacher extends CI_Controller {
 
 				move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $this->session->userdata('uid'));
 				$file_info = "success";
-				redirect('ims/ims_basic_info_teacher/index/' . $file_info);
 			}
 		} else {
 			if ($_FILES["file"]["size"] > 2000000) {
@@ -85,8 +83,9 @@ class Ims_basic_info_teacher extends CI_Controller {
 				$file_info = "type";
 			}
 
-			redirect('ims/ims_basic_info_teacher/index/' . $file_info,'refresh');
 		}
+		redirect("ims/ims_basic_info_teacher/index/" . $file_info);
+
 	}
 }
 ?>
