@@ -52,7 +52,7 @@
                     <?php if (isset($info)): ?>
                     <?php foreach ($info as $item): ?>
                 <tr>
-                    <form action="<?php echo site_url('ims/ims_add_student/modify')?>" method="post">
+                    <form action="<?php echo site_url('ims/ims_add_student/manage/1/<?php echo $item["uid"]?>')?>" method="post">
                     <td  class="center aligned"><?php echo $item['name']?></td>
                     <td  class="center aligned"><?php echo $item['uid']?></td>
                     <td  class="center aligned"><?php if ($item['sex'] == 0) {

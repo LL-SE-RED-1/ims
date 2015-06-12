@@ -1,59 +1,112 @@
  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
 
-          <h2 class="ui header">Check Applied Course</h2>
+          <div class="col-xs-6 col-sm-6 huge-placeholder">
 
-          <table class="ui celled striped table">
-            <thead>
-          <tr><th colspan="3">
-            Unchecked Courses
-          </th>
-            </tr></thead><tbody>
-          <tr>
-            <td>
-              <i class="file outline icon"></i> Calculus
-            </td>
-            <td>Apply Teacher</td>
-            <td class="right aligned collapsing">1 hours ago</td>
-          </tr>
+            <h2 class="sub-header">审核课程</h2>
 
-          <tr>
-            <td>
-              <i class="file outline icon"></i> College English 4
-            </td>
-            <td>Apply Teacher</td>
-            <td class="right aligned">2 hours ago</td>
-          </tr>
+          </div>
 
-          <tr>
-            <td>
-              <i class="file outline icon"></i> A.I.
-            </td>
-            <td>Apply Teacher</td>
-            <td class="right aligned">3 hours ago</td>
-          </tr>
 
-          <tr>
-            <td>
-              <i class="file outline icon"></i> Western Literature
-            </td>
-            <td>Apply Teacher</td>
-            <td class="right aligned">5 hours ago</td>
-          </tr>
+            <div class="col-xs-6 col-sm-6 huge-placeholder">
+                <div class="ui right floated transparent-seg segment">
+                    <form class="ui form" action="<?php echo site_url('ims/ims_check_course/search')?>">
+                        <div class="ui left labeled icon input">
+                            <div class="ui teal dropdown label">
+                                <div class="text">类型</div>
+                                <i class="dropdown icon"></i>
+                                <input name="var" type="hidden">
+                                <div class="menu">
+                                    <div class="item" data-value="rid">申请编号</div>
+                                    <div class="item" data-value="name">课程名称</div>
+                                    <div class="item" data-value="college">开课学院</div>
+                                </div>
+                            </div>
+                            <input name="text" type="text" placeholder="_(:з」∠)_">
+                            <i class="search icon"></i>
+                        </div>
+                    </form>
+                </div>
 
-          <tr>
-            <td>
-              <i class="file outline icon"></i> Physics II
-            </td>
-            <td>Apply Teacher</td>
-            <td class="right aligned">9 hours ago</td>
-          </tr>
-            </tbody>
-          </table>
+            <div class="ui hidden divider"></div>
+            <div class="ui hidden divider"></div>
 
+            <div class="ui form transparent-seg right floated segment">
+              <div class="inline fields">
+
+
+
+              </div>
+
+
+
+            </div>
+
+          </div>
+
+            <div class="col-xs-6 col-sm-12">
+            <table class="ui striped table">
+                <thead>
+                <tr>
+                    <th class="center aligned">课程名称</th>
+                    <th class="center aligned">申请编号</th>
+                    <th class="center aligned">开课学院</th>
+                    <th  class="center aligned">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <?php if (isset($info)): ?>
+                    <?php foreach ($info as $item): ?>
+                <tr>
+
+                    <form class="ui form" action="<?php echo site_url('ims/ims_request_manage/')?>" method="post">
+                    <td  class="center aligned"><?php echo $info['name']?></td>
+                    <td  class="center aligned"><?php echo $info['rid']?></td>
+                    <td  class="center aligned"><?php echo $info['college']?></td>
+                    <td class="center aligned">
+                        <div class="ui buttons">
+                            <button class="ui blue button modify coursereq" type="submit">查看详情</button>
+                        </div>
+                    </td>
+                        </form>
+
+                </tr>
+                <?php endforeach;?>
+            <?php endif;?>
+
+                </tbody>
+            </table>
         </div>
+      </div>
     </div>
 
+
+
+    <script type="text/javascript">
+
+        $(".ui.blue.button.modify.coursereq").click(function() {
+            var id = $(this).closest("tr").children(':first-child').next().text();
+            location.href = "./info-courseadd#id=" + id;
+        });
+
+        $(".ui.red.button.delete.student").click(function() {
+            console.log($(this).closest("tr").children(':first-child').next().text());
+            $(this).closest("tr").remove();
+        });
+
+        $(document)
+                .ready(function(){
+                    $('.ui.dropdown')
+                            .dropdown()
+                    ;
+                    $('.ui.menu .dropdown')
+                            .dropdown({
+                                on: 'hover'
+                            })
+                    ;
+                })
+        ;
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -62,22 +115,33 @@
 
 
 
-    <script type="text/javascript">
-      $(document)
-              .ready(function(){
-                $('.ui.dropdown')
-                        .dropdown()
-                ;
-                $('.ui.menu .dropdown')
-                        .dropdown({
-                          on: 'hover'
-                        })
-                ;
-                $('.demo .ui.checkbox')
-                         .checkbox()
-                ;
-              })
-      ;
-    </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body></html>
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body>
+<style type="text/css">
+  body {
+    overflow:hidden;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .ui.small.circular.image.at-center {
+    display: block;
+    margin: 0 auto;
+  }
+
+  .ui.small.image.at-center-2 {
+      margin: 0 auto;
+      border-radius: 0;
+      display: inline-block;
+  }
+
+  .ui.transparent-seg {
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0px 0px 0px 0px;
+    padding: 0em 0em;
+  }
+
+</style>
+</html>

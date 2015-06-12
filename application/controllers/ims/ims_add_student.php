@@ -19,7 +19,9 @@ class Ims_add_student extends CI_Controller {
 			$data['uid'] = $this->session->userdata('uid');
 			$data['type'] = $this->session->userdata('user_type');
 			$data['func'] = $func;
-			$data['info'] = $info;
+			if ($info == NULL) {
+				$data['info'] = $this->add_student_model->readInfo($info);
+			}
 
 			$this->load->view('template/header');
 			$this->load->view('template/navigator2', $data);

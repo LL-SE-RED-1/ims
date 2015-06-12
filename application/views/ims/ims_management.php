@@ -97,7 +97,7 @@
 
 
   <div class="col-xs-4 col-sm-3 placeholder">
-    <a href="./info-coursereq.html">
+    <a href="<?php echo site_url('ims/')?>/ims_check_course">
       <div class="text-center at-center">
         <img class="ui small circular image at-center" src="<?php echo base_url()?>/images/validate.jpg">
         <p></p>
@@ -152,7 +152,7 @@
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <div class="text-center">
-      <a href="info-coursereq-add.html">
+      <a href="<?php echo site_url('ims/')?>/ims_course_manage">
         <img class="ui small image at-center-2" src="<?php echo base_url()?>images/book-pen.png">
         <p></p>
         <p>添加课程申请</p>

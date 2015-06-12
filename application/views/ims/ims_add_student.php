@@ -19,7 +19,7 @@
                     <?php if ($func == 0): ?>
                     <input name="uid" placeholder="" type="text">
                 <?php else: ?>
-                <input name="uid" value="<?php echo ($info['uid'])?>" type="text">
+                <input name="uid" value="<?php echo ($info['uid'])?>" readonly type="text">
             <?php endif;?>
                 </div>
               <div class="required field">
