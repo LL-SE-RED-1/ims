@@ -13,20 +13,18 @@
 
     <!--h2 class="ui header">Search</h2-->
 
-    <div class="ui action left icon input placeholder transparent-seg right floated segment" style="
-    margin-right: 2rem;
-    ">
+    <!--div class="ui action left icon input placeholder transparent-seg right floated segment" style="margin-right: 2rem;">
     <i class="search icon" style="
     left: auto;
     "></i>
     <input type="text" placeholder="_(:з」∠)_">
     <div class="ui teal button">搜索</div>
-  </div>
+  </di3-->
 
   <div class="ui hidden divider"></div>
   <div class="ui hidden divider"></div>
 
-  <div class="ui form transparent-seg right floated segment">
+  <div class="ui form transparent-seg right floated segment" style="visibility:hidden">
     <div class="inline fields">
 
       <div class="field">
