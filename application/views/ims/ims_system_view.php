@@ -96,7 +96,7 @@
 
           </div>
 
-         <!--  <div class="col-xs-6 col-sm-6 placeholder">
+         <div class="col-xs-6 col-sm-6 placeholder">
 
             <div class="ui searchable floating dropdown labeled icon button" tabindex="0" style="float: right;">
               <i class="filter icon"></i>
@@ -105,19 +105,19 @@
                 <div class="header">
                   Filter
                 </div>
-                <div class="item">
+                <div class="item condition">
                   <div class="ui red empty circular label"></div>
                   Error
                 </div>
-                <div class="item">
+                <div class="item condition">
                   <div class="ui yellow empty circular label"></div>
                   Warning
                 </div>
-                <div class="item">
+                <div class="item condition">
                   <div class="ui white empty circular label"></div>
                   Info
                 </div>
-                <div class="item">
+                <div class="item condition">
                   <div class="ui green empty circular label"></div>
                   All
                 </div>
@@ -126,7 +126,7 @@
 
             </div>
 
-          </div> -->
+          </div> 
 
           <table class="ui celled table">
             <thead>
@@ -155,7 +155,7 @@
                 </td>
               <?php else: ?>
                 <tr class="negative">
-                <td class="negative">
+                <td class="error">
                   <i class="remove icon"></i>
                   Error
                 </td>
@@ -209,7 +209,27 @@
 
   </style>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
+  
+  /*  $('span.text').change(function(){
+	  console.log($(this));
+  });*/
+
+  $('.item.condition').click(function(){
+	  var label = $(this).text().trim();
+	  $('tr').each(function(idx, el){
+		  if (idx != 0) {
+			  //console.log(el);
+			  if (label == 'All') $(el).show();
+			  else {
+				  if (label == $(el).children(":first").text().trim()) $(el).show();
+				  else $(el).hide();
+			  }
+		  }
+	  });
+  });
+
+  
       $(document)
               .ready(function(){
                 $('.ui.dropdown')
