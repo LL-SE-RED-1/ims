@@ -8,7 +8,7 @@
             <?php if (!file_exists("uploads/" . $uid)): ?>
                 <img class="img-responsive" src="<?php echo base_url()?>images/123.jpg" alt="..." style="height:300px overflow: hidden">
             <?php else: ?>
-             <img class="img-responsive" src="<?php echo base_url()?>uploads/<?php echo $uid;?>" alt="..." style="height:300px overflow: hidden">
+             <img class="img-responsive" src="<?php echo base_url()?>uploads/<?php echo $uid;?>?v=<?php echo time();?>" alt="..." style="height:300px overflow: hidden">
             <?php endif;?>
          </a>
 
