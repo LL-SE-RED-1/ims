@@ -62,7 +62,7 @@
         </div>
     </div>
 
-<script src="<?php echo base_url(); ?>js/form_feedack.js"></script>
+<script src="<?php echo base_url();?>js/form_feedack.js"></script>
 
 <!-- <script type="text/javascript">
 
@@ -133,14 +133,14 @@
 </script>
 -->
 
-<?php if($result_num == 2): ?>
+<?php if ($result_num == 2): ?>
     <script>
             $(document)
                     .ready(function() {
-                        show_negative_message(); 
+                        show_negative_message();
                     });
     </script>
-<?php endif; ?>
+<?php endif;?>
 
 </body>
 

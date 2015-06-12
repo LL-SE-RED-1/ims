@@ -6,25 +6,42 @@ class Add_student_model extends CI_Model {
 	}
 
 	public function writeInfo($info) {
-		$this->db->insert('imsStudent', $info);
-		$this->db->insert('imsUser',
-			array('uid' => $info['uid'],
-				'password' => md5($info['uid']),
-				'type' => 1,
-				'active' => 1,
-			)
-		);
-		//成功失败反馈
+		if (!$this->db->insert('imsStudent', $info)) {
+			return $this->db->_error_message();
+		}
+
+		if (!$this->db->insert('imsUser', array(
+			'uid' => $info['uid'],
+			'password' => md5($info['uid']),
+			'type' => 1,
+			'active' => 1,
+		)
+		)) {
+			return $this->db->_error_message();
+		}
+		return 0;
 	}
 
 	public function deleteInfo($info) {
-		$this->db->delete('imsUser', $info);
-		$this->db->delete('imsStudent', $info);
+		if (!$this->db->delete('imsUser', $info)) {
+			return $this->db->_error_message();
+		}
+		if (!$this->db->delete('imsStudent', $info)) {
+			return $this->db->_error_message();
+		}
+		return 0;
 	}
 
 	public function modifyInfo($info) {
-		$this->db->where('uid', $info['uid']);
-		$this->db->update('imsStudent', $info);
+		if (!$this->db->where('uid', $info['uid'])) {
+			return $this->db->_error_message();
+		}
+
+		if (!$this->db->update('imsStudent', $info)) {
+			return $this->db->_error_message();
+		}
+
+		return 0;
 	}
 
 	public function readInfo($info) {

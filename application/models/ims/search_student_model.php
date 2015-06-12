@@ -10,5 +10,9 @@ class Search_student_model extends CI_Model {
 		$query = $this->db->get_where('imsStudent', $info);
 		return $query->result_array();
 	}
+	public function searchAll() {
+		$query = $this->db->get('imsStudent');
+		return $query->result_array();
+	}
 }
 ?>

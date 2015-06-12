@@ -7,7 +7,14 @@
                 <div class="header">
                     Wow congratulations!
                 </div>
-                <p>你的修改已经成功被提交！</p>
+                <p>操作成功！</p>
+            </div>
+             <div class="ui negative message" style="display: none;">
+                     <i class="close icon"></i>
+                    <div class="header">
+                    Oops! 操作失败！
+                </div>
+                <p><?php echo $result_info;?></p>
             </div>
 
         <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_teacher/manage') . "/" . $func)?>" method="post">
@@ -324,6 +331,24 @@
                         <!--show_positive_message();-->
                     <!--});-->
         <!--</script>-->
+
+<?php if ($result_num == 1): ?>
+    <script>
+            $(document)
+                    .ready(function() {
+                        show_positive_message();
+                    });
+    </script>
+<?php endif;?>
+
+<?php if ($result_num == 2): ?>
+    <script>
+            $(document)
+                    .ready(function() {
+                        show_negative_message();
+                    });
+    </script>
+<?php endif;?>
 
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200</text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body>
 <style type="text/css">

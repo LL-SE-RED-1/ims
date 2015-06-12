@@ -9,7 +9,14 @@
                 <div class="header">
                     Wow congratulations!
                 </div>
-                <p>你的修改已经成功被提交！</p>
+                <p>操作成功！</p>
+            </div>
+            <div class="ui negative message" style="display: none;">
+                     <i class="close icon"></i>
+                    <div class="header">
+                    Oops! 操作失败！
+                </div>
+                <p><?php echo $result_info;?></p>
             </div>
             <!--new-->
 
@@ -192,7 +199,7 @@
      <script src="<?php echo base_url()?>js/form_feedack.js"></script>
 
     <script src="<?php echo base_url()?>js/form_behaviour.js"></script>
-    
+
     <script type="text/javascript">
 
         $('.ui.form')
@@ -346,6 +353,24 @@
 
 
     </script>
+
+<?php if ($result_num == 1): ?>
+    <script>
+            $(document)
+                    .ready(function() {
+                        show_positive_message();
+                    });
+    </script>
+<?php endif;?>
+
+<?php if ($result_num == 2): ?>
+    <script>
+            $(document)
+                    .ready(function() {
+                        show_negative_message();
+                    });
+    </script>
+<?php endif;?>
 
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"
 preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs>

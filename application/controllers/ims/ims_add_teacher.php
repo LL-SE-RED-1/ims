@@ -12,15 +12,16 @@ class Ims_add_teacher extends CI_Controller {
 		$this->load->model('ims/add_teacher_model');
 	}
 
-	public function index($info = NULL, $func = 0) {
+	public function index($info = NULL, $func = 0, $ret_result = 0, $error_info = NULL) {
 		$data['navi'] = 2;
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
+		$data['func'] = $func;
 		if ($info != NULL) {
 			$data['info'] = $this->add_teacher_model->readInfo($info);
 		}
-
-		$data['func'] = $func;
+		$data['result_num'] = $ret_result;
+		$data['result_info'] = $error_info;
 		$this->load->view('template/header');
 		$this->load->view('template/navigator2', $data);
 		$this->load->view('template/side_navi');
@@ -30,10 +31,16 @@ class Ims_add_teacher extends CI_Controller {
 	public function manage($func) {
 		$a = $this->input->post();
 		if ($this->input->post('delete')) {
-			$this->deleteInfo($a);
-			redirect('ims/ims_management');
+			$ret = $this->deleteInfo($a);
 		} elseif ($this->input->post('submit')) {
-			$this->writeInfo($a, $func);
+			$ret = $this->writeInfo($a, $func);
+		}
+		if ($ret === 0) {
+			//操作成功
+			$this->index(NULL, 0, 1, NULL);
+		} else {
+			//操作失败
+			$this->index(NULL, 0, 2, $ret);
 		}
 	}
 
@@ -52,18 +59,17 @@ class Ims_add_teacher extends CI_Controller {
 			'info' => ($a['info'] == NULL) ? NULL : $a['info'],
 		);
 		if ($func == 0) {
-			$this->add_teacher_model->writeInfo($info);
+			$ret = $this->add_teacher_model->writeInfo($info);
 		} else {
-			$this->add_teacher_model->modifyInfo($info);
+			$ret = $this->add_teacher_model->modifyInfo($info);
 		}
-
-		//成功失败反馈
-		redirect('ims/ims_add_teacher');
+		return $ret;
 	}
 
 	public function deleteInfo($a) {
 		$info = array('uid' => $a['uid']);
-		$this->add_teacher_model->deleteInfo($info);
+		$ret = $this->add_teacher_model->deleteInfo($info);
+		return $ret;
 	}
 }
 ?>
