@@ -4,7 +4,7 @@
 * author: lzx
 */
 
-class sys_info_model extends CI_Model
+class Sys_info_model extends CI_Model
 {
 	public function __construct()
 	{
@@ -46,5 +46,19 @@ class sys_info_model extends CI_Model
 		$stati['error'] = $error_query->num_rows();
 
 		return $stati;
+	}
+
+	public write_log($post)
+	{
+		$data = array(
+				'class' => $post['class'],
+               	'uid' => $post['uid'],
+               	'ip' => $post['ip'],
+               	'time' => $post['time'],
+               	'description' => $post['description']
+            );
+
+		$result = $this->db->insert('imsLog', $data); 
+		return $result;
 	}
 }

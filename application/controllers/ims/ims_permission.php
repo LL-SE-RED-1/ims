@@ -21,12 +21,33 @@ class Ims_permission extends CI_Controller
 
 	}
 
-	public function index()
+	public function index($result_num = 0)
 	{
 		$data['navi'] = 3;
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
 		$data['permission'] = $this->permission_model->get_per();
+		$data['result_num'] = $result_num;
+		switch($result_num){
+			case 1: 
+				$data['result_info'] = "创建成功！";
+				break;
+			case 2:
+				$data['result_info'] = "创建失败，请重试。";
+				break;
+			case 3: 
+				$data['result_info'] = "更新成功！";
+				break;
+			case 4:
+				$data['result_info'] = "更新失败，请重试。";
+				break;
+			case 5: 
+				$data['result_info'] = "删除成功！";
+				break;
+			case 6:
+				$data['result_info'] = "删除失败，请重试。";
+				break;
+		}
 
 		$this->load->view('template/header');
 		$this->load->view('template/navigator',$data);
@@ -44,12 +65,12 @@ class Ims_permission extends CI_Controller
 		
 		if($result)
 		{
-			redirect('ims/ims_permission');
+			redirect('ims/ims_permission/index/1');
 		}
-		else{
-			// do something
+		else
+		{
+			redirect('ims/ims_permission/index/2');
 		}
-		
 	}
 
 	public function modify($pid)
@@ -72,10 +93,11 @@ class Ims_permission extends CI_Controller
 
 		if($result)
 		{
-			redirect('ims/ims_permission');
+			redirect('ims/ims_permission/index/3');
 		}
-		else{
-			//do something
+		else
+		{
+			redirect('ims/ims_permission/index/4');
 		}
 	}
 
@@ -89,12 +111,12 @@ class Ims_permission extends CI_Controller
 
 		if($result)
 		{
-			redirect('ims/ims_permission');
+			redirect('ims/ims_permission/index/5');
 		}
-		else{
-			//do something
+		else
+		{
+			redirect('ims/ims_permission/index/6');
 		}
-
 	}
 
 }
