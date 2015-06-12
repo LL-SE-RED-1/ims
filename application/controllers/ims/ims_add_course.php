@@ -25,7 +25,7 @@ class Ims_add_course extends CI_Controller {
 		$this->load->view('template/navigator2', $data);
 
 		$this->load->view('template/side_navi');
-		$this->load->view('ims/Ims_add_course');
+		$this->load->view('ims/ims_add_course');
 
 	}
 
