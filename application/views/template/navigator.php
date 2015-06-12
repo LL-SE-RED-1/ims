@@ -11,7 +11,7 @@
 	echo site_url('ims/ims_management');
 }
   else{
-    echo site_url('ims/ims_system_view');
+    echo site_url('ims/ims_welcom');
   }
 ?>">教务管理系统</a>
       </div>

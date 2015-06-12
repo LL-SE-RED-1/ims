@@ -19,32 +19,39 @@ class Ims_interface_model extends CI_Model
 		return $sys_info;
 	}
 	
-	public write_log($post)
+	public function write_log($post)
 	{
 		$this->load->model('ims/sys_info_model');
 		$result = $this->sys_info_model->write_log($post);
 		return $result;
 	}
 
-	public verify_user($post)
+	public function verify_user($post)
 	{
 		$this->load->model('ims/user_model');
 		$result = $this->user_model->verify_user($post);
 		return $result;
 	}
 
-	public getStudent($userID)
+	public function getStudent($userID)
 	{	
 		$this->load->model('ims/basic_info_model');
 		$student = $this->basic_info_model->readInfo($userID);
 		return $student;
 	}
 
-	public getTeacher($userID)
+	public function getTeacher($userID)
 	{
 		$this->load->model('ims/basic_info_teacher_model');
 		$teacher = $this->basic_info_teacher_model->readInfo($userID);
 		return $teacher;
+	}
+
+	public function getCourse($courseID)
+	{
+		$this->load->model('ims/add_course_model');
+		$course = $this->add_course_model->readInfo($courseID);
+		return $course;
 	}
 
 }

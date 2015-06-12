@@ -48,7 +48,7 @@ class Sys_info_model extends CI_Model
 		return $stati;
 	}
 
-	public write_log($post)
+	public function write_log($post)
 	{
 		$data = array(
 				'class' => $post['class'],
