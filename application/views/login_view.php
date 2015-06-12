@@ -1,5 +1,5 @@
-<link href="<?php echo base_url(); ?>css/signin.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>css/cover.css" rel="stylesheet">
+<link href="<?php echo base_url();?>css/signin.css" rel="stylesheet">
+<link href="<?php echo base_url();?>css/cover.css" rel="stylesheet">
 
 <body>
 

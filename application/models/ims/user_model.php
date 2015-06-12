@@ -1,33 +1,26 @@
 <?php
-/*
-* User Model
-* author: lzx
-*/
 
-class User_model extends CI_Model
-{
-	public function __construct()
-	{
+class User_model extends CI_Model {
+	public function __construct() {
 		parent::__construct();
 		$this->load->database();
 	}
 
-	public function verify_user($post)
-	{
+	public function verify_user($post) {
 		$where_array = array('uid' => $post['uid'],
-							 'password' => md5($post['password']),
-							 'type' => $post['userType']);
-		$query = $this->db->get_where('imsUser',$where_array);
+			'password' => md5($post['password']),
+			'type' => $post['userType']);
+		$query = $this->db->get_where('imsUser', $where_array);
 
-		if($query->num_rows() == 1)
+		if ($query->num_rows == 1) {
 			return TRUE;
-		else
+		} else {
 			return FALSE;
+		}
 
 	}
 
-	public function modify_pass($post)
-	{
+	public function modify_pass($post) {
 		$data = array(
        		'password' => md5($post['new_pass'])
     	);
@@ -36,5 +29,5 @@ class User_model extends CI_Model
 
 		return $result;
 	}
-	
+
 }

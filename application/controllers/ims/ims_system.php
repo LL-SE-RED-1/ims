@@ -6,14 +6,12 @@
 * author: lzx
 */
 
-if( ! defined('BASEPATH')){
+if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
-class Ims_system extends CI_Controller
-{
-	public function __construct()
-	{
+class Ims_system extends CI_Controller {
+	public function __construct() {
 		parent::__construct();
 		// set default timezong 
 		date_default_timezone_set("Asia/Shanghai");
@@ -21,9 +19,9 @@ class Ims_system extends CI_Controller
 		if($this->session->userdata('is_logged_in') == FALSE)
 		 	redirect('login');
 	}
-	
-	public function index($page = 1)
-	{
+
+	public function index($page = 1) {
+
 		$this->load->model('ims/sys_info_model');
 		$this->load->helper('date');
 		$this->load->database();
@@ -42,32 +40,32 @@ class Ims_system extends CI_Controller
 				$data['sys_info']['semester']='系统信息错误';
 				break;
 			case 1:
-				$data['sys_info']['semester']='春学期';
+				$data['sys_info']['semester'] = '春学期';
 				break;
 			case 2:
-				$data['sys_info']['semester']='夏学期';
+				$data['sys_info']['semester'] = '夏学期';
 				break;
 			case 3:
-				$data['sys_info']['semester']='短学期';
+				$data['sys_info']['semester'] = '短学期';
 				break;
 			case 4:
-				$data['sys_info']['semester']='秋学期';
+				$data['sys_info']['semester'] = '秋学期';
 				break;
 			case 5:
-				$data['sys_info']['semester']='冬学期';
+				$data['sys_info']['semester'] = '冬学期';
 				break;
 			case 6:
-				$data['sys_info']['semester']='暑假';
+				$data['sys_info']['semester'] = '暑假';
 				break;
 		}
 
 		//get current time
 		$datestring = "%Y-%m-%d";
-		$data['sys_info']['date'] = substr(mdate($datestring),2); 
+
+		$data['sys_info']['date'] = substr(mdate($datestring), 2);
 
 		$timestring = "%H:%i";
 		$data['sys_info']['time'] = mdate($timestring);
-
 
 		// pagination for log records
 	    $this->load->library('pagination');
@@ -83,10 +81,12 @@ class Ims_system extends CI_Controller
         //get log records
         $data['log'] = $this->sys_info_model->get_log($pagination['per_page'],($page-1)*$pagination['per_page']);
 
+
         //load views
 		$this->load->view('template/header');
-		$this->load->view('template/navigator',$data);
-		$this->load->view('template/side_navi',$data);
+
+		$this->load->view('template/navigator', $data);
+		$this->load->view('template/side_navi');
 		$this->load->view('ims/ims_system_view');
 	}
 

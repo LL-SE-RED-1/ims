@@ -1,17 +1,23 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header"><strong>个人信息</strong></h1>
 
+
         <div class="row">
             <div class="col-md-4">
-                <a href="#" class="thumbnail" style="margin-top :5px; margin-bottom: 5px">
-                    <img class="img-responsive" src="<?php echo base_url()?>images/123.jpg" alt="..." style="height:300px overflow: hidden">
-                </a>
+            <a href="#" class="thumbnail" style="margin-top :5px; margin-bottom: 5px">
+            <?php if (!file_exists("uploads/" . $uid)): ?>
+                <img class="img-responsive" src="<?php echo base_url()?>images/123.jpg" alt="..." style="height:300px overflow: hidden">
+            <?php else: ?>
+             <img class="img-responsive" src="<?php echo base_url()?>uploads/<?php echo $uid;?>" alt="..." style="height:300px overflow: hidden">
+            <?php endif;?>
+         </a>
+
 
                 <hr>
                 <div class="input-group">
-                    <?php echo $file_info; ?>               
-                    <form action="<?php echo site_url('ims/ims_basic_info/do_upload')?>" method="post" enctype="multipart/form-data">
-                        <input type="file" name="file" id="file" /> 
+                    <?php echo $file_info;?>
+                    <form action="<?php echo site_url('ims/ims_basic_info_teacher/do_upload')?>" method="post" enctype="multipart/form-data">
+                        <input type="file" name="file" id="file" />
                         <br />
                         <input type="submit" name="submit" value="上传" />
                     </form>
@@ -99,15 +105,15 @@
                         </div>
 
                     </div>
-
+                    <div class="row">
+                        <div style="float:right">
+                            <button class="ui green button modify" name="save" value="save">修改</button>
+                            <div class="ui button delete" name="cancel" value="cancel" id="back">取消</div>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <div class="row">
-                <div style="float:right">
-                    <button class="ui green button modify" name="save" value="save">修改</button>
-                    <button class="ui button delete" name="cancel" value="cancel">取消</button>
-                </div>
-            </div>
+
         
 
     </div>
@@ -134,11 +140,14 @@ $(document)
     ;
 })
 ;
+
+$("#back").click(function() {
+    history.go(-1);
+});
 </script>
 
 </body>
 <style>
-
     .ui.transparent-seg {
         background-color: rgba(255, 255, 255, 0);
         box-shadow: 0px 0px 0px 0px;

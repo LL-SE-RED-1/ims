@@ -16,7 +16,10 @@ class Ims_add_teacher extends CI_Controller {
 		$data['navi'] = 2;
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
-		$data['info'] = $info;
+		if ($info != NULL) {
+			$data['info'] = $this->add_teacher_model->readInfo($info);
+		}
+
 		$data['func'] = $func;
 		$this->load->view('template/header');
 		$this->load->view('template/navigator2', $data);
@@ -24,39 +27,42 @@ class Ims_add_teacher extends CI_Controller {
 		$this->load->view('ims/ims_add_teacher');
 	}
 
-	public function manage() {
+	public function manage($func) {
 		$a = $this->input->post();
 		if ($this->input->post('delete')) {
 			$this->deleteInfo($a);
 			redirect('ims/ims_management');
 		} elseif ($this->input->post('submit')) {
-			$this->writeInfo($a);
-		} else {
-			redirect('ims/ims_management');
+			$this->writeInfo($a, $func);
 		}
 	}
 
-	public function writeInfo($a) {
+	public function writeInfo($a, $func) {
 		$info = array('uid' => $a['uid'],
 			'name' => $a['name'],
-			'sex' => $a['sex'],
-			'email' => $a['email'],
-			'phone' => $a['phone'],
-			'nation' => $a['nation'],
-			'birthday' => $a['birthday'],
-			'college' => $a['college'],
-			'department' => $a['department'],
-			'education' => $a['education'],
-			'position' => $a['position'],
-			'info' => $a['info'],
+			'sex' => ($a['sex'] == NULL) ? NULL : $a['sex'],
+			'email' => ($a['email'] == NULL) ? NULL : $a['email'],
+			'phone' => ($a['phone'] == NULL) ? NULL : $a['phone'],
+			'nation' => ($a['nation'] == NULL) ? NULL : $a['nation'],
+			'birthday' => ($a['birthday'] == NULL) ? NULL : $a['birthday'],
+			'college' => ($a['college'] == NULL) ? NULL : $a['college'],
+			'department' => ($a['department'] == NULL) ? NULL : $a['department'],
+			'education' => ($a['education'] == NULL) ? NULL : $a['education'],
+			'position' => ($a['position'] == NULL) ? NULL : $a['position'],
+			'info' => ($a['info'] == NULL) ? NULL : $a['info'],
 		);
-		$this->add_teacher_model->writeInfo($info);
+		if ($func == 0) {
+			$this->add_teacher_model->writeInfo($info);
+		} else {
+			$this->add_teacher_model->modifyInfo($info);
+		}
+
 		//成功失败反馈
 		redirect('ims/ims_add_teacher');
 	}
-	public function deleteInfo($arr) {
-		$info = array('uid' => $a['uid'],
-		);
+
+	public function deleteInfo($a) {
+		$info = array('uid' => $a['uid']);
 		$this->add_teacher_model->deleteInfo($info);
 	}
 }

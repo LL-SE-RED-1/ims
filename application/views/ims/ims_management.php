@@ -13,20 +13,18 @@
 
     <!--h2 class="ui header">Search</h2-->
 
-    <div class="ui action left icon input placeholder transparent-seg right floated segment" style="
-    margin-right: 2rem;
-    ">
+    <!--div class="ui action left icon input placeholder transparent-seg right floated segment" style="margin-right: 2rem;">
     <i class="search icon" style="
     left: auto;
     "></i>
     <input type="text" placeholder="_(:з」∠)_">
     <div class="ui teal button">搜索</div>
-  </div>
+  </di3-->
 
   <div class="ui hidden divider"></div>
   <div class="ui hidden divider"></div>
 
-  <div class="ui form transparent-seg right floated segment">
+  <div class="ui form transparent-seg right floated segment" style="visibility:hidden">
     <div class="inline fields">
 
       <div class="field">
@@ -97,7 +95,7 @@
 
 
   <div class="col-xs-4 col-sm-3 placeholder">
-    <a href="./info-coursereq.html">
+    <a href="<?php echo site_url('ims/')?>/ims_check_course">
       <div class="text-center at-center">
         <img class="ui small circular image at-center" src="<?php echo base_url()?>/images/validate.jpg">
         <p></p>
@@ -152,7 +150,7 @@
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <div class="text-center">
-      <a href="info-coursereq-add.html">
+      <a href="<?php echo site_url('ims/')?>/ims_request_manage">
         <img class="ui small image at-center-2" src="<?php echo base_url()?>images/book-pen.png">
         <p></p>
         <p>添加课程申请</p>

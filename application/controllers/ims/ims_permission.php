@@ -6,13 +6,12 @@
 * author: lzx
 */
 
-if( ! defined('BASEPATH')){
+if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
-class Ims_permission extends CI_Controller
-{
-	public function __construct(){
+class Ims_permission extends CI_Controller {
+	public function __construct() {
 		parent::__construct();
 
 		//if not logged in
@@ -59,18 +58,18 @@ class Ims_permission extends CI_Controller
 
 		//load views
 		$this->load->view('template/header');
-		$this->load->view('template/navigator',$data);
-		$this->load->view('template/side_navi',$data);
-		$this->load->view('ims/ims_permission_view',$data);
+		$this->load->view('template/navigator', $data);
+		$this->load->view('template/side_navi', $data);
+		$this->load->view('ims/ims_permission_view', $data);
 	}
 
 	public function create()
 	{
 		//store post data
 		$post['per_name'] = $this->input->post('per_name');
-		$post['stu_per'] = ($this->input->post('stu_per') == 'on');		
+		$post['stu_per'] = ($this->input->post('stu_per') == 'on');
 		$post['tea_per'] = ($this->input->post('tea_per') == 'on');
-				
+
 		$result = $this->permission_model->create_per($post);
 		
 		if($result)
@@ -97,9 +96,9 @@ class Ims_permission extends CI_Controller
 	}
 
 	public function update($pid)
-	{	
+	{
 		$post['pid'] = $pid;
-		$post['stu_per'] = ($this->input->post('stu_per') == 'on');		
+		$post['stu_per'] = ($this->input->post('stu_per') == 'on');
 		$post['tea_per'] = ($this->input->post('tea_per') == 'on');
 
 		$result = $this->permission_model->update_per($post);
@@ -116,10 +115,9 @@ class Ims_permission extends CI_Controller
 		}
 	}
 
-	public function delete($pid)
-	{	
+	public function delete($pid) {
 		$post['pid'] = $pid;
-		$post['stu_per'] = ($this->input->post('stu_per') == 'on');		
+		$post['stu_per'] = ($this->input->post('stu_per') == 'on');
 		$post['tea_per'] = ($this->input->post('tea_per') == 'on');
 
 		$result = $this->permission_model->delete_per($post);
@@ -133,6 +131,7 @@ class Ims_permission extends CI_Controller
 		{
 			//if delete failed
 			redirect('ims/ims_permission/index/6');
+
 		}
 	}
 

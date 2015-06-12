@@ -12,9 +12,9 @@
                     <form class="ui form" action="<?php echo site_url('ims/ims_search_teacher/search')?>" method="post">
                         <div class="ui left labeled icon input">
                             <div class="ui teal dropdown label">
-                                <div class="text">类型</div>
+                                <div class="text">工号</div>
                                 <i class="dropdown icon"></i>
-                                <input name="var" type="hidden">
+                                <input name="var" type="hidden" value="uid">
                                 <div class="menu">
                                     <div class="item" data-value="uid">工号</div>
                                     <div class="item" data-value="name">姓名</div>
@@ -56,7 +56,7 @@
                     <?php if (isset($info)): ?>
                     <?php foreach ($info as $item): ?>
                 <tr>
-                    <form class="ui form" action="<?php echo site_url('ims/ims_add_teacher/modify')?>" method="post">
+                    <form class="ui form" action="<?php echo site_url('ims/ims_add_teacher') . "/" . "index/" . $item['uid'] . '/1'?>" method="post">
                     <td  class="center aligned"><?php echo $item['name']?></td>
                     <td  class="center aligned"><?php echo $item['uid']?></td>
                     <td  class="center aligned"><?php if ($item['sex'] == 0) {

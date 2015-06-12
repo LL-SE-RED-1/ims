@@ -6,7 +6,7 @@
 * author: lzx
 */
 
-if( ! defined('BASEPATH')){
+if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
@@ -36,6 +36,7 @@ class Login extends CI_Controller
 	public function verify()
 	{
 		//load user model
+
 		$this->load->model('ims/user_model');
 
 		$post = $this->input->post();
@@ -58,7 +59,9 @@ class Login extends CI_Controller
 			//if login failed
 			//redirect to login page and echo error message
 			redirect('login/index/2');
+
 		}
-		
+
 	}
 }
+

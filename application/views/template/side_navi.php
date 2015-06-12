@@ -43,6 +43,7 @@ padding-top: 5%;
   <a href="<?php echo site_url('ims/ims_permission');?>">权限管理</a></li>
 <?php endif;?>
 
+
 <?php if ($type == 4): ?>
   <?php if ($navi == 4): ?>
   <li class="active">

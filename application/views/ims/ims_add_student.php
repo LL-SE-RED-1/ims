@@ -2,28 +2,30 @@
 
         <h2 class="ui header">添加学生</h2>
 
-        <div class="ui positive message" style="display: none;">
-            <i class="close icon"></i>
-            <div class="header">
-                Wow congratulations!
+        <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_student/manage') . "/" . $func)?>" method="post">
+        <!--new-->
+            <div class="ui positive message" style="display: none;">
+                <i class="close icon"></i>
+                <div class="header">
+                    Wow congratulations!
+                </div>
+                <p>你的修改已经成功被提交！</p>
             </div>
-            <p>你的修改已经成功被提交！</p>
-        </div>
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_student/manage')?>" method="post">
+            <!--new-->
 
             <div class="four fields">
                 <div class="required field">
                     <label>学号</label>
                     <?php if ($func == 0): ?>
-                    <input name="uid" placeholder="" type="text">
+                    <input name="uid" type="text" value="">
                 <?php else: ?>
-                <input name="uid" value="<?php echo ($info['uid'])?>" type="text">
+                <input name="uid" value="<?php echo ($info['uid'])?>" readonly type="text">
             <?php endif;?>
                 </div>
               <div class="required field">
                 <label>名字</label>
                 <?php if ($func == 0): ?>
-                <input name='name' placeholder="" type="text">
+                <input name='name'  type="text" value="">
                 <?php else: ?>
                 <input name='name' value="<?php echo $info['name']?>" type="text">
             <?php endif;?>
@@ -34,7 +36,7 @@
                       <div class="default text"></div>
                       <i class="dropdown icon"></i>
                       <?php if ($func == 0): ?>
-                      <input name="nation" type="hidden">
+                      <input name="nation" type="hidden" value="">
                     <?php else: ?>
                       <input name="nation" type="hidden" value="<?php echo $info['nation']?>">
                     <?php endif;?>
@@ -47,7 +49,7 @@
                 <div class="field">
                     <label>性别</label>
                     <div class="ui selection dropdown">
-                        <div class="default text"></div>
+                        <div class="text"></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="sex" type="hidden">
@@ -67,7 +69,7 @@
                 <div class="field">
                     <label>邮箱</label>
                     <?php if ($func == 0): ?>
-                    <input name="email" placeholder="" type="text">
+                    <input name="email"  type="text">
                     <?php else: ?>
                     <input name="email" value="<?php echo $info['email']?>" type="text">
                     <?php endif;?>
@@ -84,7 +86,7 @@
                 <div class="field">
                     <label>手机号</label>
                     <?php if ($func == 0): ?>
-                    <input name="phone" placeholder="" type="text">
+                    <input name="phone"  type="text">
                     <?php else: ?>
                     <input name="phone" value="<?php echo $info['phone']?>" type="text">
                     <?php endif;?>
@@ -95,7 +97,10 @@
                 <div class="required field">
                     <label>学院</label>
                     <div class="ui selection dropdown" name="college-dropdown">
-                        <div class="default text"></div>
+                        <div class="text"><?php if ($func != 0) {
+	echo $info['college'];
+}
+?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
@@ -109,7 +114,10 @@
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="text" id="department-text"></div>
+                        <div class="text" id="department-text"><?php if ($func != 0) {
+	echo $info['department'];
+}
+?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="department" type="hidden">
@@ -141,7 +149,7 @@
                 <div class="required field">
                     <label>班级</label>
                     <?php if ($func == 0): ?>
-                    <input name="class" placeholder="" type="text">
+                    <input name="class"  type="text">
                     <?php else: ?>
                     <input name="class" value="<?php echo $info['class']?>" type="text">
                     <?php endif;?>
