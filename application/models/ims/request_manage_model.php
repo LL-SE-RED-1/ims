@@ -3,6 +3,7 @@
 class Requeset_manage_model extends CI_Model {
 	public function __construct() {
 		parent::__construct();
+		$this->load->helper('date');
 		$this->load->database();
 	}
 
@@ -10,16 +11,17 @@ class Requeset_manage_model extends CI_Model {
 		$this->db->insert('imsCourseReq',
 			array('rid' => $a['rid'],
 				'cid' => $a['cid'],
-				'uid' => $a['uid'],
-				'time' => $a['time'],
-				'reason' => $a['reason'],
+				'uid' => $this->session->userdata['uid'],
+				'name' => $a['name'],
+				'time' => time(),
+				'reason' => ($a['reason']==NULL)?NULL:$a['reason'],
 				'state' => 0,
 				'ctype' => $a['ctype'],
 				'college' => $a['college'],
 				'department' => $a['department'],
 				'credit' => $a['credit'],
 				'semester' => $a['semester'],
-				'info' => $a['info'],
+				'info' => ($a['info']==NULL)?NULL:$a['info'],
 				)
 			);
 	}
@@ -43,6 +45,17 @@ class Requeset_manage_model extends CI_Model {
 			);
 		//反馈
 		}
+	}
+
+	public function readInfo($info){
+		$query=$this->db->get_where('imsCourseReq',array('rid'=>$info));
+		return $query->row_array();
+	}
+
+	public function readPerson($ID){
+		$query=$this->db->get_where('imsTeacher',array('uid'=>$ID));
+		$result=$query->row_array();
+		return $result['name'];
 	}
 
 }

@@ -2,7 +2,7 @@
 
         <h2 class="ui header">添加课程申请</h2>
 
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_request_manage/manage/') . $func?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_request_manage/manage') . "/" . $func?>" method="post">
 
 
             <div class="ui positive message" style="display: none;">
@@ -17,11 +17,11 @@
             <div class="two fields">
                 <div class="required field">
                     <label>申请人</label>
-                    <input name="applicant" placeholder="" type="text" readonly>
+                    <input name="person" value="<?php echo $person?>" type="text" readonly>
                 </div>
                 <div class="required field">
                     <label>申请时间</label>
-                    <input name="time" placeholder="" type="text" readonly>
+                    <input name="time" value="<?php echo $info['time']?>" type="text" readonly>
                 </div>
             </div>
         <?php endif;?>
@@ -29,37 +29,77 @@
             <div class="four fields">
                 <div class="required field">
                     <label>课程代码</label>
-                    <input name="cid" placeholder="" type="text">
+                    <?php if ($func == 0): ?>
+                    <input name="cid" type="text">
+        <?php else: ?>
+                    <input name="cid" value="<?php echo $info['cid']?>" type="text">
+        <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>课程名称</label>
+                    <?php if ($func == 0): ?>
                     <input name="name" placeholder="" type="text">
+            <?php else: ?>
+                    <input name="name" value="<?php echo $info['name']?>" type="text">
+            <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>学分</label>
+                    <?php if ($func == 0): ?>
                     <input name="credit" placeholder="" type="text">
+        <?php else: ?>
+                    <input name="credit" value="<?php echo $info['credit']?>" type="text">
+        <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>课程类型</label>
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <input name="type" type="hidden">
+                        <?php if ($func == 0): ?>
+                        <input name="ctype" type="hidden">
+        <?php else: ?>
+                        <input name="ctype" type="hidden" value="<?php echo $info['ctype']?>">
+        <?php endif;?>
                         <div class="menu">
-                            <div class="item">实验课</div>
-                            <div class="item">理论课</div>
+                            <div class="item" data-value="1">实验课</div>
+                            <div class="item" data-value="2">理论课</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="two fields">
+            <div class="three fields">
+                <div class="required field">
+                    <label>课程类型</label>
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
+                        <?php if ($func == 0): ?>
+                        <input name="semester" type="hidden">
+        <?php else: ?>
+                        <input name="semester" type="hidden" value="<?php echo $info['semester']?>">
+        <?php endif;?>
+                        <div class="menu">
+                            <div class="item" data-value="0">上半学期</div>
+                            <div class="item" date-value="1">下半学期</div>
+                            <div class="item" date-value="2">长学期</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="required field">
                     <label>学院</label>
                     <div class="ui selection dropdown" name="college-dropdown">
-                        <div class="default text"></div>
+                        <div class="text"><?php if ($func != 0) {
+	echo $info['college'];
+}
+?></div>
                         <i class="dropdown icon"></i>
+                        <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
+        <?php else: ?>
+                        <input name="college" type="hidden" value="<?php echo $info['college']?>">
+        <?php endif;?>
                         <div class="menu" id="college-menu">
                         </div>
                     </div>
@@ -67,9 +107,16 @@
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="text" id="department-text"></div>
+                        <div class="text" id="department-text"><?php if ($func != 0) {
+	echo $info['department'];
+}
+?></div>
                         <i class="dropdown icon"></i>
+                        <?php if ($func == 0): ?>
                         <input name="department" type="hidden">
+        <?php else: ?>
+                        <input name="department" type="hidden" value="<?php echo $info['department']?>">
+        <?php endif;?>
                         <div class="menu" id="department-menu">
                         </div>
                     </div>
@@ -81,12 +128,20 @@
             <div class="two fields">
               <div class="field">
                 <label>课程描述</label>
+                <?php if ($func == 0): ?>
                 <textarea name="info"></textarea>
+        <?php else: ?>
+                <textarea name="info"><?php echo $info['info']?></textarea>
+        <?php endif;?>
               </div>
 
             <div class="required field">
                 <label>申请理由</label>
+                <?php if ($func == 0): ?>
                 <textarea name="reason"></textarea>
+        <?php else: ?>
+                <textarea name="reason"><?php echo $info['reason']?></textarea>
+        <?php endif;?>
             </div>
                 </div>
 

@@ -103,7 +103,6 @@
                     </div>
 
                 </form>
->>>>>>> 37aaa28ac0cda56206619efe79fe63dace7849b2
             </div>
             <div class="row">
                 <div style="float:right">

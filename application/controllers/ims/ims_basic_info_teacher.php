@@ -19,6 +19,15 @@ class Ims_basic_info_teacher extends CI_Controller {
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
 		$data['basicInfo'] = $this->basic_info_teacher_model->readInfo($data['uid']);
+		if ($file_info == "success") {
+			$data['file_info'] = "文件上传成功！";
+		} else if ($file_info == "size") {
+			$data['file_info'] = "文件大小超过限制！";
+		} else if ($file_info == "type") {
+			$data['file_info'] = "文件类型错误！";
+		} else {
+			$data['file_info'] = $file_info;
+		}
 
 		$this->load->view('template/header', $data);
 		$this->load->view('template/navigator');

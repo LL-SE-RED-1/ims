@@ -15,7 +15,11 @@ class Ims_request_manage extends CI_Controller {
 		$data['navi'] = 2;
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
-		$data['info'] = $info;
+		if ($info != NULL) {
+			$data['info'] = $this->request_manage_model->readInfo($info);
+			$data['person'] = $this->request_manage_model->readPerson($data['info']['uid']);
+		}
+
 		$data['func'] = $func;
 
 		$this->load->view('template/header');
