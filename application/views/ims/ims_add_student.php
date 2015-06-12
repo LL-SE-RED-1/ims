@@ -2,7 +2,7 @@
 
         <h2 class="ui header">添加学生</h2>
 
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_student/manage')?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_student/manage/<?php echo $func?>')?>" method="post">
         <!--new-->
             <div class="ui positive message" style="display: none;">
                 <i class="close icon"></i>

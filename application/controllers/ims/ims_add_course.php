@@ -27,24 +27,39 @@ class Ims_add_course extends CI_Controller {
 
 	}
 
-	public function writeInfo() {
-		$info = array('cid' => $this->input->post('cid'),
-			'name' => $this->input->post('name'),
-			'ctype' => $this->input->post('ctype'),
-			'credit' => $this->input->post('credit'),
-			'college' => $this->input->post('college'),
-			'department' => $this->input->post('department'),
-			'semester' => $this->input->post('semester'),
-			'info' => $this->input->post('info'),
-		);
-		$this->add_course_model->writeInfo($info);
-		//反馈
-		$this->index();
+	public function manage($func) {
+		$a = $this->input->post();
+		if ($this->input->post('delete')) {
+			$this->deleteInfo($a);
+			redirect('ims/ims_management');
+		} elseif ($this->input->post('submit')) {
+			$this->writeInfo($a, $func);
+		}
+	}
 
+	public function writeInfo($a, $func) {
+		$info = array('cid' => $a['cid'],
+			'name' => $a['name'],
+			'credit' => $a['credit'],
+			'type' => $a['type'],
+			'college' => $a['college'],
+			'department' => $a['department'],
+			'info' => $a['info'],
+		);
+		if ($func == 0) {
+			$this->add_course_model->writeInfo($info);
+		} else {
+			$this->add_course_model->modifyInfo($info);
+		}
+
+		//成功失败反馈
+		redirect('ims/ims_add_course');
 	}
 
 	public function deleteInfo() {
-
+		$info = array('cid' => $a['cid'],
+		);
+		$this->add_course_model->deleteInfo($info);
 	}
 }
 ?>

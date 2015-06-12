@@ -21,5 +21,9 @@ class Add_student_model extends CI_Model {
 		$this->db->delete('imsUser', $info);
 		$this->db->delete('imsStudent', $info);
 	}
+
+	public function modifyInfo($info) {
+
+	}
 }
 ?>

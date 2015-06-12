@@ -20,5 +20,9 @@ class Add_teacher_model extends CI_Model {
 		$this->db->delete('imsUser', $info);
 		$this->db->delete('imsTeacher', $info);
 	}
+
+	public function modifyInfo($info) {
+
+	}
 }
 ?>

@@ -24,19 +24,17 @@ class Ims_add_teacher extends CI_Controller {
 		$this->load->view('ims/ims_add_teacher');
 	}
 
-	public function manage() {
+	public function manage($func) {
 		$a = $this->input->post();
 		if ($this->input->post('delete')) {
 			$this->deleteInfo($a);
 			redirect('ims/ims_management');
 		} elseif ($this->input->post('submit')) {
-			$this->writeInfo($a);
-		} else {
-			redirect('ims/ims_management');
+			$this->writeInfo($a, $func);
 		}
 	}
 
-	public function writeInfo($a) {
+	public function writeInfo($a, $func) {
 		$info = array('uid' => $a['uid'],
 			'name' => $a['name'],
 			'sex' => $a['sex'],
@@ -50,7 +48,12 @@ class Ims_add_teacher extends CI_Controller {
 			'position' => $a['position'],
 			'info' => $a['info'],
 		);
-		$this->add_teacher_model->writeInfo($info);
+		if ($func == 0) {
+			$this->add_teacher_model->writeInfo($info);
+		} else {
+			$this->add_teacher_model->modifyInfo($info);
+		}
+
 		//成功失败反馈
 		redirect('ims/ims_add_teacher');
 	}

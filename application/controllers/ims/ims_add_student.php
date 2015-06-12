@@ -28,19 +28,17 @@ class Ims_add_student extends CI_Controller {
 		}
 	}
 
-	public function manage() {
+	public function manage($func) {
 		$a = $this->input->post();
 		if ($this->input->post('delete')) {
 			$this->deleteInfo($a);
 			redirect('ims/ims_management');
 		} elseif ($this->input->post('submit')) {
-			$this->writeInfo($a);
-		} else {
-			redirect('ims/ims_management');
+			$this->writeInfo($a, $func);
 		}
 	}
 
-	public function writeInfo($a) {
+	public function writeInfo($a, $func) {
 		$info = array('uid' => $a['uid'],
 			'name' => $a['name'],
 			'sex' => $a['sex'],
@@ -53,7 +51,12 @@ class Ims_add_student extends CI_Controller {
 			'grade' => $a['grade'],
 			'class' => $a['class'],
 		);
-		$this->add_student_model->writeInfo($info);
+		if ($func == 0) {
+			$this->add_student_model->writeInfo($info);
+		} else {
+			$this->add_student_model->modifyInfo($info);
+		}
+
 		//成功失败反馈
 		redirect('ims/ims_add_student');
 	}
@@ -63,5 +66,6 @@ class Ims_add_student extends CI_Controller {
 		);
 		$this->add_student_model->deleteInfo($info);
 	}
+
 }
 ?>

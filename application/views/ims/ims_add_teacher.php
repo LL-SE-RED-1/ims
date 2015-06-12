@@ -10,7 +10,7 @@
                 <p>你的修改已经成功被提交！</p>
             </div>
 
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_teacher/manage')?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_teacher/manage/<?php echo $func?>')?>" method="post">
 
             <div class="four fields">
                 <div class="required field">
@@ -182,17 +182,17 @@
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
 
-    <script src="./js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="./js/holder.js"></script>
+    <script src="<?php echo base_url()?>/js/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./js/ie10-viewport-bug-workaround.js"></script>
+    <script src="<?php echo base_url()?>/js/ie10-viewport-bug-workaround.js"></script>
 
-    <script src="./dist/semantic.js"></script>
+    <script src="<?php echo base_url()?>/dist/semantic.js"></script>
 
-        <script src="./js/form_feedack.js"></script>
+        <script src="<?php echo base_url()?>/js/form_feedack.js"></script>
 
-        <script src="./js/form_behaviour.js"></script>
+        <script src="<?php echo base_url()?>/js/form_behaviour.js"></script>
 
 
     <script type="text/javascript">

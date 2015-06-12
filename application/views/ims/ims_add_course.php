@@ -2,7 +2,7 @@
 
         <h2 class="ui header">添加课程</h2>
 
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/manage')?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/manage/<?php echo $func?>')?>" method="post">
 
 
             <div class="ui positive message" style="display: none;">
