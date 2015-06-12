@@ -2,7 +2,7 @@
 
         <h2 class="ui header">添加课程</h2>
 
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/manage/<?php echo $func?>')?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/manage') . "/" . $func?>" method="post">
 
 
             <div class="ui positive message" style="display: none;">
@@ -44,9 +44,9 @@
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
-                        <input name="type" type="hidden">
+                        <input name="ctype" type="hidden">
                     <?php else: ?>
-                        <input name="type" type="hidden" value="<?php echo $info['type']?>">
+                        <input name="ctype" type="hidden" value="<?php echo $info['ctype']?>">
                     <?php endif;?>
                         <div class="menu">
                             <div class="item" data-value="1">实验课</div>
@@ -56,11 +56,31 @@
                 </div>
             </div>
 
-            <div class="two fields">
+            <div class="three fields">
+                <div class="required field">
+                    <label>学期</label>
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
+                        <?php if ($func == 0): ?>
+                        <input name="semester" type="hidden">
+                    <?php else: ?>
+                        <input name="semester" type="hidden" value="<?php echo $info['semester']?>">
+                    <?php endif;?>
+                        <div class="menu">
+                            <div class="item" data-value="0">上半学期</div>
+                            <div class="item" data-value="1">下半学期</div>
+                            <div class="item" data-value="2">长学期</div>
+                        </div>
+                    </div>
+                </div>
                 <div class="required field">
                     <label>学院</label>
                     <div class="ui selection dropdown" name="college-dropdown">
-                        <div class="default text"></div>
+                        <div class="text"><?php if ($func != 0) {
+	echo $info['college'];
+}
+?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
@@ -74,7 +94,10 @@
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="text" id="department-text"></div>
+                        <div class="text" id="department-text"><?php if ($func != 0) {
+	echo $info['department'];
+}
+?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="department" type="hidden">
@@ -142,12 +165,12 @@
                                 prompt : '请输入课程代码'
                             },
                             {
-                                type   : 'length[10]',
-                                prompt : '课程代码需要是十位，请重新输入'
+                                type   : 'length[8]',
+                                prompt : '课程代码需要八位，请重新输入'
                             },
                             {
-                                type   : 'maxLength[11]',
-                                prompt : '课程代码需要是十位，请重新输入'
+                                type   : 'maxLength[8]',
+                                prompt : '课程代码需要八位，请重新输入'
                             }
                         ]
                     },
@@ -170,6 +193,15 @@
                             {
                                 type   : 'empty',
                                 prompt : '请输入学分'
+                            }
+                        ]
+                    },
+                    学期: {
+                        identifier: 'semester',
+                        rules: [
+                            {
+                                type   : 'empty',
+                                prompt : '请选择学期类型'
                             }
                         ]
                     },

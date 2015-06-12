@@ -22,7 +22,13 @@ class Add_teacher_model extends CI_Model {
 	}
 
 	public function modifyInfo($info) {
+		$this->db->where('uid', $info['uid']);
+		$this->db->update('imsTeacher', $info);
+	}
 
+	public function readInfo($info) {
+		$query = $this->db->get_where('imsTeacher', array('uid' => $info));
+		return $query->row_array();
 	}
 }
 ?>

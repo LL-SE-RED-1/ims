@@ -10,7 +10,7 @@
                 <p>你的修改已经成功被提交！</p>
             </div>
 
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_teacher/manage/<?php echo $func?>')?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_teacher/manage') . "/" . $func)?>" method="post">
 
             <div class="four fields">
                 <div class="required field">
@@ -18,7 +18,7 @@
                     <?php if ($func == 0): ?>
                     <input name="uid" placeholder="" type="text">
                 <?php else: ?>
-                    <input name="uid" value="<?php echo $info['uid']?>" type="text">
+                    <input name="uid" value="<?php echo $info['uid']?>"  readonly type="text">
             <?php endif;?>
                 </div>
               <div class="required field">
@@ -40,7 +40,7 @@
                 <div class="field">
                     <label>性别</label>
                     <div class="ui selection dropdown">
-                        <div class="default text"></div>
+                        <div class="text"></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="sex" type="hidden">
@@ -48,8 +48,8 @@
                         <input name="sex" type="hidden" value="<?php echo $info['sex']?>">
             <?php endif;?>
                         <div class="menu">
-                            <div class="item" data-value="1">男</div>
-                            <div class="item" data-value="2">女</div>
+                            <div class="item" data-value="0">男</div>
+                            <div class="item" data-value="1">女</div>
                         </div>
                     </div>
                 </div>
@@ -76,7 +76,10 @@
                 <div class="field">
                     <label>民族</label>
                     <div class="ui selection dropdown">
-                        <div class="default text"></div>
+                        <div class="text"><?php if ($func != 0) {
+	echo $info['nation'];
+}
+?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="nation" type="hidden">
@@ -105,7 +108,10 @@
                 <div class="required field">
                     <label>学院</label>
                     <div class="ui selection dropdown" name="college-dropdown">
-                        <div class="default text"></div>
+                        <div class="text"><?php if ($func != 0) {
+	echo $info['college'];
+}
+?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
@@ -119,7 +125,10 @@
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="text" id="department-text"></div>
+                        <div class="text" id="department-text"><?php if ($func != 0) {
+	echo $info['department'];
+}
+?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="department" type="hidden">
@@ -133,7 +142,15 @@
                 <div class="required field">
                     <label>学历</label>
                     <div class="ui selection dropdown">
-                        <div class="default text"></div>
+                        <div class="text"><?php if ($func != 0) {
+	if ($info['education'] == 1) {
+		echo "博士";
+	} else {
+		echo "硕士";
+	}
+
+}
+?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="education" type="hidden">
@@ -153,16 +170,16 @@
             <div class="field">
                 <label>个人描述</label>
                 <?php if ($func == 0): ?>
-                <textarea></textarea>
+                <textarea name="info"></textarea>
                 <?php else: ?>
-                <textarea><?php echo $info['info']?></textarea>
+                <textarea name="info"><?php echo $info['info']?></textarea>
             <?php endif;?>
             </div>
 
             <br>
 
             <div class="ui grey right floated  button" id="back">返回</div>
-            <?php if ($func == 0): ?>
+            <?php if ($func != 0): ?>
             <button class="ui red right floated  button" type="submit" name="delete" value="delete">删除</button>
             <?php endif;?>
             <button class="ui green  right floated  button" type="submit" value="submit" name="submit">提交</button>
@@ -190,9 +207,9 @@
 
     <script src="<?php echo base_url()?>/dist/semantic.js"></script>
 
-        <script src="<?php echo base_url()?>/js/form_feedack.js"></script>
+        <script src="<?php echo base_url()?>js/form_feedack.js"></script>
 
-        <script src="<?php echo base_url()?>/js/form_behaviour.js"></script>
+        <script src="<?php echo base_url()?>js/form_behaviour.js"></script>
 
 
     <script type="text/javascript">

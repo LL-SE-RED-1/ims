@@ -17,7 +17,9 @@ class Ims_add_course extends CI_Controller {
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
 		$data['func'] = $func;
-		$data['info'] = $info;
+		if ($info != NULL) {
+			$data['info'] = $this->add_course_model->readInfo($info);
+		}
 
 		$this->load->view('template/header');
 		$this->load->view('template/navigator2', $data);
@@ -40,11 +42,12 @@ class Ims_add_course extends CI_Controller {
 	public function writeInfo($a, $func) {
 		$info = array('cid' => $a['cid'],
 			'name' => $a['name'],
+			'semester' => $a['semester'],
 			'credit' => $a['credit'],
-			'type' => $a['type'],
+			'ctype' => $a['ctype'],
 			'college' => $a['college'],
 			'department' => $a['department'],
-			'info' => $a['info'],
+			'info' => ($a['info'] == NULL) ? NULL : $a['info'],
 		);
 		if ($func == 0) {
 			$this->add_course_model->writeInfo($info);

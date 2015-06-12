@@ -19,7 +19,7 @@ class Ims_add_student extends CI_Controller {
 			$data['uid'] = $this->session->userdata('uid');
 			$data['type'] = $this->session->userdata('user_type');
 			$data['func'] = $func;
-			if ($info == NULL) {
+			if ($info != NULL) {
 				$data['info'] = $this->add_student_model->readInfo($info);
 			}
 
@@ -43,15 +43,15 @@ class Ims_add_student extends CI_Controller {
 	public function writeInfo($a, $func) {
 		$info = array('uid' => $a['uid'],
 			'name' => $a['name'],
-			'sex' => $a['sex'],
-			'email' => $a['email'],
-			'phone' => $a['phone'],
-			'nation' => $a['nation'],
-			'birthday' => $a['birthday'],
-			'college' => $a['college'],
-			'department' => $a['department'],
-			'grade' => $a['grade'],
-			'class' => $a['class'],
+			'sex' => ($a['sex'] == NULL) ? NULL : $a['sex'],
+			'email' => ($a['email'] == NULL) ? NULL : $a['email'],
+			'phone' => ($a['phone'] == NULL) ? NULL : $a['phone'],
+			'nation' => ($a['nation'] == NULL) ? NULL : $a['nation'],
+			'birthday' => ($a['birthday'] == NULL) ? NULL : $a['birthday'],
+			'college' => ($a['college'] == NULL) ? NULL : $a['college'],
+			'department' => ($a['department'] == NULL) ? NULL : $a['department'],
+			'grade' => ($a['grade'] == NULL) ? NULL : $a['grade'],
+			'class' => ($a['class'] == NULL) ? NULL : $a['class'],
 		);
 		if ($func == 0) {
 			$this->add_student_model->writeInfo($info);
@@ -63,7 +63,7 @@ class Ims_add_student extends CI_Controller {
 		redirect('ims/ims_add_student');
 	}
 
-	public function deleteInfo($arr) {
+	public function deleteInfo($a) {
 		$info = array('uid' => $a['uid'],
 		);
 		$this->add_student_model->deleteInfo($info);
