@@ -10,12 +10,12 @@
 
             <div class="col-xs-6 col-sm-6 huge-placeholder">
                 <div class="ui right floated transparent-seg segment">
-                    <form class="ui form" action="<?php echo site_url('ims/ims_check_course/search')?>">
+                    <form class="ui form" action="<?php echo site_url('ims/ims_check_course/search')?>" method="post">
                         <div class="ui left labeled icon input">
                             <div class="ui teal dropdown label">
-                                <div class="text">类型</div>
+                                <div class="text">申请编号</div>
                                 <i class="dropdown icon"></i>
-                                <input name="var" type="hidden">
+                                <input name="var" type="hidden" value="rid">
                                 <div class="menu">
                                     <div class="item" data-value="rid">申请编号</div>
                                     <div class="item" data-value="name">课程名称</div>
@@ -59,10 +59,10 @@
                     <?php foreach ($info as $item): ?>
                 <tr>
 
-                    <form class="ui form" action="<?php echo site_url('ims/ims_request_manage/')?>" method="post">
-                    <td  class="center aligned"><?php echo $info['name']?></td>
-                    <td  class="center aligned"><?php echo $info['rid']?></td>
-                    <td  class="center aligned"><?php echo $info['college']?></td>
+                    <form class="ui form" action="<?php echo site_url('ims/ims_request_manage/') . "/" . "index/" . $item['rid'] . '/1'?>" method="post">
+                    <td  class="center aligned"><?php echo $item['name']?></td>
+                    <td  class="center aligned"><?php echo $item['rid']?></td>
+                    <td  class="center aligned"><?php echo $item['college']?></td>
                     <td class="center aligned">
                         <div class="ui buttons">
                             <button class="ui blue button modify coursereq" type="submit">查看详情</button>

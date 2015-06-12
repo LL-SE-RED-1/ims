@@ -152,7 +152,7 @@
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <div class="text-center">
-      <a href="<?php echo site_url('ims/')?>/ims_course_manage">
+      <a href="<?php echo site_url('ims/')?>/ims_request_manage">
         <img class="ui small image at-center-2" src="<?php echo base_url()?>images/book-pen.png">
         <p></p>
         <p>添加课程申请</p>

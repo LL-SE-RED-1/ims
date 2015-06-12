@@ -25,24 +25,26 @@ class Ims_request_manage extends CI_Controller {
 		$this->load->view('template/header');
 		$this->load->view('template/navigator2', $data);
 		$this->load->view('template/side_navi');
-		$this->load->view('ims/Ims_request_manage');
+		$this->load->view('ims/ims_request_manage');
 	}
 
-	public function manage($func) {
+	public function manage($func, $rid = 0) {
 		$a = $this->input->post();
 		if ($func == 1) {
 			if ($this->input->post('delete')) {
-				$this->updateInfo($a, 1);
+				$this->updateInfo($a, 1, $rid);
 			} else {
-				$this->updateInfo($a, 0);
+				$this->updateInfo($a, 0, $rid);
 			}
+			redirect('ims/ims_check_course');
 		} else {
 			$this->writeInfo($a);
+			redirect('ims/ims_request_manage');
 		}
 	}
 
-	public function updateInfo($a, $t) {
-		$this->request_manage_model->updateInfo($a, $t);
+	public function updateInfo($a, $t, $rid) {
+		$this->request_manage_model->updateInfo($a, $t, $rid);
 	}
 
 	public function writeInfo($a) {

@@ -7,6 +7,9 @@ if (!defined('BASEPATH')) {
 class Ims_check_course extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
+		if ($this->session->userdata('is_logged_in') == False) {
+			redirect('login');
+		}
 		$this->load->model('ims/check_course_model');
 	}
 
@@ -14,7 +17,9 @@ class Ims_check_course extends CI_Controller {
 		$data['navi'] = 2;
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
-		$data['info'] = $info;
+		if ($info != NULL) {
+			$data['info'] = $info;
+		}
 
 		$this->load->view('template/header');
 		$this->load->view('template/navigator2', $data);

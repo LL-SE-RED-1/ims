@@ -2,7 +2,7 @@
 
         <h2 class="ui header">添加课程申请</h2>
 
-        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_request_manage/manage') . "/" . $func?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_request_manage/manage') . "/" . $func . "/" . $info['rid']?>" method="post">
 
 
             <div class="ui positive message" style="display: none;">
@@ -13,7 +13,7 @@
                 <p>你的修改已经成功被提交！</p>
             </div>
 
-            <?php if ($func == 0): ?>
+            <?php if ($func != 0): ?>
             <div class="two fields">
                 <div class="required field">
                     <label>申请人</label>
@@ -71,19 +71,19 @@
 
             <div class="three fields">
                 <div class="required field">
-                    <label>课程类型</label>
+                    <label>学期</label>
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="semester" type="hidden">
-        <?php else: ?>
+                    <?php else: ?>
                         <input name="semester" type="hidden" value="<?php echo $info['semester']?>">
-        <?php endif;?>
+                    <?php endif;?>
                         <div class="menu">
                             <div class="item" data-value="0">上半学期</div>
-                            <div class="item" date-value="1">下半学期</div>
-                            <div class="item" date-value="2">长学期</div>
+                            <div class="item" data-value="1">下半学期</div>
+                            <div class="item" data-value="2">长学期</div>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
         <?php endif;?>
               </div>
 
-            <div class="required field">
+            <div class="field">
                 <label>申请理由</label>
                 <?php if ($func == 0): ?>
                 <textarea name="reason"></textarea>
@@ -151,8 +151,11 @@
                 <div class="ui grey right floated  button" id="back">返回</div>
                 <?php if ($func != 0): ?>
             <button class="ui red right floated  button" name="delete" type="submit" value="delete">不同意</button>
+            <button class="ui green  right floated  button" name="submit" value="submit" type="submit">同意</button>
+            <?php else: ?>
+<button class="ui green  right floated  button" name="submit" value="submit" type="submit">提交</button>
         <?php endif;?>
-                <button class="ui green  right floated  button" name="submit" value="submit" type="submit">同意</button>
+
 
         </form>
 
@@ -212,12 +215,12 @@
                                 prompt : '请输入课程代码'
                             },
                             {
-                                type   : 'length[10]',
-                                prompt : '课程代码需要是十位，请重新输入'
+                                type   : 'length[8]',
+                                prompt : '课程代码需要是八位，请重新输入'
                             },
                             {
-                                type   : 'maxLength[11]',
-                                prompt : '课程代码需要是十位，请重新输入'
+                                type   : 'maxLength[8]',
+                                prompt : '课程代码需要是八位，请重新输入'
                             }
                         ]
                     },
