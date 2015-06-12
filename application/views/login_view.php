@@ -40,13 +40,13 @@
                             <option value="1">学生</option>
                             <option value="2">教师</option>
                             <option value="3">管理员</option>
-                            <option value="4">admin</option>
+                            <option value="4">系统管理员</option>
                         </select>
 
                         <div class="form-signin checkbox">
-                            <label>
+                            <!-- <label>
                                 <input type="checkbox" value="remember-me"> 记住密码
-                            </label>
+                            </label> -->
                         </div>
                         <button class="form-signin btn btn-lg btn-primary btn-block" type="submit">登录</button>
                     </form>
