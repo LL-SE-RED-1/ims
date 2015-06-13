@@ -14,7 +14,7 @@ class Add_teacher_model extends CI_Model {
 		if (!$this->db->insert('imsUser',
 			array('uid' => $info['uid'],
 				'password' => md5($info['uid']),
-				'type' => 1,
+				'type' => 2,
 				'active' => 1,
 			)
 		)) {
