@@ -10,5 +10,10 @@ class Search_teacher_model extends CI_Model {
 		$query = $this->db->get_where('imsTeacher', $info);
 		return $query->result_array();
 	}
+
+	public function searchAll() {
+		$query = $this->db->get('imsTeacher');
+		return $query->result_array();
+	}
 }
 ?>

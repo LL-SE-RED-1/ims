@@ -6,24 +6,43 @@ class Add_teacher_model extends CI_Model {
 	}
 
 	public function writeInfo($info) {
-		$this->db->insert('imsTeacher', $info);
-		$this->db->insert('imsUser',
+		if (!$this->db->insert('imsTeacher', $info)) {
+			return $this->db->_error_message();
+		}
+
+		if (!$this->db->insert('imsUser',
 			array('uid' => $info['uid'],
 				'password' => md5($info['uid']),
 				'type' => 1,
 				'active' => 1,
 			)
-		);
-		//成功失败反馈
+		)) {
+			return $this->db->_error_message();
+		}
+		return 0;
 	}
 	public function deleteInfo($info) {
-		$this->db->delete('imsUser', $info);
-		$this->db->delete('imsTeacher', $info);
+		if (!$this->db->delete('imsUser', $info)) {
+			return $this->db->_error_message();
+		}
+
+		if (!$this->db->delete('imsTeacher', $info)) {
+			return $this->db->_error_message();
+		}
+
+		return 0;
 	}
 
 	public function modifyInfo($info) {
-		$this->db->where('uid', $info['uid']);
-		$this->db->update('imsTeacher', $info);
+		if (!$this->db->where('uid', $info['uid'])) {
+			return $this->db->_error_message();
+		}
+
+		if (!$this->db->update('imsTeacher', $info)) {
+			return $this->db->_error_message();
+		}
+
+		return 0;
 	}
 
 	public function readInfo($info) {

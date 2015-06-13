@@ -8,8 +8,15 @@
             <div class="header">
                 Wow congratulations!
             </div>
-            <p>你的修改已经成功被提交！</p>
+            <p>操作成功！</p>
         </div>
+         <div class="ui negative message" style="display: none;">
+                     <i class="close icon"></i>
+                    <div class="header">
+                    Oops! 操作失败！
+                </div>
+                <p><?php echo $result_info;?></p>
+            </div>
 
         <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/manage') . "/" . $func?>" method="post">
 
@@ -151,6 +158,9 @@
 
     <script src="<?php echo base_url()?>/dist/semantic.js"></script>
 
+    <script src="<?php echo base_url()?>js/form_feedack.js"></script>
+
+    <script src="<?php echo base_url()?>js/form_behaviour.js"></script>
 
     <script type="text/javascript">
 
@@ -234,62 +244,26 @@
                     on     : 'blur'
                 });
 
-
-        var college_and_department;
-
-        $.getJSON( "<?php echo base_url()?>metadata/college_and_department.json", function( data ) {
-            college_and_department = data;
-
-            for (el in college_and_department['college']){
-                console.log(el);
-                $('#college-menu').append("<div class='item'>" + el + "</div>");
-            }
-        });
-
-        $("input[name='college']").change(function(){
-            var picked = $(this).attr('value');
-            var department_list = college_and_department['college'][picked]['department'];
-            $("#department-menu").empty();
-            $("#department-text").empty();
-            department_list.forEach(function(el, i) {
-                $("#department-menu").append("<div class='item'>" + el + "</div>");
-            });
-        });
-
-
-
-        $("#back").click(function() {
-            history.go(-1);
-        });
-
-        $(".close.icon").click(function() {
-            $(this).parent().fadeOut('slow');
-        });
-
-        function show_positive_message() {
-            $(".close.icon").parent().fadeIn('slow');
-            setTimeout(function() {
-                $(".close.icon").parent().fadeOut('slow');
-            }, 3000);
-        };
-
-        $(document)
-              .ready(function(){
-                $('.ui.dropdown')
-                        .dropdown()
-                ;
-                $('.ui.menu .dropdown')
-                        .dropdown({
-                          on: 'hover'
-                        })
-                ;
-                $('.demo .ui.checkbox')
-                         .checkbox()
-                ;
-              })
-      ;
     </script>
 
+
+<?php if ($result_num == 1): ?>
+    <script>
+            $(document)
+                    .ready(function() {
+                        show_positive_message();
+                    });
+    </script>
+<?php endif;?>
+
+<?php if ($result_num == 2): ?>
+    <script>
+            $(document)
+                    .ready(function() {
+                        show_negative_message();
+                    });
+    </script>
+<?php endif;?>
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none"
 style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs></defs><text x="0" y="10"
 style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200

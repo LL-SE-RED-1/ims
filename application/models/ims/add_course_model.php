@@ -7,17 +7,30 @@ class Add_course_model extends CI_Model {
 	}
 
 	public function writeInfo($info) {
-		$this->db->insert('imsCourse', $info);
-		//反馈
+		if (!$this->db->insert('imsCourse', $info)) {
+			return $this->db->_error_message();
+		}
+
+		return 0;
 	}
 
 	public function deleteInfo($info) {
-		$this->db->delete('imsCourse', $info);
+		if (!$this->db->delete('imsCourse', $info)) {
+			return $this->db->_error_message();
+		}
+		return 0;
 	}
 
 	public function modifyInfo($info) {
-		$this->db->where('cid', $info['cid']);
-		$this->db->update('imsCourse', $info);
+		if (!$this->db->where('cid', $info['cid'])) {
+			return $this->db->_error_message();
+		}
+
+		if (!$this->db->update('imsCourse', $info)) {
+			return $this->db->_error_message();
+		}
+
+		return 0;
 	}
 
 	public function readInfo($info) {

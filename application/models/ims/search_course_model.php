@@ -10,5 +10,10 @@ class Search_course_model extends CI_Model {
 		$query = $this->db->get_where('imsCourse', $info);
 		return $query->result_array();
 	}
+
+	public function searchAll() {
+		$query = $this->db->get('imsCourse');
+		return $query->result_array();
+	}
 }
 ?>

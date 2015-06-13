@@ -12,7 +12,7 @@ class Ims_add_course extends CI_Controller {
 		$this->load->model('ims/add_course_model');
 	}
 
-	public function index($info = NULL, $func = 0) {
+	public function index($info = NULL, $func = 0, $ret_result = 0, $error_info = NULL) {
 		$data['navi'] = 2;
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
@@ -20,10 +20,10 @@ class Ims_add_course extends CI_Controller {
 		if ($info != NULL) {
 			$data['info'] = $this->add_course_model->readInfo($info);
 		}
-
+		$data['result_num'] = $ret_result;
+		$data['result_info'] = $error_info;
 		$this->load->view('template/header');
 		$this->load->view('template/navigator2', $data);
-
 		$this->load->view('template/side_navi');
 		$this->load->view('ims/ims_add_course');
 
@@ -32,9 +32,16 @@ class Ims_add_course extends CI_Controller {
 	public function manage($func) {
 		$a = $this->input->post();
 		if ($this->input->post('cancel')) {
-			$this->deleteInfo($a);
+			$ret = $this->deleteInfo($a);
 		} elseif ($this->input->post('submit')) {
-			$this->writeInfo($a, $func);
+			$ret = $this->writeInfo($a, $func);
+		}
+		if ($ret === 0) {
+			//操作成功
+			$this->index(NULL, 0, 1, NULL);
+		} else {
+			//操作失败
+			$this->index(NULL, 0, 2, $ret);
 		}
 	}
 
@@ -49,20 +56,18 @@ class Ims_add_course extends CI_Controller {
 			'info' => ($a['info'] == NULL) ? NULL : $a['info'],
 		);
 		if ($func == 0) {
-			$this->add_course_model->writeInfo($info);
+			$ret = $this->add_course_model->writeInfo($info);
 		} else {
-			$this->add_course_model->modifyInfo($info);
+			$ret = $this->add_course_model->modifyInfo($info);
 		}
-
-		//成功失败反馈
-		redirect('ims/ims_add_course');
+		return $ret;
 	}
 
 	public function deleteInfo($a) {
 		$info = array('cid' => $a['cid'],
 		);
-		$this->add_course_model->deleteInfo($info);
-		redirect('ims/ims_management');
+		$ret = $this->add_course_model->deleteInfo($info);
+		return $ret;
 	}
 }
 ?>

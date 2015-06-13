@@ -29,11 +29,16 @@ class Ims_search_student extends CI_Controller {
 	}
 
 	public function search() {
-		$info = array( //0->equ,1->not equ,2->larger,3->less,4->contain,5->not contain
-			$this->input->post('var') => $this->input->post('text'),
-		);
-		$result = $this->search_student_model->search($info);
-		$this->index($result);
+		if ($this->input->post('text') == NULL) {
+			$result = $this->search_student_model->searchAll();
+			$this->index($result);
+		} else {
+			$info = array( //0->equ,1->not equ,2->larger,3->less,4->contain,5->not contain
+				$this->input->post('var') => $this->input->post('text'),
+			);
+			$result = $this->search_student_model->search($info);
+			$this->index($result);
+		}
 	}
 }
 ?>
