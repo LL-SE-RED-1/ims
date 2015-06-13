@@ -8,6 +8,7 @@ class Ims_request_manage extends CI_Controller {
 		if ($this->session->userdata('is_logged_in') == False) {
 			redirect('login');
 		}
+		//装载后端model
 		$this->load->model('ims/request_manage_model');
 	}
 
@@ -16,11 +17,13 @@ class Ims_request_manage extends CI_Controller {
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
 		if ($info != NULL) {
+			//根据申请id获得课程申请的详细信息
 			$data['info'] = $this->request_manage_model->readInfo($info);
 			$data['person'] = $this->request_manage_model->readPerson($data['info']['uid']);
 		}
 
 		$data['func'] = $func;
+		//显示操作结果
 		$data['result_num'] = $ret_result;
 		$data['result_info'] = $error_info;
 		$this->load->view('template/header');
@@ -49,11 +52,12 @@ class Ims_request_manage extends CI_Controller {
 		}
 	}
 
+	//同意或不同意申请
 	public function updateInfo($a, $t, $rid) {
 		$ret = $this->request_manage_model->updateInfo($a, $t, $rid);
 		return $ret;
 	}
-
+	//教师提交申请
 	public function writeInfo($a) {
 		$ret = $this->request_manage_model->writeInfo($a);
 		return $ret;

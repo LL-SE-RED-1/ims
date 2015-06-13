@@ -6,12 +6,13 @@ class Search_course_model extends CI_Model {
 	}
 
 	public function search($info) {
-		// $str="select * from imsCourse where"
+		//根据条件select信息
 		$query = $this->db->get_where('imsCourse', $info);
 		return $query->result_array();
 	}
 
 	public function searchAll() {
+		//返回所有信息
 		$query = $this->db->get('imsCourse');
 		return $query->result_array();
 	}

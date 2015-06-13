@@ -10,6 +10,7 @@ class Ims_check_course extends CI_Controller {
 		if ($this->session->userdata('is_logged_in') == False) {
 			redirect('login');
 		}
+		//装载对应的model
 		$this->load->model('ims/check_course_model');
 	}
 
@@ -27,8 +28,10 @@ class Ims_check_course extends CI_Controller {
 		$this->load->view('ims/ims_course_check');
 	}
 
+	//根据相关内容搜索对应的课程申请信息
 	public function search() {
 		if ($this->input->post('text') == NULL) {
+			//如果未输入内容，显示全部信息
 			$result = $this->check_course_model->searchAll();
 			$this->index($result);
 		} else {

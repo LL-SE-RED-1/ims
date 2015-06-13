@@ -6,11 +6,12 @@ class Search_student_model extends CI_Model {
 	}
 
 	public function search($info) {
-		// $str="select * from imsStudent where"
+		//根据条件select信息
 		$query = $this->db->get_where('imsStudent', $info);
 		return $query->result_array();
 	}
 	public function searchAll() {
+		//返回所有信息
 		$query = $this->db->get('imsStudent');
 		return $query->result_array();
 	}

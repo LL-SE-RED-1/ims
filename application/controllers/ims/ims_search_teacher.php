@@ -9,6 +9,7 @@ class Ims_search_teacher extends CI_Controller {
 		if ($this->session->userdata('is_logged_in') == False) {
 			redirect('login');
 		}
+		//
 		$this->load->model('ims/search_teacher_model');
 	}
 
@@ -19,6 +20,7 @@ class Ims_search_teacher extends CI_Controller {
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
 		if ($info != NULL) {
+			//搜索结果
 			$data['info'] = $info;
 		}
 
@@ -31,6 +33,7 @@ class Ims_search_teacher extends CI_Controller {
 	}
 
 	public function search() {
+		//如果没有输入内容，返回所有信息
 		if ($this->input->post('text') == NULL) {
 			$result = $this->search_teacher_model->searchAll();
 			$this->index($result);

@@ -33,15 +33,17 @@ class Request_manage_model extends CI_Model {
 
 		return 0;
 	}
-
+	//管理员管理课程申请
 	public function updateInfo($a, $t, $rid) {
 		$this->db->where('rid', $rid);
 		if ($t == 1) {
+			//不同意申请
 			if (!$this->db->update('imsCourseReq', array('state' => 2))) {
 				return $this->db->_error_message();
 			}
 
 		} else {
+			//同意申请
 			if (!$this->db->update('imsCourseReq', array('state' => 1))) {
 				$this->db->_error_message();
 			}
