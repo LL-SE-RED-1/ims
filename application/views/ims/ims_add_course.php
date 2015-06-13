@@ -24,25 +24,43 @@
                 <div class="required field">
                     <label>课程代码</label>
                     <?php if ($func == 0): ?>
-                    <input name="cid" placeholder="" type="text">
+                    <input name="cid" placeholder="" <?php if ($type == 2) {
+	echo "readonly";
+}
+?> type="text">
                     <?php else: ?>
-                    <input name="cid" value="<?php echo $info['cid']?>" type="text">
+                    <input name="cid" value="<?php echo $info['cid']?>" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>课程名称</label>
                     <?php if ($func == 0): ?>
-                    <input name="name" placeholder="" type="text">
+                    <input name="name" placeholder="" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
                     <?php else: ?>
-                    <input name="name" value="<?php echo $info['name']?>" type="text">
+                    <input name="name" value="<?php echo $info['name']?>" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>学分</label>
                     <?php if ($func == 0): ?>
-                    <input name="credit" placeholder="" type="text">
+                    <input name="credit" placeholder="" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
                     <?php else: ?>
-                    <input name="credit" value="<?php echo $info['credit']?>" type="text">
+                    <input name="credit" value="<?php echo $info['credit']?>" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
@@ -121,19 +139,27 @@
               <div class="field">
                 <label>课程描述</label>
                 <?php if ($func == 0): ?>
-                <textarea name="info"></textarea>
+                <textarea name="info" <?php if ($type == 2) {
+	echo "readonly";
+}
+?> ></textarea>
                     <?php else: ?>
-                <textarea name="info"><?php echo $info['info']?></textarea>
+                <textarea name="info" <?php if ($type == 2) {
+	echo "readonly";
+}
+?> ><?php echo $info['info']?></textarea>
                     <?php endif;?>
               </div>
 
             <br>
 
                 <div class="ui grey right floated  button" id="back">返回</div>
+                <?php if ($type == 3): ?>
                 <?php if ($func != 0): ?>
-                <button class="ui red right floated  button" type="submit" name="cancel" value="cancel">删除</button>
+                <button class="ui red right floated  button" type="submit" name="cancel" value="cancel" id="delete">删除</button>
             <?php endif;?>
                 <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
+            <?php endif;?>
 
         </form>
 
@@ -243,6 +269,13 @@
                     inline : true,
                     on     : 'blur'
                 });
+
+
+// $("#delete").click(function() {
+//     history.go(-2);
+//     location.reload();
+//     console.log("reloaded");
+// });
 
     </script>
 

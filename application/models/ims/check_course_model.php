@@ -11,5 +11,10 @@ class Check_course_model extends CI_Model {
 		return $query->result_array();
 	}
 
+	public function searchAll() {
+		$query = $this->db->get('imsCourseReq');
+		return $query->result_array();
+	}
+
 }
 ?>

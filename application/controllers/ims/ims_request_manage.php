@@ -11,7 +11,7 @@ class Ims_request_manage extends CI_Controller {
 		$this->load->model('ims/request_manage_model');
 	}
 
-	public function index($info = NULL, $func = 0) {
+	public function index($info = NULL, $func = 0, $ret_result = 0, $error_info = NULL) {
 		$data['navi'] = 2;
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
@@ -21,7 +21,8 @@ class Ims_request_manage extends CI_Controller {
 		}
 
 		$data['func'] = $func;
-
+		$data['result_num'] = $ret_result;
+		$data['result_info'] = $error_info;
 		$this->load->view('template/header');
 		$this->load->view('template/navigator2', $data);
 		$this->load->view('template/side_navi');
@@ -32,23 +33,30 @@ class Ims_request_manage extends CI_Controller {
 		$a = $this->input->post();
 		if ($func == 1) {
 			if ($this->input->post('delete')) {
-				$this->updateInfo($a, 1, $rid);
+				$ret = $this->updateInfo($a, 1, $rid);
 			} else {
-				$this->updateInfo($a, 0, $rid);
+				$ret = $this->updateInfo($a, 0, $rid);
 			}
-			redirect('ims/ims_check_course');
 		} else {
-			$this->writeInfo($a);
-			redirect('ims/ims_request_manage');
+			$ret = $this->writeInfo($a);
+		}
+		if ($ret === 0) {
+			//操作成功
+			$this->index(NULL, 0, 1, NULL);
+		} else {
+			//操作失败
+			$this->index(NULL, 0, 2, $ret);
 		}
 	}
 
 	public function updateInfo($a, $t, $rid) {
-		$this->request_manage_model->updateInfo($a, $t, $rid);
+		$ret = $this->request_manage_model->updateInfo($a, $t, $rid);
+		return $ret;
 	}
 
 	public function writeInfo($a) {
-		$this->request_manage_model->writeInfo($a);
+		$ret = $this->request_manage_model->writeInfo($a);
+		return $ret;
 	}
 
 }

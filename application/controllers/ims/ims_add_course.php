@@ -5,21 +5,27 @@ if (!defined('BASEPATH')) {
 
 class Ims_add_course extends CI_Controller {
 	public function __construct() {
+		//构造函数
 		parent::__construct();
 		if ($this->session->userdata('is_logged_in') == False) {
+			//判断当前用户是否登陆
 			redirect('login');
 		}
+		//装载对应的model
 		$this->load->model('ims/add_course_model');
 	}
 
 	public function index($info = NULL, $func = 0, $ret_result = 0, $error_info = NULL) {
 		$data['navi'] = 2;
+		//当前访问的用户id和用户类型
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
+		//判断当前访问的类型
 		$data['func'] = $func;
 		if ($info != NULL) {
 			$data['info'] = $this->add_course_model->readInfo($info);
 		}
+		//操作的返回结果
 		$data['result_num'] = $ret_result;
 		$data['result_info'] = $error_info;
 		$this->load->view('template/header');
@@ -32,8 +38,10 @@ class Ims_add_course extends CI_Controller {
 	public function manage($func) {
 		$a = $this->input->post();
 		if ($this->input->post('cancel')) {
+			//删除操作
 			$ret = $this->deleteInfo($a);
 		} elseif ($this->input->post('submit')) {
+			//修改或添加操作
 			$ret = $this->writeInfo($a, $func);
 		}
 		if ($ret === 0) {
@@ -56,8 +64,10 @@ class Ims_add_course extends CI_Controller {
 			'info' => ($a['info'] == NULL) ? NULL : $a['info'],
 		);
 		if ($func == 0) {
+			//添加操作
 			$ret = $this->add_course_model->writeInfo($info);
 		} else {
+			//修改操作
 			$ret = $this->add_course_model->modifyInfo($info);
 		}
 		return $ret;

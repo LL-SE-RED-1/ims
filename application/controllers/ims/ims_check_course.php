@@ -28,11 +28,16 @@ class Ims_check_course extends CI_Controller {
 	}
 
 	public function search() {
-		$info = array( //0->equ,1->not equ,2->larger,3->less,4->contain,5->not contain
-			$this->input->post('var') => $this->input->post('text'),
-		);
-		$result = $this->check_course_model->search($info);
-		$this->index($result);
+		if ($this->input->post('text') == NULL) {
+			$result = $this->check_course_model->searchAll();
+			$this->index($result);
+		} else {
+			$info = array( //0->equ,1->not equ,2->larger,3->less,4->contain,5->not contain
+				$this->input->post('var') => $this->input->post('text'),
+			);
+			$result = $this->check_course_model->search($info);
+			$this->index($result);
+		}
 	}
 
 }
