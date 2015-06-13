@@ -130,10 +130,12 @@
             <br>
 
                 <div class="ui grey right floated  button" id="back">返回</div>
+                <?php if ($type == 3): ?>
                 <?php if ($func != 0): ?>
-                <button class="ui red right floated  button" type="submit" name="cancel" value="cancel">删除</button>
+                <button class="ui red right floated  button" type="submit" name="cancel" value="cancel" id="delete">删除</button>
             <?php endif;?>
                 <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
+            <?php endif;?>
 
         </form>
 
@@ -243,6 +245,13 @@
                     inline : true,
                     on     : 'blur'
                 });
+
+
+// $("#delete").click(function() {
+//     history.go(-2);
+//     location.reload();
+//     console.log("reloaded");
+// });
 
     </script>
 
