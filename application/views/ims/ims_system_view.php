@@ -194,10 +194,6 @@
 
 
   <style type="text/css">
-    body {
-      overflow:hidden;
-    }
-
     .ui.statistic.at-center {
       display: block;
       margin: 0 auto;

@@ -302,9 +302,6 @@ style="visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><
 style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200
 </text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body>
 <style type="text/css">
-    body {
-        overflow:hidden;
-    }
 
     .text-center {
         text-align: center;

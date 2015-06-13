@@ -377,9 +377,6 @@ preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -
 <text x="0" y="10" style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, sans-serif;dominant-baseline:middle">200x200
 </text></svg><div id="feedly-mini" title="feedly Mini tookit"></div></body>
 <style type="text/css">
-    body {
-        overflow:hidden;
-    }
 
     .text-center {
         text-align: center;

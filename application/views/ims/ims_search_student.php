@@ -126,10 +126,6 @@
 </body>
 
 <style type="text/css">
-  body {
-    overflow:hidden;
-  }
-
   .text-center {
     text-align: center;
   }
