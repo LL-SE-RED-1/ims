@@ -1,7 +1,18 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div class="ui secondary pointing menu">
+			<div class="ui item">
+				<h2 class="ui header">添加学生</h2>
+			</div>
+			<a class="right item">
+				<i class="grid layout icon"></i>批量添加
+			</a>
+			<a class="active right item">
+				<i class="add square icon"></i>单条添加
+			</a>
 
-        <h2 class="ui header">添加学生</h2>
-
+		</div>
+		<div class="placeholder"></div>
+		
         <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_student/manage') . "/" . $func)?>" method="post">
         <!--new-->
             <div class="ui positive message" style="display: none;">
@@ -20,6 +31,7 @@
             </div>
             <!--new-->
 
+			<div id="not-batch">
             <div class="four fields">
                 <div class="required field">
                     <label>学号</label>
@@ -161,7 +173,25 @@
                     <input name="class" value="<?php echo $info['class']?>" type="text">
                     <?php endif;?>
                 </div>
-            </div>
+			</div>
+			</div>
+						<div id="is-batch">
+              <div class="required field">
+                <label>批量添加内容</label>
+                <?php if ($func == 0): ?>
+                <textarea name="batch" <?php if ($type == 2) {
+	echo "readonly";
+}
+?> ></textarea>
+                    <?php else: ?>
+                <textarea name="info" <?php if ($type == 2) {
+	echo "readonly";
+}
+?> ><?php echo $info['info']?></textarea>
+                    <?php endif;?>
+              </div>
+			</div>
+
             <br>
             <!--<div class="ui error message" style="width:30%"></div>-->
 
@@ -351,7 +381,29 @@
               })
       ;
 
+	
+	$(document)
+		.ready(function(){
+			$("#is-batch").toggle();
+			$('.ui.secondary.pointing.menu>.right.item')
+				.on('click', function() {
+				    if(!$(this).hasClass('active')) {
+					    $(this)
+					        .addClass('active')
+					        .closest('.ui.menu')
+					        .find('.item')
+					        .not($(this))
+					        .removeClass('active')
+							;
+						$("#not-batch").toggle('slow');
+						$("#is-batch").toggle('slow');
+					}
+				})
+				;
+		})
+		;
 
+	
     </script>
 
 <?php if ($result_num == 1): ?>
@@ -396,6 +448,11 @@ preserveAspectRatio="none" style="visibility: hidden; position: absolute; top: -
     .ui.submit.button {
         float: right;
     }
+
+h2.ui.header {
+margin-bottom: -1em !important;  margin-top: -0.665em !important;
+}
+
 
 </style>
 </html>

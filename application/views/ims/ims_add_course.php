@@ -1,7 +1,18 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-        <h2 class="ui header">添加课程</h2>
+		<div class="ui secondary pointing menu">
+			<div class="ui item">
+				<h2 class="ui header">添加课程</h2>
+			</div>
+			<a class="right item">
+				<i class="grid layout icon"></i>批量添加
+			</a>
+			<a class="active right item">
+				<i class="add square icon"></i>单条添加
+			</a>
 
+		</div>
+		<div class="placeholder"></div>
 
         <div class="ui positive message" style="display: none;">
             <i class="close icon"></i>
@@ -19,7 +30,7 @@
             </div>
 
         <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/manage') . "/" . $func?>" method="post">
-
+			<div id="not-batch">
             <div class="four fields">
                 <div class="required field">
                     <label>课程代码</label>
@@ -134,6 +145,50 @@
                 </div>
             </div>
 
+            <div class="three fields">
+                <div class="required field">
+                    <label>课程容量</label>
+                    <?php if ($func == 0): ?>
+                    <input name="storage" placeholder="" <?php if ($type == 2) {
+	echo "readonly";
+}
+?> type="text">
+                    <?php else: ?>
+                    <input name="cid" value="<?php echo $info['cid']?>" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
+                    <?php endif;?>
+                </div>
+                <div class="required field">
+                    <label>考核方式</label>
+                    <?php if ($func == 0): ?>
+                    <input name="test" placeholder="" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
+                    <?php else: ?>
+                    <input name="name" value="<?php echo $info['name']?>" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
+                    <?php endif;?>
+                </div>
+                <div class="required field">
+                    <label>教室</label>
+                    <?php if ($func == 0): ?>
+                    <input name="classroom" placeholder="" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
+                    <?php else: ?>
+                    <input name="credit" value="<?php echo $info['credit']?>" <?php if ($type == 2) {
+	echo "readonly";
+}
+?>  type="text">
+                    <?php endif;?>
+				</div>
+            </div>
 
 
               <div class="field">
@@ -149,7 +204,24 @@
 }
 ?> ><?php echo $info['info']?></textarea>
                     <?php endif;?>
+			  </div>
+			</div>
+			<div id="is-batch">
+              <div class="required field">
+                <label>批量添加内容</label>
+                <?php if ($func == 0): ?>
+                <textarea name="batch" <?php if ($type == 2) {
+	echo "readonly";
+}
+?> ></textarea>
+                    <?php else: ?>
+                <textarea name="info" <?php if ($type == 2) {
+	echo "readonly";
+}
+?> ><?php echo $info['info']?></textarea>
+                    <?php endif;?>
               </div>
+			</div>
 
             <br>
 
@@ -263,13 +335,72 @@
                                 prompt : '请选择学系'
                             }
                         ]
-                    }
+                    },
+					课程容量: {
+						identifier: 'storage',
+						rules: [
+							{
+								type : 'empty',
+								prompt: '请填写课程容量'
+							},{
+								type: 'integer',
+								prompt: '填入内容格式不正确'
+							}
+						]
+					},
+					考核方式: {
+					    identifier: 'test',
+					    rules: [
+						    {
+							    type   : 'empty',
+							    prompt : '请填写考核方式'
+							}
+						]
+					},
+					教室: {
+					    identifier: 'classroom',
+					    rules: [
+						    {
+							    type   : 'empty',
+							    prompt : '请填写教室信息'
+							}
+						]
+					},
+					批量添加内容: {
+					    identifier: 'batch',
+					    rules: [
+						    {
+							    type   : 'empty',
+							    prompt : '请填写批量添加内容'
+							}
+						]
+					}
                 },
                 {
                     inline : true,
                     on     : 'blur'
                 });
-
+	
+	$(document)
+		.ready(function(){
+			$("#is-batch").toggle();
+			$('.ui.secondary.pointing.menu>.right.item')
+				.on('click', function() {
+				    if(!$(this).hasClass('active')) {
+					    $(this)
+					        .addClass('active')
+					        .closest('.ui.menu')
+					        .find('.item')
+					        .not($(this))
+					        .removeClass('active')
+							;
+						$("#not-batch").toggle('slow');
+						$("#is-batch").toggle('slow');
+					}
+				})
+				;
+		})
+		;
 
 // $("#delete").click(function() {
 //     history.go(-2);
@@ -295,6 +426,8 @@
                     .ready(function() {
                         show_negative_message();
                     });
+
+	
     </script>
 <?php endif;?>
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none"
@@ -321,6 +454,10 @@ style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, 
     .ui.submit.button {
         float: right;
     }
+
+h2.ui.header {
+margin-bottom: -1em !important;  margin-top: -0.665em !important;
+}
 
 </style>
 </html>

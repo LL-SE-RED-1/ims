@@ -7,7 +7,7 @@
             <h2 class="sub-header">搜索学生</h2>
 
           </div>
-            <div class="col-xs-6 col-sm-6 huge-placeholder">
+            <div class="col-xs-6 col-sm-6">
                 <div class="ui right floated transparent-seg segment">
                     <form class="ui form" action="<?php echo site_url('ims/ims_search_student/search')?>" method="post">
                         <div class="ui left labeled icon input">
@@ -25,12 +25,24 @@
                             <i class="search icon"></i>
                         </div>
                     </form>
+					<div class="ui secondary demo menu" style="margin-top: 40px; float: right;">
+						<a class="active item">
+							A
+						</a>
+						<a class="item">
+							B
+						</a>
+						<a class="item">
+							C
+						</a>
+						                </div>
                 </div>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>
-
+			
             <div class="ui form transparent-seg right floated segment">
-              <div class="inline fields">
+				<div class="inline fields">
+					
               </div>
             </div>
 
