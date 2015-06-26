@@ -394,8 +394,8 @@
 					        .not($(this))
 					        .removeClass('active')
 							;
-						$("#not-batch").toggle('slow');
-						$("#is-batch").toggle('slow');
+						$("#not-batch").toggle();
+						$("#is-batch").toggle();
 					}
 				})
 				;
