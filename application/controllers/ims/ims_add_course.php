@@ -20,11 +20,16 @@ class Ims_add_course extends CI_Controller {
 		//当前访问的用户id和用户类型
 		$data['uid'] = $this->session->userdata('uid');
 		$data['type'] = $this->session->userdata('user_type');
+		// die(var_dump($data['type']));
+		if($data['type'] == 5){
+			$data['college']=$this->add_course_model->getCollege($data['uid']);
+		}
 		//判断当前访问的类型
 		$data['func'] = $func;
 		if ($info != NULL) {
 			$data['info'] = $this->add_course_model->readInfo($info);
 		}
+		// die(var_dump($data['info'],$data['college']));
 		//操作的返回结果
 		$data['result_num'] = $ret_result;
 		$data['result_info'] = $error_info;
@@ -37,6 +42,7 @@ class Ims_add_course extends CI_Controller {
 
 	public function manage($func) {
 		$a = $this->input->post();
+		// die(var_dump($a));
 		if ($this->input->post('cancel')) {
 			//删除操作
 			$ret = $this->deleteInfo($a);

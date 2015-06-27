@@ -4,7 +4,7 @@
 			<div class="ui item">
 				<h2 class="ui header">添加课程</h2>
 			</div>
-            <?php if ($func == 0 and $type == 3 or $type == 4): ?>
+        <?php if ($func == 0 and ( $type == 5 or $type == 4 or $type == 3)): ?>
 			<a class="right item">
 				<i class="grid layout icon"></i>批量添加
 			</a>
@@ -37,43 +37,25 @@
                 <div class="required field">
                     <label>课程代码</label>
                     <?php if ($func == 0): ?>
-                    <input name="cid" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> type="text">
+                    <input name="cid" placeholder="" <?php if ($type == 2)  echo "readonly";?> type="text">
                     <?php else: ?>
-                    <input name="cid" value="<?php echo $info['cid']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="cid" value="<?php echo $info['cid']?>" readonly type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>课程名称</label>
                     <?php if ($func == 0): ?>
-                    <input name="name" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="name" placeholder="" <?php if ($type == 2) {echo "readonly";}?>  type="text">
                     <?php else: ?>
-                    <input name="name" value="<?php echo $info['name']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="name" value="<?php echo $info['name']?>" <?php if ($type == 2|| $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>学分</label>
                     <?php if ($func == 0): ?>
-                    <input name="credit" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="credit" placeholder="" <?php if ($type == 2) {echo "readonly";}?>  type="text">
                     <?php else: ?>
-                    <input name="credit" value="<?php echo $info['credit']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="credit" value="<?php echo $info['credit']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
@@ -99,7 +81,7 @@
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <?php if ($func == 0): ?>
+                    <?php if ($func == 0): ?>
                         <input name="semester" type="hidden">
                     <?php else: ?>
                         <input name="semester" type="hidden" value="<?php echo $info['semester']?>">
@@ -114,12 +96,9 @@
                 <div class="required field">
                     <label>学院</label>
                     <div class="ui selection dropdown" name="college-dropdown">
-                        <div class="text"><?php if ($func != 0) {
-	echo $info['college'];
-}
-?></div>
+                        <div class="text"><?php if ($func != 0) {echo $info['college'];}?></div>
                         <i class="dropdown icon"></i>
-                        <?php if ($func == 0): ?>
+                    <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
                     <?php else: ?>
                         <input name="college" type="hidden" value="<?php echo $info['college']?>">
@@ -131,10 +110,7 @@
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="text" id="department-text"><?php if ($func != 0) {
-	echo $info['department'];
-}
-?></div>
+                        <div class="text" id="department-text"><?php if ($func != 0) {echo $info['department'];}?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="department" type="hidden">
@@ -151,43 +127,25 @@
                 <div class="required field">
                     <label>课程容量</label>
                     <?php if ($func == 0): ?>
-                    <input name="capacity" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> type="text">
+                    <input name="capacity" placeholder="" type="text">
                     <?php else: ?>
-                    <input name="capacity" value="<?php echo $info['capacity']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="capacity" value="<?php echo $info['capacity']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>考核方式</label>
                     <?php if ($func == 0): ?>
-                    <input name="etype" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="etype" placeholder="" type="text">
                     <?php else: ?>
-                    <input name="etype" value="<?php echo $info['etype']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="etype" value="<?php echo $info['etype']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>教室</label>
                     <?php if ($func == 0): ?>
-                    <input name="classroom" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="classroom" placeholder=""  type="text">
                     <?php else: ?>
-                    <input name="classroom" value="<?php echo $info['classroom']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="classroom" value="<?php echo $info['classroom']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
                     <?php endif;?>
 				</div>
             </div>
@@ -196,20 +154,14 @@
               <div class="field">
                 <label>课程描述</label>
                 <?php if ($func == 0): ?>
-                <textarea name="info" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> ></textarea>
+                <textarea name="info"></textarea>
                     <?php else: ?>
-                <textarea name="info" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> ><?php echo $info['info']?></textarea>
+                <textarea name="info" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?> ><?php echo $info['info']?></textarea>
                     <?php endif;?>
 			  </div>
               <div class="ui grey right floated  button" id="back">返回</div>
-                <?php if ($type == 3 || $type == 4): ?>
-                <?php if ($func != 0): ?>
+            <?php if ($type == 5 || $type == 4 || $type == 3): ?>
+            <?php if ($func != 0 && ( $type !=5 || $type==5 && $college === $info['college'])): ?>
                 <button class="ui red right floated  button" type="submit" name="cancel" value="cancel" id="delete">删除</button>
             <?php endif;?>
                 <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>

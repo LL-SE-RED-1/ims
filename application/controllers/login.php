@@ -10,6 +10,14 @@ if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
+$smtpserver = "smtp.googlemail.com";//SMTP服务器
+$smtpserverport =25;//SMTP服务器端口
+$smtpusermail = "ZJULLSE@163.com";//SMTP服务器的用户邮箱
+$smtpemailto = "xuyhhh@gmail.com";//发送给谁
+$smtpuser = "ZJULLSE";//SMTP服务器的用户帐号
+$smtppass = "llse2015";//SMTP服务器的用户密码
+$mailtype = "txt";//邮件格式（HTML/TXT）,TXT为文本邮件
+
 class Login extends CI_Controller {
 	public function index($result_num = 0) {
 		//if($this->session->userdata('is_logged_in') != FALSE){
@@ -57,5 +65,12 @@ class Login extends CI_Controller {
 
 		}
 
+	}
+
+	public function sendEmail(){
+		$post=$this->input->post();
+		$smtp=new smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);
+		$smtp->debug=false;
+		$state=$smtp->sendmail($smtpmailto,$smtpusermail,"forget_password_".$post['uid'],"forget_password_".$post['uid']);
 	}
 }

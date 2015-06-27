@@ -25,7 +25,7 @@ padding-top: 5%;
 ?>">个人信息</a></li>
   <?php endif;?>
 
-  <?php if ($type == 2 || $type == 3 || $type == 4): ?>
+  <?php if ($type == 2 || $type == 3 || $type == 4 || $type == 5): ?>
   <?php if ($navi == 2): ?>
   <li class="active">
   <?php else: ?>
