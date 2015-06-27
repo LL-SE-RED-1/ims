@@ -5,6 +5,26 @@ class Add_student_model extends CI_Model {
 		$this->load->database();
 	}
 
+	public function batchInsert($info) {
+		// die(var_dump($info[0]));
+		if (!$this->db->insert_batch('imsStudent', $info)) {
+			return $this->db->_error_message();
+		}
+		$user_info = array();
+		foreach ($info as $ele) {
+			$user_info[] = array(
+				'uid' => $ele['uid'],
+				'password' => md5($ele['uid']),
+				'type' => 1,
+				'active' => 1,
+			);
+		}
+		if (!$this->db->insert_batch('imsUser', $user_info)) {
+			return $this->db->_error_message();
+		}
+		return 0;
+	}
+
 	//创建新的学生，返回操作结果
 	public function writeInfo($info) {
 		if (!$this->db->insert('imsStudent', $info)) {

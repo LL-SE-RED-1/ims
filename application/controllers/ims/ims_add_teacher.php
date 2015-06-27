@@ -79,5 +79,19 @@ class Ims_add_teacher extends CI_Controller {
 		$ret = $this->add_teacher_model->deleteInfo($info);
 		return $ret;
 	}
+
+	public function batchInsert() {
+		$a = $this->input->post();
+		$obj = json_decode($a['batch'], true);
+		// die(var_dump($obj));
+		$ret = $this->add_teacher_model->batchInsert($obj);
+		if ($ret === 0) {
+			//操作成功
+			$this->index(NULL, 0, 1, NULL);
+		} else {
+			//操作失败
+			$this->index(NULL, 0, 2, $ret);
+		}
+	}
 }
 ?>

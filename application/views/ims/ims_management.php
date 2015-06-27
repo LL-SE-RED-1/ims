@@ -56,7 +56,7 @@
 
 <div class="row placeholder">
 
-  <?php if ($type == 3): ?>
+  <?php if ($type == 3 || $type == 4): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <a href="<?php echo site_url('ims/')?>/ims_add_student">
@@ -134,7 +134,7 @@
 
 <?php endif;?>
 
-<?php if ($type == 2 || $type == 3): ?>
+<?php if ($type == 2 || $type == 3 || $type == 4): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
     <a href="<?php echo site_url('ims/')?>/ims_search_course">
       <div class="text-center">

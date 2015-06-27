@@ -6,12 +6,18 @@ class Add_course_model extends CI_Model {
 		$this->load->database();
 	}
 
+	public function batchInsert($info) {
+		if (!$this->db->insert_batch('imsCourse', $info)) {
+			return $this->db->_error_message();
+		}
+		return 0;
+	}
+
 	//添加课程，返回结果
 	public function writeInfo($info) {
 		if (!$this->db->insert('imsCourse', $info)) {
 			return $this->db->_error_message();
 		}
-
 		return 0;
 	}
 

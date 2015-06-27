@@ -61,6 +61,9 @@ class Ims_add_course extends CI_Controller {
 			'ctype' => $a['ctype'],
 			'college' => $a['college'],
 			'department' => $a['department'],
+			'classroom' => ($a['classroom'] == NULL) ? NULL : $a['classroom'],
+			'etype' => ($a['etype'] == NULL) ? NULL : $a['etype'],
+			'capacity' => ($a['capacity'] == NULL) ? NULL : $a['capacity'],
 			'info' => ($a['info'] == NULL) ? NULL : $a['info'],
 		);
 		if ($func == 0) {
@@ -79,5 +82,20 @@ class Ims_add_course extends CI_Controller {
 		$ret = $this->add_course_model->deleteInfo($info);
 		return $ret;
 	}
+
+	public function batchInsert() {
+		$a = $this->input->post();
+		$info = json_decode($a['batch'], true);
+		// die(var_dump($info));
+		$ret = $this->add_course_model->batchInsert($info);
+		if ($ret === 0) {
+			//操作成功
+			$this->index(NULL, 0, 1, NULL);
+		} else {
+			//操作失败
+			$this->index(NULL, 0, 2, $ret);
+		}
+	}
+
 }
 ?>

@@ -4,12 +4,14 @@
 			<div class="ui item">
 				<h2 class="ui header">添加课程</h2>
 			</div>
+            <?php if ($func == 0 and $type == 3 or $type == 4): ?>
 			<a class="right item">
 				<i class="grid layout icon"></i>批量添加
 			</a>
 			<a class="active right item">
 				<i class="add square icon"></i>单条添加
 			</a>
+        <?php endif;?>
 
 		</div>
 		<div class="placeholder"></div>
@@ -149,12 +151,12 @@
                 <div class="required field">
                     <label>课程容量</label>
                     <?php if ($func == 0): ?>
-                    <input name="storage" placeholder="" <?php if ($type == 2) {
+                    <input name="capacity" placeholder="" <?php if ($type == 2) {
 	echo "readonly";
 }
 ?> type="text">
                     <?php else: ?>
-                    <input name="cid" value="<?php echo $info['cid']?>" <?php if ($type == 2) {
+                    <input name="capacity" value="<?php echo $info['capacity']?>" <?php if ($type == 2) {
 	echo "readonly";
 }
 ?>  type="text">
@@ -163,12 +165,12 @@
                 <div class="required field">
                     <label>考核方式</label>
                     <?php if ($func == 0): ?>
-                    <input name="test" placeholder="" <?php if ($type == 2) {
+                    <input name="etype" placeholder="" <?php if ($type == 2) {
 	echo "readonly";
 }
 ?>  type="text">
                     <?php else: ?>
-                    <input name="name" value="<?php echo $info['name']?>" <?php if ($type == 2) {
+                    <input name="etype" value="<?php echo $info['etype']?>" <?php if ($type == 2) {
 	echo "readonly";
 }
 ?>  type="text">
@@ -182,7 +184,7 @@
 }
 ?>  type="text">
                     <?php else: ?>
-                    <input name="credit" value="<?php echo $info['credit']?>" <?php if ($type == 2) {
+                    <input name="classroom" value="<?php echo $info['classroom']?>" <?php if ($type == 2) {
 	echo "readonly";
 }
 ?>  type="text">
@@ -205,36 +207,27 @@
 ?> ><?php echo $info['info']?></textarea>
                     <?php endif;?>
 			  </div>
-			</div>
-			<div id="is-batch">
-              <div class="required field">
-                <label>批量添加内容</label>
-                <?php if ($func == 0): ?>
-                <textarea name="batch" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> ></textarea>
-                    <?php else: ?>
-                <textarea name="info" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> ><?php echo $info['info']?></textarea>
-                    <?php endif;?>
-              </div>
-			</div>
-
-            <br>
-
-                <div class="ui grey right floated  button" id="back">返回</div>
-                <?php if ($type == 3): ?>
+              <div class="ui grey right floated  button" id="back">返回</div>
+                <?php if ($type == 3 || $type == 4): ?>
                 <?php if ($func != 0): ?>
                 <button class="ui red right floated  button" type="submit" name="cancel" value="cancel" id="delete">删除</button>
             <?php endif;?>
                 <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
             <?php endif;?>
+			</div>
 
+            </form>
+            <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/batchInsert')?>" method="post">
+			<div id="is-batch">
+              <div class="required field">
+                <label>批量添加内容</label>
+                <textarea name="batch"></textarea>
+              </div>
+
+                <div class="ui grey right floated  button" id="back">返回</div>
+                <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
+			</div>
         </form>
-
 
         </div>
     </div>
@@ -380,7 +373,7 @@
                     inline : true,
                     on     : 'blur'
                 });
-	
+
 	$(document)
 		.ready(function(){
 			$("#is-batch").toggle();
@@ -427,7 +420,7 @@
                         show_negative_message();
                     });
 
-	
+
     </script>
 <?php endif;?>
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none"
