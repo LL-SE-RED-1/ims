@@ -3,16 +3,18 @@
 			<div class="ui item">
 				<h2 class="ui header">添加学生</h2>
 			</div>
+        <?php if ($func == 0): ?>
 			<a class="right item">
 				<i class="grid layout icon"></i>批量添加
 			</a>
 			<a class="active right item">
 				<i class="add square icon"></i>单条添加
 			</a>
+        <?php endif;?>
 
 		</div>
 		<div class="placeholder"></div>
-		
+
         <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_student/manage') . "/" . $func)?>" method="post">
         <!--new-->
             <div class="ui positive message" style="display: none;">
@@ -174,35 +176,30 @@
                     <?php endif;?>
                 </div>
 			</div>
-			</div>
-						<div id="is-batch">
-              <div class="required field">
-                <label>批量添加内容</label>
-                <?php if ($func == 0): ?>
-                <textarea name="batch" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> ></textarea>
-                    <?php else: ?>
-                <textarea name="info" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> ><?php echo $info['info']?></textarea>
-                    <?php endif;?>
-              </div>
-			</div>
-
-            <br>
-            <!--<div class="ui error message" style="width:30%"></div>-->
-
-
             <div class="ui grey right floated button" id="back">返回</div>
             <?php if ($func != 0): ?>
             <button class="ui red right floated  button" type="submit" name="delete" value="delete">删除</button>
             <?php endif;?>
             <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
-
+            </div>
         </form>
+
+        <?php if ($func == 0): ?>
+        <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_student/batchInsert'))?>" method="post">
+
+				<div id="is-batch">
+              <div class="required field">
+                <label>批量添加内容</label>
+                    <textarea name="batch" value="batch"></textarea>
+              </div>
+               <div class="ui grey right floated button" id="back">返回</div>
+            <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
+			<br>
+            </div>
+
+            <!--<div class="ui error message" style="width:30%"></div>-->
+        </form>
+    <?php endif;?>
 
 
         </div>
@@ -381,7 +378,7 @@
               })
       ;
 
-	
+
 	$(document)
 		.ready(function(){
 			$("#is-batch").toggle();
@@ -403,7 +400,7 @@
 		})
 		;
 
-	
+
     </script>
 
 <?php if ($result_num == 1): ?>

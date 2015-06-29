@@ -25,7 +25,7 @@ padding-top: 5%;
 ?>">个人信息</a></li>
   <?php endif;?>
 
-  <?php if ($type == 2 || $type == 3): ?>
+  <?php if ($type == 2 || $type == 3 || $type == 4 || $type == 5): ?>
   <?php if ($navi == 2): ?>
   <li class="active">
   <?php else: ?>
@@ -34,7 +34,7 @@ padding-top: 5%;
   <a href="<?php echo site_url('ims/ims_management');?>">信息管理</a></li>
 <?php endif;?>
 
-  <?php if ($type == 3): ?>
+  <?php if ($type == 3 || $type == 4): ?>
   <?php if ($navi == 3): ?>
   <li class="active">
   <?php else: ?>

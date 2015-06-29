@@ -42,6 +42,7 @@
                             <option value="2">教师</option>
                             <option value="3">管理员</option>
                             <option value="4">系统管理员</option>
+                            <option value="5">院系管理员</option>
                         </select>
 
                         <div class="form-signin checkbox">

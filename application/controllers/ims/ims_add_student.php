@@ -15,7 +15,7 @@ class Ims_add_student extends CI_Controller {
 	}
 
 	public function index($info = NULL, $func = 0, $ret_result = 0, $error_info = NULL) {
-		if ($this->session->userdata('user_type') != 3) {
+		if ($this->session->userdata('user_type') != 3 and $this->session->userdata('user_type') != 4) {
 		} else {
 			$data['navi'] = 2;
 			$data['uid'] = $this->session->userdata('uid');
@@ -44,6 +44,19 @@ class Ims_add_student extends CI_Controller {
 			//添加或修改
 			$ret = $this->writeInfo($a, $func);
 		}
+		if ($ret === 0) {
+			//操作成功
+			$this->index(NULL, 0, 1, NULL);
+		} else {
+			//操作失败
+			$this->index(NULL, 0, 2, $ret);
+		}
+	}
+
+	public function batchInsert() {
+		$a = $this->input->post();
+		$obj = json_decode($a['batch'], true);
+		$ret = $this->add_student_model->batchInsert($obj);
 		if ($ret === 0) {
 			//操作成功
 			$this->index(NULL, 0, 1, NULL);
