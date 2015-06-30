@@ -46,7 +46,7 @@
                         </select>
 
                         <!-- 临时使用 -->
-                        <a href="<?php echo site_url('login/reset_pswd');?>">忘记密码</a>
+                        <!-- a href="<?php echo site_url('login/reset_pswd');?>">忘记密码</a -->
 
                         <div class="form-signin checkbox">
                             <!-- <label>
