@@ -10,15 +10,14 @@ if (!defined('BASEPATH')) {
 	exit('Access Denied');
 }
 
-$smtpserver = "smtp.googlemail.com";//SMTP服务器
-$smtpserverport =25;//SMTP服务器端口
-$smtpusermail = "ZJULLSE@163.com";//SMTP服务器的用户邮箱
-$smtpemailto = "xuyhhh@gmail.com";//发送给谁
-$smtpuser = "ZJULLSE";//SMTP服务器的用户帐号
-$smtppass = "llse2015";//SMTP服务器的用户密码
-$mailtype = "txt";//邮件格式（HTML/TXT）,TXT为文本邮件
-
 class Login extends CI_Controller {
+	public function __construct() {
+		parent::__construct();
+
+		//装载后端model
+		$this->load->model('ims/user_model');
+	}
+
 	public function index($result_num = 0) {
 		//if($this->session->userdata('is_logged_in') != FALSE){
 		//	redirect('ims/ims_permission');
@@ -32,6 +31,9 @@ class Login extends CI_Controller {
 		if ($result_num == 2) {
 			$data['result_info'] = "用户名或密码错误！";
 		}
+		else if($result_num == 3){
+			$data['result_info'] = "无效链接";
+		}
 
 		//load views
 		$this->output->enable_profiler(FALSE);
@@ -43,7 +45,7 @@ class Login extends CI_Controller {
 	public function verify() {
 		//load user model
 
-		$this->load->model('ims/user_model');
+		// $this->load->model('ims/user_model');
 
 		$post = $this->input->post();
 		// use post data to search database and get result
@@ -54,7 +56,7 @@ class Login extends CI_Controller {
 			//save user's information in session
 			$data = array('uid' => $this->input->post('uid'),
 				'user_type' => $this->input->post('userType'),
-				'is_logged_in' => TRUE,
+				'is_logged_in' => TRUE
 			);
 			$this->session->set_userdata($data);
 			redirect('ims/ims_welcome');
@@ -82,7 +84,7 @@ class Login extends CI_Controller {
 	}
 
 	public function send_email(){
-		$this->load->model('ims/user_model');
+		// $this->load->model('ims/user_model');
 
 		$uid = $this->input->post('uid');
 		$user = $this->user_model->get_user($uid);
@@ -110,12 +112,38 @@ class Login extends CI_Controller {
 			";
 			$this->email->message($message);
 			$this->email->send();
-			echo $this->email->print_debugger();
 
-			//redirect('login/reset_pswd/1');
+			redirect('login/reset_pswd/1');
 		}
 		else{
 			redirect('login/reset_pswd/2');
+		}
+	}
+
+	public function modify_pswd(){
+		$uid = $this->input->get('uid');
+		$token = $this->input->get('token');
+		$user = $this->user_model->get_user($uid);
+
+		if ($user) {
+			//防止用户通过改动链接的方式来欺骗系统
+			$mt = md5($user['uid'].$user['password']);
+			if($mt == $token){ 	//通过验证
+				$data = array('uid' => $user['uid'],
+					'user_type' => $user['type'],
+					'is_logged_in' => TRUE
+				);
+				$this->session->set_userdata($data);
+				redirect('modify_pass');
+			}
+			else{
+				redirect('login/index/3');
+			}
+			
+		} else {
+			//if login failed
+			//redirect to login page and echo error message
+			redirect('login/index/3');
 		}
 	}
 

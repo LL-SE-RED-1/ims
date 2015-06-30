@@ -138,7 +138,7 @@
 </script>
 -->
 
-<?php if ($result_num == 2): ?>
+<?php if ($result_num == 2 || $result_num == 3): ?>
     <script>
             $(document)
                     .ready(function() {
