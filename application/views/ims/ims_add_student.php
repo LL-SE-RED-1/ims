@@ -333,7 +333,8 @@
 
 
 
-        var college_and_department;
+	/*
+	var college_and_department;
 
         $.getJSON("<?php echo base_url()?>metadata/college_and_department.json", function( data ) {
             college_and_department = data;
@@ -353,6 +354,7 @@
                 $("#department-menu").append("<div class='item'>" + el + "</div>");
             });
         });
+*/
 
         /*$(".dropdown[name='college-dropdown']")
                 .dropdown({

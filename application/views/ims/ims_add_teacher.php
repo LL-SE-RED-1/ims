@@ -125,7 +125,7 @@
             </div>
 
             <div class="three fields">
-                <div class="required field">
+				<div class="required field">
                     <label>学院</label>
                     <div class="ui selection dropdown" name="college-dropdown">
                         <div class="text"><?php if ($func != 0) {
@@ -135,13 +135,14 @@
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
-                <?php else: ?>
+                    <?php else: ?>
                         <input name="college" type="hidden" value="<?php echo $info['college']?>">
-            <?php endif;?>
+                    <?php endif;?>
                         <div class="menu" id="college-menu">
                         </div>
                     </div>
                 </div>
+
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
