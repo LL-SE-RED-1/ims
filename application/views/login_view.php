@@ -12,7 +12,7 @@
                         <nav>
                             <ul class="nav masthead-nav">
                                 <li class="active"><a href="#">主页</a></li>
-								<li><a href="mailto:zjullse@163.com">重置密码</a></li>
+								<li><a href="mailto:zjullse@163.com">联系我们</a></li>
                                 <!--li><a href="mailto:liuzxzju@qq.com">联系我们</a></li-->
                             </ul>
                         </nav>
@@ -44,6 +44,9 @@
                             <option value="4">系统管理员</option>
                             <option value="5">院系管理员</option>
                         </select>
+
+                        <!-- 临时使用 -->
+                        <a href="<?php echo site_url('login/reset_pswd');?>">忘记密码</a>
 
                         <div class="form-signin checkbox">
                             <!-- <label>

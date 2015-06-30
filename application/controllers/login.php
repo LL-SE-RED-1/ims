@@ -67,10 +67,57 @@ class Login extends CI_Controller {
 
 	}
 
-	public function sendEmail(){
-		$post=$this->input->post();
-		$smtp=new smtp($smtpserver,$smtpserverport,true,$smtpuser,$smtppass);
-		$smtp->debug=false;
-		$state=$smtp->sendmail($smtpmailto,$smtpusermail,"forget_password_".$post['uid'],"forget_password_".$post['uid']);
+	public function reset_pswd($result_num = 0){
+		$this->session->unset_userdata('is_logged_in');
+
+		$data['result_num'] = $result_num;
+		if($result_num == 1){
+			$data['result_info'] = "已发送重置密码邮件，请查收你的校网邮箱";
+		}
+		else if($result_num == 2){
+			$data['result_info'] = "该用户不存在";
+		}
+
+		$this->load->view('reset_pswd_view',$data);
 	}
+
+	public function send_email(){
+		$this->load->model('ims/user_model');
+
+		$uid = $this->input->post('uid');
+		$user = $this->user_model->get_user($uid);
+
+		if($user){
+			$token = md5($uid.$user['password']);
+			$url = site_url('login/modify_pswd')."?uid=".$uid."&token=".$token;
+
+			$this->load->library('email');
+			$this->email->mailtype='html';
+			$this->email->from('no-reply@llseims.com','IMS子系统');
+			$this->email->to($uid."@zju.edu.cn");
+
+			$this->email->subject('重置密码');
+			$message = "
+			<html>
+			<head>
+			<title>教务管理系统-重置密码</title>
+			</head>
+			<body>
+				<p>请点击下面的链接以重置密码</p><br/>
+				<a href='".$url."'target='_blank'>".$url."</a>
+			</body>
+			</html>
+			";
+			$this->email->message($message);
+			$this->email->send();
+			echo $this->email->print_debugger();
+
+			//redirect('login/reset_pswd/1');
+		}
+		else{
+			redirect('login/reset_pswd/2');
+		}
+	}
+
+
 }
