@@ -2,7 +2,7 @@
 
 var college_and_department;
 
-var base_url = window.location.protocol + "//" + window.location.host + "/";
+var base_url = window.location.protocol + "//" + window.location.host + "/ims/";
 
 $.getJSON( base_url + "metadata/college_and_department.json", function( data ) {
     college_and_department = data;
