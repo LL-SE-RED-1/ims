@@ -96,11 +96,11 @@
 
 <?php if ($type == 2 || $type == 5 || $type == 4 || $type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
-    <a href="<?php echo site_url('ims/')?>/ims_search_course">
+    <a href="<?php echo site_url('ims/')?>/ims_add_assistant">
       <div class="text-center">
-        <img class="ui small image at-center-2" src="<?php echo base_url()?>images/book_search.png">
+        <img class="ui small image at-center-2" src="<?php echo base_url()?>images/assistant.png">
         <p></p>
-        <p>搜索课程</p>
+        <p>添加助管</p>
       </div>
     </a>
   </div>
@@ -145,7 +145,20 @@
       </div>
     </a>
   </div>
+  
+<?php endif;?>
 
+
+<?php if ($type == 2 || $type == 5 || $type == 4 || $type == 3): ?>
+  <div class="col-xs-4 col-sm-3 placeholder">
+    <a href="<?php echo site_url('ims/')?>/ims_search_course">
+      <div class="text-center">
+        <img class="ui small image at-center-2" src="<?php echo base_url()?>images/book_search.png">
+        <p></p>
+        <p>搜索课程</p>
+      </div>
+    </a>
+  </div>
 <?php endif;?>
 
 

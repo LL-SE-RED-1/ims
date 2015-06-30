@@ -12,8 +12,8 @@
                         <nav>
                             <ul class="nav masthead-nav">
                                 <li class="active"><a href="#">主页</a></li>
-								<li><a href='<?php echo site_url('reset_pass_view')?>'>重置密码</a></li>
-								<li><a href="mailto:zjullse@163.com">联系我们</a></li>
+								<li><a href="mailto:zjullse@163.com">重置密码</a></li>
+                                <!--li><a href="mailto:liuzxzju@qq.com">联系我们</a></li-->
                             </ul>
                         </nav>
                     </div>
@@ -37,16 +37,13 @@
                         <input type="password" id="password" name="password" class="form-signin form-control" placeholder="密码" required>
 
                         <label for="userType" class="sr-only"></label>
-                        <select id="userType" name="userType" class="form-signin form-control" style="padding: 0 15px">
+                        <select id="userType" name="userType" class="form-signin form-control">
                             <option value="1">学生</option>
                             <option value="2">教师</option>
                             <option value="3">管理员</option>
                             <option value="4">系统管理员</option>
                             <option value="5">院系管理员</option>
                         </select>
-
-                        <!-- 临时使用 -->
-                        <!-- a href="<?php echo site_url('login/reset_pswd');?>">忘记密码</a -->
 
                         <div class="form-signin checkbox">
                             <!-- <label>
@@ -138,7 +135,7 @@
 </script>
 -->
 
-<?php if ($result_num == 2 || $result_num == 3): ?>
+<?php if ($result_num == 2): ?>
     <script>
             $(document)
                     .ready(function() {
