@@ -1,19 +1,22 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
+	<?php if ($func == 0): ?>
 		<div class="ui secondary pointing menu">
 			<div class="ui item">
 				<h2 class="ui header">添加老师</h2>
 			</div>
-            <?php if ($func == 0): ?>
+
 			<a class="right item">
 				<i class="grid layout icon"></i>批量添加
 			</a>
 			<a class="active right item">
 				<i class="add square icon"></i>单条添加
 			</a>
-        <?php endif;?>
-
 		</div>
+	<?php else: ?>
+		<h2 class="sub-header">添加老师</h2>
+		<br><br>
+	<?php endif;?>
 		<div class="placeholder"></div>
 
 
