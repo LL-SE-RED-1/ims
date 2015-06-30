@@ -38,4 +38,19 @@ class User_model extends CI_Model {
 		return $result;
 	}
 
+	public function get_user($uid){
+		$data = array(
+				'uid' => $uid
+			);
+
+		$result = $this->db->get_where('imsUser',$data);
+
+		if($result->num_rows == 1){
+			return $result->row_array();
+		}
+		else{
+			return false;
+		}
+	}
+
 }
