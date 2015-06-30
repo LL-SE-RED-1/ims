@@ -1,19 +1,22 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
+	<?php if ($func == 0): ?>
 		<div class="ui secondary pointing menu">
 			<div class="ui item">
 				<h2 class="ui header">添加老师</h2>
 			</div>
-            <?php if ($func == 0): ?>
+
 			<a class="right item">
 				<i class="grid layout icon"></i>批量添加
 			</a>
 			<a class="active right item">
 				<i class="add square icon"></i>单条添加
 			</a>
-        <?php endif;?>
-
 		</div>
+	<?php else: ?>
+		<h2 class="sub-header">添加老师</h2>
+		<br><br>
+	<?php endif;?>
 		<div class="placeholder"></div>
 
 
@@ -125,7 +128,7 @@
             </div>
 
             <div class="three fields">
-                <div class="required field">
+				<div class="required field">
                     <label>学院</label>
                     <div class="ui selection dropdown" name="college-dropdown">
                         <div class="text"><?php if ($func != 0) {
@@ -135,13 +138,14 @@
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
-                <?php else: ?>
+                    <?php else: ?>
                         <input name="college" type="hidden" value="<?php echo $info['college']?>">
-            <?php endif;?>
+                    <?php endif;?>
                         <div class="menu" id="college-menu">
                         </div>
                     </div>
                 </div>
+
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">

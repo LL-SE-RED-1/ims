@@ -1,5 +1,0 @@
-[{"grade": 3, "name": "3120200123", "college": "动物科学学院", "class": 1, "department": "动物科学", "sex": 0, "uid": 3120200123}, {"grade": 1, "name": "3120200124", "college": "环境与资源学院", "class": 5, "department": "环境科学", "sex":0, "uid": 3120200124}, {"grade": 2, "name": "3120200125", "college": "法学院", "class": 6, "department": "法学", "sex": 0, "uid": 3120200125}]
-
-[{"name": "2120101869", "department": "数学系", "sex": 0, "college": "理学院", "uid": "2120101869"}, {"name": "2120101870", "department": "软件工程", "sex": 0,"college": "软件学院", "uid": "2120101870"}, {"name": "2120101871", "department": "自动化（电气学院）", "sex": 0, "college": "电器工程学院", "uid": "2120101871"}]
-
-[{"name": "6123456765", "cid": "61234565", "semester": 2, "college": "计算机科学与技术学院", "ctype": 1, "department": "工业设计", "credit": 4}, {"name": "6123456766", "cid": "61234566", "semester": 1, "college": "医学院", "ctype": 1, "department": "临床医学", "credit": 4}, {"name": "6123456767", "cid": "61234567", "semester": 2, "college": "电器工程学院", "ctype": 1, "department": "自动化（电气学院）", "credit": 4}]

@@ -1,18 +1,24 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+	
+
+	    <?php if ($func == 0): ?>
 		<div class="ui secondary pointing menu">
 			<div class="ui item">
 				<h2 class="ui header">添加学生</h2>
 			</div>
-        <?php if ($func == 0): ?>
+   
 			<a class="right item">
 				<i class="grid layout icon"></i>批量添加
 			</a>
 			<a class="active right item">
 				<i class="add square icon"></i>单条添加
 			</a>
+		</div>
+		<?php else: ?>
+		<h2 class="sub-header">添加学生</h2>
+		<br><br>
         <?php endif;?>
 
-		</div>
 		<div class="placeholder"></div>
 
         <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_student/manage') . "/" . $func)?>" method="post">
@@ -333,7 +339,8 @@
 
 
 
-        var college_and_department;
+	/*
+	var college_and_department;
 
         $.getJSON("<?php echo base_url()?>metadata/college_and_department.json", function( data ) {
             college_and_department = data;
@@ -353,6 +360,7 @@
                 $("#department-menu").append("<div class='item'>" + el + "</div>");
             });
         });
+*/
 
         /*$(".dropdown[name='college-dropdown']")
                 .dropdown({
