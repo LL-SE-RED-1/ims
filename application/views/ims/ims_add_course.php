@@ -1,7 +1,23 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-        <h2 class="ui header">添加课程</h2>
+	<?php if ($func == 0 and ( $type == 5 or $type == 4 or $type == 3)): ?>
+		<div class="ui secondary pointing menu">
+			<div class="ui item">
+				<h2 class="ui header">添加课程</h2>
+			</div>
+			<a class="right item">
+				<i class="grid layout icon"></i>批量添加
+			</a>
+			<a class="active right item">
+				<i class="add square icon"></i>单条添加
+			</a>
 
+		</div>
+	<?php else: ?>
+		<h2 class="sub-header">添加课程</h2>
+
+	<?php endif;?>
+		<div class="placeholder"></div>
 
         <div class="ui positive message" style="display: none;">
             <i class="close icon"></i>
@@ -19,48 +35,30 @@
             </div>
 
         <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/manage') . "/" . $func?>" method="post">
-
+			<div id="not-batch">
             <div class="four fields">
                 <div class="required field">
                     <label>课程代码</label>
                     <?php if ($func == 0): ?>
-                    <input name="cid" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> type="text">
+                    <input name="cid" placeholder="" <?php if ($type == 2)  echo "readonly";?> type="text">
                     <?php else: ?>
-                    <input name="cid" value="<?php echo $info['cid']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="cid" value="<?php echo $info['cid']?>" readonly type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>课程名称</label>
                     <?php if ($func == 0): ?>
-                    <input name="name" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="name" placeholder="" <?php if ($type == 2) {echo "readonly";}?>  type="text">
                     <?php else: ?>
-                    <input name="name" value="<?php echo $info['name']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="name" value="<?php echo $info['name']?>" <?php if ($type == 2|| $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
                     <label>学分</label>
                     <?php if ($func == 0): ?>
-                    <input name="credit" placeholder="" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="credit" placeholder="" <?php if ($type == 2) {echo "readonly";}?>  type="text">
                     <?php else: ?>
-                    <input name="credit" value="<?php echo $info['credit']?>" <?php if ($type == 2) {
-	echo "readonly";
-}
-?>  type="text">
+                    <input name="credit" value="<?php echo $info['credit']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
                     <?php endif;?>
                 </div>
                 <div class="required field">
@@ -86,7 +84,7 @@
                     <div class="ui selection dropdown">
                         <div class="default text"></div>
                         <i class="dropdown icon"></i>
-                        <?php if ($func == 0): ?>
+                    <?php if ($func == 0): ?>
                         <input name="semester" type="hidden">
                     <?php else: ?>
                         <input name="semester" type="hidden" value="<?php echo $info['semester']?>">
@@ -101,12 +99,9 @@
                 <div class="required field">
                     <label>学院</label>
                     <div class="ui selection dropdown" name="college-dropdown">
-                        <div class="text"><?php if ($func != 0) {
-	echo $info['college'];
-}
-?></div>
+                        <div class="text"><?php if ($func != 0) {echo $info['college'];}?></div>
                         <i class="dropdown icon"></i>
-                        <?php if ($func == 0): ?>
+                    <?php if ($func == 0): ?>
                         <input name="college" type="hidden">
                     <?php else: ?>
                         <input name="college" type="hidden" value="<?php echo $info['college']?>">
@@ -118,10 +113,7 @@
                 <div class="required field">
                     <label>学系</label>
                     <div class="ui selection dropdown">
-                        <div class="text" id="department-text"><?php if ($func != 0) {
-	echo $info['department'];
-}
-?></div>
+                        <div class="text" id="department-text"><?php if ($func != 0) {echo $info['department'];}?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
                         <input name="department" type="hidden">
@@ -134,35 +126,63 @@
                 </div>
             </div>
 
+            <div class="three fields">
+                <div class="required field">
+                    <label>课程容量</label>
+                    <?php if ($func == 0): ?>
+                    <input name="capacity" placeholder="" type="text">
+                    <?php else: ?>
+                    <input name="capacity" value="<?php echo $info['capacity']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
+                    <?php endif;?>
+                </div>
+                <div class="required field">
+                    <label>考核方式</label>
+                    <?php if ($func == 0): ?>
+                    <input name="etype" placeholder="" type="text">
+                    <?php else: ?>
+                    <input name="etype" value="<?php echo $info['etype']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
+                    <?php endif;?>
+                </div>
+                <div class="required field">
+                    <label>教室</label>
+                    <?php if ($func == 0): ?>
+                    <input name="classroom" placeholder=""  type="text">
+                    <?php else: ?>
+                    <input name="classroom" value="<?php echo $info['classroom']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
+                    <?php endif;?>
+				</div>
+            </div>
 
 
               <div class="field">
                 <label>课程描述</label>
                 <?php if ($func == 0): ?>
-                <textarea name="info" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> ></textarea>
+                <textarea name="info"></textarea>
                     <?php else: ?>
-                <textarea name="info" <?php if ($type == 2) {
-	echo "readonly";
-}
-?> ><?php echo $info['info']?></textarea>
+                <textarea name="info" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?> ><?php echo $info['info']?></textarea>
                     <?php endif;?>
-              </div>
-
-            <br>
-
-                <div class="ui grey right floated  button" id="back">返回</div>
-                <?php if ($type == 3): ?>
-                <?php if ($func != 0): ?>
+			  </div>
+              <div class="ui grey right floated  button" id="back">返回</div>
+            <?php if ($type == 5 || $type == 4 || $type == 3): ?>
+            <?php if ($func != 0 && ( $type !=5 || $type==5 && $college === $info['college'])): ?>
                 <button class="ui red right floated  button" type="submit" name="cancel" value="cancel" id="delete">删除</button>
             <?php endif;?>
                 <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
             <?php endif;?>
+			</div>
 
+            </form>
+            <form class="ui form segment transparent-seg" action="<?php echo site_url('ims/ims_add_course/batchInsert')?>" method="post">
+			<div id="is-batch">
+              <div class="required field">
+                <label>批量添加内容</label>
+                <textarea name="batch"></textarea>
+              </div>
+
+                <div class="ui grey right floated  button" id="back">返回</div>
+                <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
+			</div>
         </form>
-
 
         </div>
     </div>
@@ -263,13 +283,72 @@
                                 prompt : '请选择学系'
                             }
                         ]
-                    }
+                    },
+					课程容量: {
+						identifier: 'storage',
+						rules: [
+							{
+								type : 'empty',
+								prompt: '请填写课程容量'
+							},{
+								type: 'integer',
+								prompt: '填入内容格式不正确'
+							}
+						]
+					},
+					考核方式: {
+					    identifier: 'test',
+					    rules: [
+						    {
+							    type   : 'empty',
+							    prompt : '请填写考核方式'
+							}
+						]
+					},
+					教室: {
+					    identifier: 'classroom',
+					    rules: [
+						    {
+							    type   : 'empty',
+							    prompt : '请填写教室信息'
+							}
+						]
+					},
+					批量添加内容: {
+					    identifier: 'batch',
+					    rules: [
+						    {
+							    type   : 'empty',
+							    prompt : '请填写批量添加内容'
+							}
+						]
+					}
                 },
                 {
                     inline : true,
                     on     : 'blur'
                 });
 
+	$(document)
+		.ready(function(){
+			$("#is-batch").toggle();
+			$('.ui.secondary.pointing.menu>.right.item')
+				.on('click', function() {
+				    if(!$(this).hasClass('active')) {
+					    $(this)
+					        .addClass('active')
+					        .closest('.ui.menu')
+					        .find('.item')
+					        .not($(this))
+					        .removeClass('active')
+							;
+						$("#not-batch").toggle();
+						$("#is-batch").toggle();
+					}
+				})
+				;
+		})
+		;
 
 // $("#delete").click(function() {
 //     history.go(-2);
@@ -295,6 +374,8 @@
                     .ready(function() {
                         show_negative_message();
                     });
+
+
     </script>
 <?php endif;?>
 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" preserveAspectRatio="none"
@@ -321,6 +402,10 @@ style="font-weight:bold;font-size:10pt;font-family:Arial, Helvetica, Open Sans, 
     .ui.submit.button {
         float: right;
     }
+
+h2.ui.header {
+margin-bottom: -1em !important;  margin-top: -0.665em !important;
+}
 
 </style>
 </html>

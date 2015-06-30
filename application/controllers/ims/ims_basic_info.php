@@ -29,9 +29,9 @@ class Ims_basic_info extends CI_Controller {
 			$data['file_info'] = "文件大小超过限制！";
 		} else if ($file_info == "type") {
 			$data['file_info'] = "文件类型错误！";
-		} else if($file_info == "fail"){
+		} else if ($file_info == "fail") {
 			$data['file_info'] = "上传失败！";
-		}else {
+		} else {
 			$data['file_info'] = $file_info;
 		}
 
@@ -66,40 +66,31 @@ class Ims_basic_info extends CI_Controller {
 			|| ($_FILES["file"]["type"] == "image/png")
 			|| ($_FILES["file"]["type"] == "image/jpg")
 			|| ($_FILES["file"]["type"] == "image/jpeg"))
-			&& ($_FILES["file"]["size"] < 2000000)) 
-		{
-			if ($_FILES["file"]["error"] > 0) 
-			{
+			&& ($_FILES["file"]["size"] < 2000000)) {
+			if ($_FILES["file"]["error"] > 0) {
 				$file_info = "Error:" . $_FILES["file"]["error"];
-			} 
-			else 
-			{
-				if (file_exists("uploads/" . $this->session->userdata('uid'))) 
-				{
+			} else {
+				if (file_exists("uploads/" . $this->session->userdata('uid'))) {
 					delete_files('uploads/' . $this->session->userdata('uid'));
 				}
 
-				if(move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $this->session->userdata('uid')))
+				if (move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/" . $this->session->userdata('uid'))) {
 					$file_info = "success";
-				else
+				} else {
 					$file_info = "fail";
-				
+				}
+
 			}
-		} 
-		else 
-		{
-			if ($_FILES["file"]["size"] > 2000000) 
-			{
+		} else {
+			if ($_FILES["file"]["size"] > 2000000) {
 				$file_info = "size";
-			} 
-			else 
-			{
+			} else {
 				$file_info = "type";
 			}
 
 		}
 		//do not use refresh
-		redirect('ims/ims_basic_info/index/'.$file_info);
+		redirect('ims/ims_basic_info/index/' . $file_info);
 
 	}
 }

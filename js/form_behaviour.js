@@ -2,7 +2,7 @@
 
 var college_and_department;
 
-var base_url = window.location.protocol + "//" + window.location.host + "/ims/";
+var base_url = window.location.protocol + "//" + window.location.host + "/";
 
 $.getJSON( base_url + "metadata/college_and_department.json", function( data ) {
     college_and_department = data;
@@ -33,10 +33,10 @@ $(".close.icon").click(function() {
 
 $(document)
 .ready(function(){
-    $('.ui.dropdown')
+    $('.ui.xyh.dropdown')
 .dropdown()
 ;
-$('.ui.menu .dropdown')
+$('.ui.xyh.menu .dropdown')
 .dropdown({
     on: 'hover'
 })

@@ -12,15 +12,15 @@
             <ul class="nav navbar-nav navbar-right">
               <li><a href="<?php site_url('ims/ims_welcome');?>"><?php echo $uid;?></a></li>
           <li><a href="<?php echo site_url('modify_pass');?>">修改密码</a></li>
-           <?php if($type == 1):?>
+           <?php if ($type == 1): ?>
             <li><a target="_blank" href="<?php echo base_url();?>metadata/student_help.html">帮助文档</a></li>
-          <?php elseif($type == 2):?>
+          <?php elseif ($type == 2): ?>
             <li><a target="_blank" href="<?php echo base_url();?>metadata/teacher_help.html">帮助文档</a></li>
-          <?php elseif($type == 3):?>
+          <?php elseif ($type == 3 || $type == 5): ?>
             <li><a target="_blank" href="<?php echo base_url();?>metadata/manager_help.html">帮助文档</a></li>
-          <?php else:?>
+          <?php else: ?>
             <li><a target="_blank" href="<?php echo base_url();?>metadata/admin_help.html">帮助文档</a></li>
-          <?php endif;?>  
+          <?php endif;?>
           <li><a href="<?php echo site_url('login');?>">注销</a></li>
         </ul>
       </div>

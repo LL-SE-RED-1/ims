@@ -56,7 +56,7 @@
 
 <div class="row placeholder">
 
-  <?php if ($type == 3): ?>
+  <?php if ($type == 3 || $type == 4): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <a href="<?php echo site_url('ims/')?>/ims_add_student">
@@ -78,8 +78,9 @@
       </div>
     </a>
   </div>
+<?php endif;?>
 
-
+<?php if ($type == 5 || $type == 4 || $type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <div class="text-center at-center">
@@ -91,9 +92,21 @@
     </div>
 
   </div>
+<?php endif;?>
 
+<?php if ($type == 2 || $type == 5 || $type == 4 || $type == 3): ?>
+  <div class="col-xs-4 col-sm-3 placeholder">
+    <a href="<?php echo site_url('ims/')?>/ims_search_course">
+      <div class="text-center">
+        <img class="ui small image at-center-2" src="<?php echo base_url()?>images/book_search.png">
+        <p></p>
+        <p>搜索课程</p>
+      </div>
+    </a>
+  </div>
+<?php endif;?>
 
-
+<!--
   <div class="col-xs-4 col-sm-3 placeholder">
     <a href="<?php echo site_url('ims/')?>/ims_check_course">
       <div class="text-center at-center">
@@ -103,13 +116,14 @@
       </div>
     </a>
   </div>
-
+ -->
 
 </div>
 
 
 <div class="row placeholder">
 
+<?php if ($type == 4 || $type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <a href="<?php echo site_url('ims/')?>/ims_search_student">
@@ -134,20 +148,8 @@
 
 <?php endif;?>
 
-<?php if ($type == 2 || $type == 3): ?>
-  <div class="col-xs-4 col-sm-3 placeholder">
-    <a href="<?php echo site_url('ims/')?>/ims_search_course">
-      <div class="text-center">
-        <img class="ui small image at-center-2" src="<?php echo base_url()?>images/book_search.png">
-        <p></p>
-        <p>搜索课程</p>
-      </div>
-    </a>
-  </div>
-<?php endif;?>
 
-<?php if ($type == 2): ?>
-  <div class="col-xs-4 col-sm-3 placeholder">
+<!--   <div class="col-xs-4 col-sm-3 placeholder">
 
     <div class="text-center">
       <a href="<?php echo site_url('ims/')?>/ims_request_manage">
@@ -157,8 +159,9 @@
       </a>
     </div>
 
-  </div>
-<?php endif;?>
+  </div> -->
+
+
 </div>
 </div>
 </div>

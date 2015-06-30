@@ -5,6 +5,25 @@ class Add_teacher_model extends CI_Model {
 		$this->load->database();
 	}
 
+	public function batchInsert($info) {
+		if (!$this->db->insert_batch('imsTeacher', $info)) {
+			return $this->db->_error_message();
+		}
+		$user_info = array();
+		foreach ($info as $ele) {
+			$user_info[] = array('uid' => $ele['uid'],
+				'password' => md5($ele['uid']),
+				'type' => 2,
+				'active' => 1,
+			);
+		}
+		if (!$this->db->insert_batch('imsUser', $user_info)) {
+			return $this->db->_error_message();
+		}
+		return 0;
+
+	}
+
 	//创建新的老师，返回操作结果
 	public function writeInfo($info) {
 		if (!$this->db->insert('imsTeacher', $info)) {
