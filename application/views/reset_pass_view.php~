@@ -12,7 +12,6 @@
                         <nav>
                             <ul class="nav masthead-nav">
                                 <li class="active"><a href="#">主页</a></li>
-								<li><a href='<?php echo site_url('reset_pass_view')?>'>重置密码</a></li>
 								<li><a href="mailto:zjullse@163.com">重置密码</a></li>
                                 <!--li><a href="mailto:liuzxzju@qq.com">联系我们</a></li-->
                             </ul>
@@ -38,7 +37,7 @@
                         <input type="password" id="password" name="password" class="form-signin form-control" placeholder="密码" required>
 
                         <label for="userType" class="sr-only"></label>
-                        <select id="userType" name="userType" class="form-signin form-control" style="padding: 0 15px">
+                        <select id="userType" name="userType" class="form-signin form-control">
                             <option value="1">学生</option>
                             <option value="2">教师</option>
                             <option value="3">管理员</option>
