@@ -33,10 +33,10 @@ $(".close.icon").click(function() {
 
 $(document)
 .ready(function(){
-    $('.ui.dropdown')
+    $('.ui.xyh.dropdown')
 .dropdown()
 ;
-$('.ui.menu .dropdown')
+$('.ui.xyh.menu .dropdown')
 .dropdown({
     on: 'hover'
 })
