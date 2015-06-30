@@ -12,7 +12,7 @@
                         <nav>
                             <ul class="nav masthead-nav">
                                 <li class="active"><a href="#">主页</a></li>
-								<li><a href='<?php echo site_url('reset_pass_view')?>'>重置密码</a></li>
+								<li><a href='<?php echo site_url('login/reset_pswd')?>'>重置密码</a></li>
 								<li><a href="mailto:zjullse@163.com">联系我们</a></li>
                             </ul>
                         </nav>
@@ -20,6 +20,14 @@
                 </div>
 
                 <div class="inner cover">
+                    <div class="ui positive message" style="display: none;">
+                        <i class="close icon"></i>
+                        <div class="header">
+                            Wow congratulations!
+                        </div>
+                        <p><?php echo $result_info; ?></p>
+                    </div>
+
                     <div class="ui negative message" style="display: none;">
                         <i class="close icon"></i>
                         <div class="header">

@@ -69,6 +69,7 @@ class Login extends CI_Controller {
 
 	}
 
+	//reset界面的控制器
 	public function reset_pswd($result_num = 0){
 		$this->session->unset_userdata('is_logged_in');
 
@@ -80,9 +81,11 @@ class Login extends CI_Controller {
 			$data['result_info'] = "该用户不存在";
 		}
 
+		$this->load->view('template/header');
 		$this->load->view('reset_pswd_view',$data);
 	}
 
+	//检测用户是否存在并发送重置密码的邮件
 	public function send_email(){
 		// $this->load->model('ims/user_model');
 
@@ -120,6 +123,8 @@ class Login extends CI_Controller {
 		}
 	}
 
+	//从邮件中跳转到这个控制器
+	//需要修改
 	public function modify_pswd(){
 		$uid = $this->input->get('uid');
 		$token = $this->input->get('token');
