@@ -15,7 +15,6 @@
 		</div>
 	<?php else: ?>
 		<h2 class="sub-header">添加课程</h2>
-		<br><br>
 
 	<?php endif;?>
 		<div class="placeholder"></div>
