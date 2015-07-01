@@ -7,6 +7,9 @@ class Add_teacher_model extends CI_Model {
 
 	public function batchInsert($info) {
 		if (!$this->db->insert_batch('imsTeacher', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		$user_info = array();
@@ -18,6 +21,9 @@ class Add_teacher_model extends CI_Model {
 			);
 		}
 		if (!$this->db->insert_batch('imsUser', $user_info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -27,6 +33,9 @@ class Add_teacher_model extends CI_Model {
 	//创建新的老师，返回操作结果
 	public function writeInfo($info) {
 		if (!$this->db->insert('imsTeacher', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
@@ -37,6 +46,9 @@ class Add_teacher_model extends CI_Model {
 				'active' => 1,
 			)
 		)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -44,10 +56,16 @@ class Add_teacher_model extends CI_Model {
 	//删除教师
 	public function deleteInfo($info) {
 		if (!$this->db->delete('imsUser', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
 		if (!$this->db->delete('imsTeacher', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
@@ -57,10 +75,16 @@ class Add_teacher_model extends CI_Model {
 	//根据传入信息，修改教师基本信息
 	public function modifyInfo($info) {
 		if (!$this->db->where('uid', $info['uid'])) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
 		if (!$this->db->update('imsTeacher', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 

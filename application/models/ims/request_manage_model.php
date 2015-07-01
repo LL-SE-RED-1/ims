@@ -28,6 +28,9 @@ class Request_manage_model extends CI_Model {
 				'info' => ($a['info'] == NULL) ? NULL : $a['info'],
 			)
 		)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
@@ -39,12 +42,18 @@ class Request_manage_model extends CI_Model {
 		if ($t == 1) {
 			//不同意申请
 			if (!$this->db->update('imsCourseReq', array('state' => 2))) {
+				$data['class'] = 2;
+				$data['description'] = $this->db->_error_message();
+				$this->ims_interface_model->writeLog($data);
 				return $this->db->_error_message();
 			}
 
 		} else {
 			//同意申请
 			if (!$this->db->update('imsCourseReq', array('state' => 1))) {
+				$data['class'] = 2;
+				$data['description'] = $this->db->_error_message();
+				$this->ims_interface_model->writeLog($data);
 				$this->db->_error_message();
 			}
 
@@ -59,6 +68,9 @@ class Request_manage_model extends CI_Model {
 				'info' => $a['info'],
 			)
 			)) {
+				$data['class'] = 2;
+				$data['description'] = $this->db->_error_message();
+				$this->ims_interface_model->writeLog($data);
 				$this->db->_error_message();
 			}
 

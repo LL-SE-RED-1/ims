@@ -4,10 +4,14 @@ class Add_course_model extends CI_Model {
 	public function __construct() {
 		parent::__construct();
 		$this->load->database();
+		$this->load->model('ims/ims_interface_model');
 	}
 
 	public function batchInsert($info) {
 		if (!$this->db->insert_batch('imsCourse', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -16,6 +20,9 @@ class Add_course_model extends CI_Model {
 	//添加课程，返回结果
 	public function writeInfo($info) {
 		if (!$this->db->insert('imsCourse', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -24,6 +31,9 @@ class Add_course_model extends CI_Model {
 	//删除课程，返回结果
 	public function deleteInfo($info) {
 		if (!$this->db->delete('imsCourse', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -31,12 +41,19 @@ class Add_course_model extends CI_Model {
 
 	//修改课程，返回结果
 	public function modifyInfo($info) {
+
 		// die(var_dump($info));
 		if (!$this->db->where('cid', $info['cid'])) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
 		if (!$this->db->update('imsCourse', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 

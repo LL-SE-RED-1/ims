@@ -18,11 +18,17 @@ class Ims_interface_model extends CI_Model
 		$sys_info = $this->sys_info_mode->get_sys_info();
 		return $sys_info;
 	}
-	
-	public function write_log($post)
+
+	//write_log 格式	
+	//uid:string,ip:string,time:datatime,description:string
+	public function write_log($info)
 	{
 		$this->load->model('ims/sys_info_model');
-		$result = $this->sys_info_model->write_log($post);
+		$data['class'] = $info['class'];
+		$data['ip'] = $this->input->ip_address();
+		$data['uid'] = $this->session->userdata('uid');
+		$data['description'] = $info['description'];
+		$result = $this->sys_info_model->write_log($data);
 		return $result;
 	}
 

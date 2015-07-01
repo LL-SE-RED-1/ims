@@ -22,6 +22,9 @@ class Assistant_model extends CI_Model {
 	public function batchInsert($info) {
 		// die(var_dump($info[0]));
 		if (!$this->db->insert_batch('imsAssistant', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		$user_info = array();
@@ -34,6 +37,9 @@ class Assistant_model extends CI_Model {
 			);
 		}
 		if (!$this->db->insert_batch('imsUser', $user_info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -42,6 +48,9 @@ class Assistant_model extends CI_Model {
 	//创建新的助管，返回操作结果
 	public function writeInfo($info) {
 		if (!$this->db->insert('imsAssistant', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
@@ -52,6 +61,9 @@ class Assistant_model extends CI_Model {
 			'active' => 1,
 		)
 		)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -60,9 +72,15 @@ class Assistant_model extends CI_Model {
 	//根据信息，删除指定助管
 	public function deleteInfo($info) {
 		if (!$this->db->delete('imsUser', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		if (!$this->db->delete('imsAssistant', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -71,10 +89,16 @@ class Assistant_model extends CI_Model {
 	//修改助管信息
 	public function modifyInfo($info) {
 		if (!$this->db->where('uid', $info['uid'])) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
 		if (!$this->db->update('imsAssistant', $info)) {
+			$data['class'] = 2;
+			$data['description'] = $this->db->_error_message();
+			$this->ims_interface_model->writeLog($data);
 			return $this->db->_error_message();
 		}
 
