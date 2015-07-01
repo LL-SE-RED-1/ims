@@ -99,7 +99,7 @@
 
 <?php if ($type == 4 || $type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
-    <a href="<?php echo site_url('ims/')?>/ims_add_assistant"?>">
+    <a href="<?php echo site_url('ims/')?>/ims_add_assistant">
       <div class="text-center">
         <img class="ui small image at-center-2" src="<?php echo base_url()?>images/assistant.png">
         <p></p>
