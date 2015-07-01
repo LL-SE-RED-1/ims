@@ -156,11 +156,21 @@
                 </div>
                 <div class="required field">
                     <label>教室类型</label>
+
+					<div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
                     <?php if ($func == 0): ?>
-                    <input name="classroom" placeholder=""  type="text">
+                        <input name="classroom" type="hidden">
                     <?php else: ?>
-                    <input name="classroom" value="<?php echo $info['classroom']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
+                        <input name="classroom" type="hidden" value="<?php echo $info['classroom']?>">
                     <?php endif;?>
+                        <div class="menu">
+                            <div class="item" data-value="0">多媒体教室</div>
+                            <div class="item" data-value="1">普通教师</div>
+                        </div>
+                    </div>
+					
 				</div>
             </div>
 
