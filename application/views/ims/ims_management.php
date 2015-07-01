@@ -97,7 +97,7 @@
   </div>
 <?php endif;?>
 
-<?php if ($type == 2 || $type == 4 || $type == 3): ?>
+<?php if ($type == 4 || $type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
     <a href="<?php echo site_url('ims/')?>/ims_add_assistant">
       <div class="text-center">
@@ -167,7 +167,7 @@
 <?php endif;?>
 
 
-<?php if ($type == 2 || $type == 4 || $type == 3): ?>
+<?php if ($type == 4 || $type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
     <a href="<?php echo site_url('ims/')?>/ims_search_assistant">
       <div class="text-center">

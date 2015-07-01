@@ -76,12 +76,11 @@
         <i class="user icon"></i> 添加课程
     </button>
 </form>
-<?php elseif ($type == 2): ?>
-<form action="<?php echo site_url('ims/ims_request_manage')?>" method="post">
+<!-- <form action="<?php echo site_url('ims/ims_request_manage')?>" method="post">
     <button class="ui right floated primary labeled icon button" id="id-course-req" type="submit">
         <i class="user icon"></i> 添加课程申请
     </button>
-</form>
+</form> -->
 <?php endif;?>
 </div>
 </div>

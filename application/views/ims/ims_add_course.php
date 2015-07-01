@@ -136,12 +136,23 @@
                     <?php endif;?>
                 </div>
                 <div class="required field">
+
                     <label>考核方式</label>
+                    <div class="ui selection dropdown">
+                        <div class="default text"></div>
+                        <i class="dropdown icon"></i>
                     <?php if ($func == 0): ?>
-                    <input name="etype" placeholder="" type="text">
+                        <input name="etype" type="hidden">
                     <?php else: ?>
-                    <input name="etype" value="<?php echo $info['etype']?>" <?php if ($type == 2 || $type == 5 && $college != $info['college']) {echo "readonly";}?>  type="text">
+                        <input name="etype" type="hidden" value="<?php echo $info['etype']?>">
                     <?php endif;?>
+                        <div class="menu">
+                            <div class="item" data-value="0">答辩</div>
+                            <div class="item" data-value="1">开卷考试</div>
+                            <div class="item" data-value="2">闭卷考试</div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="required field">
                     <label>教室类型</label>
@@ -349,6 +360,23 @@
 				;
 		})
 		;
+
+
+      $(document)
+              .ready(function(){
+                $('.ui.dropdown').dropdown();
+                $('.ui.menu .dropdown')
+                        .dropdown({
+                          on: 'hover'
+                        })
+                ;
+                $('.demo .ui.checkbox')
+                         .checkbox()
+                ;
+
+
+              })
+      ;
 
 // $("#delete").click(function() {
 //     history.go(-2);
