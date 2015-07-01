@@ -17,6 +17,12 @@ class Ims_management extends CI_Controller {
 			$data['uid'] = $this->session->userdata('uid');
 			$data['type'] = $this->session->userdata('user_type');
 
+			if($data['type'] == 6){
+				$this->load->model('ims/assistant_model');
+				$assistant = $this->assistant_model->readInfo($data['uid']);
+				$data['assistant'] = $assistant;
+			}
+
 			$this->load->view('template/header');
 			$this->load->view('template/navigator2', $data);
 

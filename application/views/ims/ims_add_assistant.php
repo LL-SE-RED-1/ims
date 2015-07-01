@@ -23,7 +23,7 @@
 		<div class="placeholder"></div>
 
 		<!-- TODO 修改 action -->
-        <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_student/manage') . "/" . $func)?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_assistant/manage') . "/" . $func)?>" method="post">
         <!--new-->
             <div class="ui positive message" style="display: none;">
                 <i class="close icon"></i>
@@ -44,7 +44,7 @@
 			<div id="not-batch">
             <div class="three fields">
                 <div class="required field">
-                    <label>学号</label>
+                    <label>助管号</label>
                     <?php if ($func == 0): ?>
                     <input name="uid" type="text" value="">
 					<?php else: ?>
@@ -52,7 +52,7 @@
 					<?php endif;?>
 
 				</div>
-                <div class="required field">
+<!--                 <div class="required field">
                     <label>密码</label>
                     <div class="ui icon input">
                         <input type="password" name="new_pass">
@@ -65,7 +65,7 @@
                         <input type="password" name="conform_pass">
                         <i class="lock icon"></i>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -76,42 +76,84 @@
 					<label>权限表</label>
 					<div class="ui checkbox">
                     <label>查找学生</label>
-                    <input type="checkbox" name="s-stu">
+                    <?php if ($func == 0): ?>
+                    <input type="checkbox" name="seaStu">
+                    <?php else: ?>
+                    <input type="checkbox" name="seaStu" 
+                        <?php if ($info['seaStu']):?>
+                            checked="on"
+                        <?php endif;?> >
+                    <?php endif;?>
 					</div>
                 </div>
 				<div class="field">
 					<label>&nbsp;</label>
 					<div class="ui checkbox">
                     <label>查找老师</label>
-                    <input type="checkbox" name="s-stu">
+                    <?php if ($func == 0): ?>
+                    <input type="checkbox" name="seaTea">
+                    <?php else: ?>
+                    <input type="checkbox" name="seaTea" 
+                        <?php if ($info['seaTea']):?>
+                            checked="on"
+                        <?php endif;?> >
+                    <?php endif;?>
 					</div>
                 </div>
                 <div class="field">
 					<label>&nbsp;</label>
 					<div class="ui checkbox">
                     <label>查找课程</label>
-                    <input type="checkbox" name="s-stu">
+                    <?php if ($func == 0): ?>
+                    <input type="checkbox" name="seaCour">
+                    <?php else: ?>
+                    <input type="checkbox" name="seaCour" 
+                        <?php if ($info['seaCour']):?>
+                            checked="on"
+                        <?php endif;?> >
+                    <?php endif;?>
 					</div>
                 </div>
                 <div class="field">
 					<label>&nbsp;</label>
 					<div class="ui checkbox">
                     <label>添加学生</label>
-                    <input type="checkbox" name="s-stu">
+                    <?php if ($func == 0): ?>
+                    <input type="checkbox" name="addStu">
+                    <?php else: ?>
+                    <input type="checkbox" name="addStu" 
+                        <?php if ($info['addStu']):?>
+                            checked="on"
+                        <?php endif;?> >
+                    <?php endif;?>
 					</div>
                 </div>
                 <div class="field">
 					<label>&nbsp;</label>
 					<div class="ui checkbox">
                     <label>添加老师</label>
-                    <input type="checkbox" name="s-stu">
+                    <?php if ($func == 0): ?>
+                    <input type="checkbox" name="addTea">
+                    <?php else: ?>
+                    <input type="checkbox" name="addTea" 
+                        <?php if ($info['addTea']):?>
+                            checked="on"
+                        <?php endif;?> >
+                    <?php endif;?>
 					</div>
                 </div>
                 <div class="field">
 					<label>&nbsp;</label>
 					<div class="ui checkbox">
                     <label>添加课程</label>
-                    <input type="checkbox" name="s-stu">
+                    <?php if ($func == 0): ?>
+                    <input type="checkbox" name="addCour">
+                    <?php else: ?>
+                    <input type="checkbox" name="addCour" 
+                        <?php if ($info['addCour']):?>
+                            checked="on"
+                        <?php endif;?> >
+                    <?php endif;?>
 					</div>
                 </div>
             </div>
@@ -126,7 +168,7 @@
         </form>
 
         <?php if ($func == 0): ?>
-        <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_student/batchInsert'))?>" method="post">
+        <form class="ui form segment transparent-seg" action="<?php echo (site_url('ims/ims_add_assistant/batchInsert'))?>" method="post">
 
 				<div id="is-batch">
               <div class="required field">
@@ -188,29 +230,29 @@
                                 prompt : '学号需要是十位，请重新输入'
                             }
                         ]
-                    },
-					密码: {
-						identifier: 'new_pass',
-						rules: [
-							{
-								type   : 'empty',
-								prompt : '请输入密码'
-							}
-						]
-					},
-					确认密码: {
-						identifier: 'conform_pass',
-						rules: [
-							{
-								type   : 'empty',
-								prompt : '请确认密码'
-							},
-							{
-								type   : 'match[new_pass]',
-								prompt : '输入密码与之前不一致，请重新输入'
-							}
-						]
-					}
+                    }//,
+					// 密码: {
+					// 	identifier: 'new_pass',
+					// 	rules: [
+					// 		{
+					// 			type   : 'empty',
+					// 			prompt : '请输入密码'
+					// 		}
+					// 	]
+					// },
+					// 确认密码: {
+					// 	identifier: 'conform_pass',
+					// 	rules: [
+					// 		{
+					// 			type   : 'empty',
+					// 			prompt : '请确认密码'
+					// 		},
+					// 		{
+					// 			type   : 'match[new_pass]',
+					// 			prompt : '输入密码与之前不一致，请重新输入'
+					// 		}
+					// 	]
+					// }
                 },
                 {
                     inline : true,

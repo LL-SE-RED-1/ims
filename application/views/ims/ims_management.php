@@ -49,6 +49,7 @@
         </div>
       </div>
 
+	  
     </div>
   </div>
 
@@ -56,7 +57,7 @@
 
 <div class="row placeholder">
 
-  <?php if ($type == 3 || $type == 4): ?>
+  <?php if ($type == 3 || $type == 4 || (($type == 6) && $assistant['addStu'])): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <a href="<?php echo site_url('ims/')?>/ims_add_student">
@@ -67,7 +68,9 @@
       </div>
     </a>
   </div>
+  <?php endif;?>
 
+  <?php if ($type == 3 || $type == 4 || (($type == 6) && $assistant['addTea'])): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
     <a href="<?php echo site_url('ims/')?>/ims_add_teacher">
       <div class="text-center at-center">
@@ -80,7 +83,7 @@
   </div>
 <?php endif;?>
 
-<?php if ($type == 5 || $type == 4 || $type == 3): ?>
+<?php if ($type == 5 || $type == 4 || $type == 3 || (($type == 6) && $assistant['addCour'])): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <div class="text-center at-center">
@@ -94,7 +97,7 @@
   </div>
 <?php endif;?>
 
-<?php if ($type == 2 || $type == 5 || $type == 4 || $type == 3): ?>
+<?php if ($type == 2 || $type == 4 || $type == 3): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
     <a href="<?php echo site_url('ims/')?>/ims_add_assistant">
       <div class="text-center">
@@ -123,7 +126,7 @@
 
 <div class="row placeholder">
 
-<?php if ($type == 4 || $type == 3): ?>
+<?php if ($type == 4 || $type == 3 || (($type == 6) && $assistant['seaStu'])): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
 
     <a href="<?php echo site_url('ims/')?>/ims_search_student">
@@ -134,7 +137,9 @@
       </div>
     </a>
   </div>
+<?php endif;?>
 
+<?php if ($type == 4 || $type == 3 || (($type == 6) && $assistant['seaTea'])): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
     <a href="<?php echo site_url('ims/')?>/ims_search_teacher">
       <div class="text-center">
@@ -149,7 +154,7 @@
 <?php endif;?>
 
 
-<?php if ($type == 2 || $type == 5 || $type == 4 || $type == 3): ?>
+<?php if ($type == 2 || $type == 5 || $type == 4 || $type == 3 || (($type == 6) && $assistant['seaCour'])): ?>
   <div class="col-xs-4 col-sm-3 placeholder">
     <a href="<?php echo site_url('ims/')?>/ims_search_course">
       <div class="text-center">
@@ -160,6 +165,20 @@
     </a>
   </div>
 <?php endif;?>
+
+
+<?php if ($type == 2 || $type == 4 || $type == 3): ?>
+  <div class="col-xs-4 col-sm-3 placeholder">
+    <a href="<?php echo site_url('ims/')?>/ims_search_assistant">
+      <div class="text-center">
+        <img class="ui small image at-center-2" src="<?php echo base_url()?>images/assistant_search.png">
+        <p></p>
+        <p>搜索助管</p>
+      </div>
+    </a>
+  </div>
+<?php endif;?>
+
 
 
 <!--   <div class="col-xs-4 col-sm-3 placeholder">

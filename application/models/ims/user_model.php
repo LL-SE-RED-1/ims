@@ -32,7 +32,8 @@ class User_model extends CI_Model {
     	);
 
 		//update data in database
-		$result = $this->db->update('imsUser', $data, array('uid' => $post['uid']));
+		$result = $this->db->update('imsUser', $data, array('uid' => $post['uid'],
+															'type' => $post['userType']));
 
 		//return the result of update
 		return $result;

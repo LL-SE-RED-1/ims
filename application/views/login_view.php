@@ -12,7 +12,7 @@
                         <nav>
                             <ul class="nav masthead-nav">
                                 <li class="active"><a href="#">主页</a></li>
-								<li><a href='<?php echo site_url('login/reset_pswd')?>'>重置密码</a></li>
+								<li><a href='<?php echo site_url('reset_pswd')?>'>重置密码</a></li>
 								<li><a href="mailto:zjullse@163.com">联系我们</a></li>
                             </ul>
                         </nav>
@@ -51,6 +51,7 @@
                             <option value="3">管理员</option>
                             <option value="4">系统管理员</option>
                             <option value="5">院系管理员</option>
+                            <option value="6">助管</option>
                         </select>
 
                         <!-- 临时使用 -->

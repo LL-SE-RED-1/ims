@@ -82,8 +82,6 @@ class Modify_pass extends CI_Controller
 			//if old password is wrong
 			redirect('modify_pass/index/3');
 		}
-
-
 	}
 
 }

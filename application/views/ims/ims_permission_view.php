@@ -79,7 +79,7 @@
                                     <div class="ui checkbox">
                                         <input type="checkbox" name="stu_per" 
                                         <?php if($pitem['stuPermi']==TRUE):?>
-                                            checked="on";
+                                            checked="on"
                                         <?php endif;?>
                                         >
                                         <label></label>
@@ -89,7 +89,7 @@
                                     <div class="ui checkbox">
                                         <input type="checkbox" name="tea_per"
                                         <?php if($pitem['teaPermi']==TRUE):?>
-                                            checked="on";
+                                            checked="on"
                                         <?php endif;?>
                                         >
                                         <label></label>

@@ -35,7 +35,7 @@
                         <p><?php echo $result_info;?></p>
                     </div>
 
-                    <form action="<?php echo site_url('login/send_email');?>" method="post">
+                    <form action="<?php echo site_url('reset_pswd/send_email');?>" method="post">
                         <h1 class="form-signin form-signin-heading"><strong>重置密码</strong></h1>
 
                         <label for="uid" class="form-signin sr-only">学号/教工号</label>

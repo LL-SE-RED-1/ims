@@ -144,7 +144,7 @@
                     <?php endif;?>
                 </div>
                 <div class="required field">
-                    <label>教室</label>
+                    <label>教室类型</label>
                     <?php if ($func == 0): ?>
                     <input name="classroom" placeholder=""  type="text">
                     <?php else: ?>

@@ -97,6 +97,7 @@ class Ims_permission extends CI_Controller {
 		$post['pid'] = $pid;
 		$post['stu_per'] = ($this->input->post('stu_per') == 'on');
 		$post['tea_per'] = ($this->input->post('tea_per') == 'on');
+		die(var_dump($post));
 
 		$result = $this->permission_model->update_per($post);
 
