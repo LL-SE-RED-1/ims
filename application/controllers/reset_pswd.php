@@ -67,6 +67,7 @@ class Reset_pswd extends CI_Controller
 			";
 			$this->email->message($message);
 			$this->email->send();
+			// die(var_dump($this->email->print_debugger()));
 
 			redirect('reset_pswd/index/1');
 		}
