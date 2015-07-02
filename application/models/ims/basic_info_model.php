@@ -4,6 +4,7 @@ class Basic_info_model extends CI_Model {
 	public function __construct() {
 		parent::__construct();
 		$this->load->database();
+		$this->load->model('ims/ims_interface_model');
 	}
 
 	public function readInfo($userID) {

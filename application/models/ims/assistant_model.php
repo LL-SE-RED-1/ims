@@ -5,6 +5,7 @@ class Assistant_model extends CI_Model {
 		parent::__construct();
 		//load database
 		$this->load->database();
+		$this->load->model('ims/ims_interface_model');
 	}
 
 	public function search($info) {
@@ -24,7 +25,7 @@ class Assistant_model extends CI_Model {
 		if (!$this->db->insert_batch('imsAssistant', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		$user_info = array();
@@ -39,7 +40,7 @@ class Assistant_model extends CI_Model {
 		if (!$this->db->insert_batch('imsUser', $user_info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -50,7 +51,7 @@ class Assistant_model extends CI_Model {
 		if (!$this->db->insert('imsAssistant', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 
@@ -63,7 +64,7 @@ class Assistant_model extends CI_Model {
 		)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -74,13 +75,13 @@ class Assistant_model extends CI_Model {
 		if (!$this->db->delete('imsUser', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		if (!$this->db->delete('imsAssistant', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -91,14 +92,14 @@ class Assistant_model extends CI_Model {
 		if (!$this->db->where('uid', $info['uid'])) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 
 		if (!$this->db->update('imsAssistant', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 

@@ -98,11 +98,20 @@
                 </div>
                 <div class="required field">
                     <label>学院</label>
-                    <div class="ui selection dropdown" name="college-dropdown">
-                        <div class="text"><?php if ($func != 0) {echo $info['college'];}?></div>
+                    <?php if ($type==3||$type==4):?>
+                       <div class="ui selection dropdown" name="college-dropdown">
+                    <?php elseif($type==5):?>
+                        <div class="ui selection dropdown disabled" name="college-dropdown" id="colcollege">
+                    <?php endif;?>
+                        <div class="text"><?php if ($func != 0) {echo $info['college'];}
+                                                elseif($func == 0 && $type==5){
+                                                        echo $college;
+                                                    }?></div>
                         <i class="dropdown icon"></i>
-                    <?php if ($func == 0): ?>
+                    <?php if ($func == 0 && $type != 5): ?>
                         <input name="college" type="hidden">
+                    <?php elseif($func == 0 && $type == 5):?>
+                        <input name="college" type="hidden" value="<?php echo $college?>">                        
                     <?php else: ?>
                         <input name="college" type="hidden" value="<?php echo $info['college']?>">
                     <?php endif;?>
@@ -112,7 +121,7 @@
                 </div>
                 <div class="required field">
                     <label>学系</label>
-                    <div class="ui selection dropdown">
+                        <div class="ui selection dropdown">
                         <div class="text" id="department-text"><?php if ($func != 0) {echo $info['department'];}?></div>
                         <i class="dropdown icon"></i>
                         <?php if ($func == 0): ?>
@@ -167,7 +176,7 @@
                     <?php endif;?>
                         <div class="menu">
                             <div class="item" data-value="0">多媒体教室</div>
-                            <div class="item" data-value="1">普通教师</div>
+                            <div class="item" data-value="1">普通教室</div>
                         </div>
                     </div>
 					
@@ -188,7 +197,9 @@
             <?php if ($func != 0 && ( $type !=5 || $type==5 && $college === $info['college'])): ?>
                 <button class="ui red right floated  button" type="submit" name="cancel" value="cancel" id="delete">删除</button>
             <?php endif;?>
+            <?php if(!($type==5 && $college!=$info['college'] && $func==1)):?>
                 <button class="ui green  right floated  button" type="submit" name="submit" value="submit">提交</button>
+            <?php endif;?>
             <?php endif;?>
 			</div>
 
@@ -371,22 +382,6 @@
 		})
 		;
 
-
-      $(document)
-              .ready(function(){
-                $('.ui.dropdown').dropdown();
-                $('.ui.menu .dropdown')
-                        .dropdown({
-                          on: 'hover'
-                        })
-                ;
-                $('.demo .ui.checkbox')
-                         .checkbox()
-                ;
-
-
-              })
-      ;
 
 // $("#delete").click(function() {
 //     history.go(-2);

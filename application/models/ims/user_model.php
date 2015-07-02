@@ -5,6 +5,7 @@ class User_model extends CI_Model {
 		parent::__construct();
 		//load database
 		$this->load->database();
+		$this->load->model('ims/ims_interface_model');
 	}
 
 	//verify whether the user exists

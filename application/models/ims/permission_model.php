@@ -10,6 +10,7 @@ class Permission_model extends CI_Model
 	{
 		parent::__construct();
 		$this->load->database();
+		$this->load->model('ims/ims_interface_model');
 	}
 
 	// get all permission records

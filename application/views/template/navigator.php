@@ -13,10 +13,14 @@
             <li><a target="_blank" href="<?php echo base_url();?>metadata/student_help.html">帮助文档</a></li>
           <?php elseif ($type == 2): ?>
             <li><a target="_blank" href="<?php echo base_url();?>metadata/teacher_help.html">帮助文档</a></li>
-          <?php elseif ($type == 3 || $type == 5): ?>
+          <?php elseif ($type == 3): ?>
             <li><a target="_blank" href="<?php echo base_url();?>metadata/manager_help.html">帮助文档</a></li>
-          <?php else: ?>
+          <?php elseif ($type == 4): ?>
             <li><a target="_blank" href="<?php echo base_url();?>metadata/admin_help.html">帮助文档</a></li>
+          <?php elseif ($type == 5): ?>
+            <li><a target="_blank" href="<?php echo base_url();?>metadata/colmanager_help.html">帮助文档</a></li>
+          <?php else: ?>
+            <li><a target="_blank" href="<?php echo base_url();?>metadata/assistant_help.html">帮助文档</a></li>
           <?php endif;?>
           <li><a href="<?php echo site_url('login');?>">注销</a></li>
         </ul>

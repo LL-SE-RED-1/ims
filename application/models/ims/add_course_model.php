@@ -11,7 +11,7 @@ class Add_course_model extends CI_Model {
 		if (!$this->db->insert_batch('imsCourse', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -22,7 +22,7 @@ class Add_course_model extends CI_Model {
 		if (!$this->db->insert('imsCourse', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -33,7 +33,7 @@ class Add_course_model extends CI_Model {
 		if (!$this->db->delete('imsCourse', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -46,14 +46,14 @@ class Add_course_model extends CI_Model {
 		if (!$this->db->where('cid', $info['cid'])) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 
 		if (!$this->db->update('imsCourse', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 

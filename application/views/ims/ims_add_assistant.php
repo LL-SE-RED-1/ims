@@ -75,7 +75,7 @@
                 <div class="field">
 					<label>权限表</label>
 					<div class="ui checkbox">
-                    <label>查找学生</label>
+                    <label>搜索学生</label>
                     <?php if ($func == 0): ?>
                     <input type="checkbox" name="seaStu">
                     <?php else: ?>
@@ -89,7 +89,7 @@
 				<div class="field">
 					<label>&nbsp;</label>
 					<div class="ui checkbox">
-                    <label>查找老师</label>
+                    <label>搜索老师</label>
                     <?php if ($func == 0): ?>
                     <input type="checkbox" name="seaTea">
                     <?php else: ?>
@@ -103,7 +103,7 @@
                 <div class="field">
 					<label>&nbsp;</label>
 					<div class="ui checkbox">
-                    <label>查找课程</label>
+                    <label>搜索课程</label>
                     <?php if ($func == 0): ?>
                     <input type="checkbox" name="seaCour">
                     <?php else: ?>
@@ -291,20 +291,6 @@
                     }
         })
         ;*/
-
-      $(document)
-              .ready(function(){
-                $('.ui.dropdown').dropdown();
-                $('.ui.menu .dropdown')
-                        .dropdown({
-                          on: 'hover'
-                        })
-                ;
-
-
-              })
-      ;
-
 
 	$(document)
 		.ready(function(){

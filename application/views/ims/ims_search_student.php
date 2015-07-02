@@ -25,7 +25,7 @@
                             <i class="search icon"></i>
                         </div>
                     </form>
-					<div class="ui secondary demo menu" style="margin-top: 40px; float: right;">
+					<!--div class="ui secondary demo menu" style="margin-top: 40px; float: right;">
 						<a class="active item">
 							A
 						</a>
@@ -35,7 +35,7 @@
 						<a class="item">
 							C
 						</a>
-						                </div>
+					</div-->
                 </div>
             <div class="ui hidden divider"></div>
             <div class="ui hidden divider"></div>

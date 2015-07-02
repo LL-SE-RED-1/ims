@@ -3,13 +3,14 @@ class Add_teacher_model extends CI_Model {
 	public function __construct() {
 		parent::__construct();
 		$this->load->database();
+		$this->load->model('ims/ims_interface_model');
 	}
 
 	public function batchInsert($info) {
 		if (!$this->db->insert_batch('imsTeacher', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		$user_info = array();
@@ -23,7 +24,7 @@ class Add_teacher_model extends CI_Model {
 		if (!$this->db->insert_batch('imsUser', $user_info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -35,7 +36,7 @@ class Add_teacher_model extends CI_Model {
 		if (!$this->db->insert('imsTeacher', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 
@@ -48,7 +49,7 @@ class Add_teacher_model extends CI_Model {
 		)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 		return 0;
@@ -58,14 +59,14 @@ class Add_teacher_model extends CI_Model {
 		if (!$this->db->delete('imsUser', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 
 		if (!$this->db->delete('imsTeacher', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 
@@ -77,14 +78,14 @@ class Add_teacher_model extends CI_Model {
 		if (!$this->db->where('uid', $info['uid'])) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 
 		if (!$this->db->update('imsTeacher', $info)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 

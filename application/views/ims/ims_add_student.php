@@ -370,22 +370,6 @@
         })
         ;*/
 
-      $(document)
-              .ready(function(){
-                $('.ui.dropdown').dropdown();
-                $('.ui.menu .dropdown')
-                        .dropdown({
-                          on: 'hover'
-                        })
-                ;
-                $('.demo .ui.checkbox')
-                         .checkbox()
-                ;
-
-
-              })
-      ;
-
 
 	$(document)
 		.ready(function(){

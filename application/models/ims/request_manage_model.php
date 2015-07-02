@@ -6,6 +6,7 @@ class Request_manage_model extends CI_Model {
 		$this->load->helper('date');
 		$this->load->database();
 		date_default_timezone_set("Asia/Shanghai");
+		$this->load->model('ims/ims_interface_model');
 	}
 
 	public function writeInfo($a) {
@@ -30,7 +31,7 @@ class Request_manage_model extends CI_Model {
 		)) {
 			$data['class'] = 2;
 			$data['description'] = $this->db->_error_message();
-			$this->ims_interface_model->writeLog($data);
+			$this->ims_interface_model->write_log($data);
 			return $this->db->_error_message();
 		}
 
@@ -44,7 +45,7 @@ class Request_manage_model extends CI_Model {
 			if (!$this->db->update('imsCourseReq', array('state' => 2))) {
 				$data['class'] = 2;
 				$data['description'] = $this->db->_error_message();
-				$this->ims_interface_model->writeLog($data);
+				$this->ims_interface_model->write_log($data);
 				return $this->db->_error_message();
 			}
 
@@ -53,7 +54,7 @@ class Request_manage_model extends CI_Model {
 			if (!$this->db->update('imsCourseReq', array('state' => 1))) {
 				$data['class'] = 2;
 				$data['description'] = $this->db->_error_message();
-				$this->ims_interface_model->writeLog($data);
+				$this->ims_interface_model->write_log($data);
 				$this->db->_error_message();
 			}
 
@@ -70,7 +71,7 @@ class Request_manage_model extends CI_Model {
 			)) {
 				$data['class'] = 2;
 				$data['description'] = $this->db->_error_message();
-				$this->ims_interface_model->writeLog($data);
+				$this->ims_interface_model->write_log($data);
 				$this->db->_error_message();
 			}
 

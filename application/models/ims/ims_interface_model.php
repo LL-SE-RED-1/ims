@@ -9,6 +9,8 @@ class Ims_interface_model extends CI_Model
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('date');
+		date_default_timezone_set("Asia/Shanghai");
 		$this->load->database();
 	}
 
@@ -28,6 +30,7 @@ class Ims_interface_model extends CI_Model
 		$data['ip'] = $this->input->ip_address();
 		$data['uid'] = $this->session->userdata('uid');
 		$data['description'] = $info['description'];
+		$data['time'] = date("Y-m-d H:i:s", now());
 		$result = $this->sys_info_model->write_log($data);
 		return $result;
 	}
